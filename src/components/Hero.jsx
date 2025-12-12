@@ -69,9 +69,6 @@ export default function Hero() {
           <Mail className="w-4 h-4" />
           Let's Connect
         </a>
-        <a href="https://bit.ly/Resume_25" className="btn btn-secondary">
-          Download Resume
-        </a>
       </motion.div>
 
       {/* Stats Bar */}

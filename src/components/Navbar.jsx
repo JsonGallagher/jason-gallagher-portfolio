@@ -1,43 +1,43 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Moon, Sun, Menu, X } from 'lucide-react'
-import { useTheme } from '../App'
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import { useTheme } from "../App";
 
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#expertise', label: 'Expertise' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#skills', label: 'Skills' },
-]
+  { href: "#about", label: "About" },
+  { href: "#expertise", label: "Expertise" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+];
 
 export default function Navbar() {
-  const { darkMode, toggleDarkMode } = useTheme()
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { darkMode, toggleDarkMode } = useTheme();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (e, href) => {
-    e.preventDefault()
-    const element = document.querySelector(href)
+    e.preventDefault();
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setMobileMenuOpen(false)
+      element.scrollIntoView({ behavior: "smooth" });
+      setMobileMenuOpen(false);
     }
-  }
+  };
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-primary/90 dark:bg-primary-dark/90 backdrop-blur-xl shadow-sm' 
-          : 'bg-transparent'
+        scrolled
+          ? "bg-primary/90 dark:bg-primary-dark/90 backdrop-blur-xl shadow-sm"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -86,8 +86,16 @@ export default function Navbar() {
             >
               LinkedIn
             </a>
-            <a href="mailto:jasong13@gmail.com" className="btn btn-primary text-sm">
-              Get in Touch
+
+            <span className="h-6 w-px bg-black/10 dark:bg-white/10" />
+
+            <a
+              href="https://bit.ly/Resume_25"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-text-secondary/80 dark:text-text-light/70 hover:text-text-primary dark:hover:text-text-light transition-colors px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10"
+            >
+              Resume
             </a>
           </div>
 
@@ -137,13 +145,19 @@ export default function Navbar() {
               >
                 LinkedIn
               </a>
-              <a href="mailto:jasong13@gmail.com" className="btn btn-primary justify-center">
-                Get in Touch
+
+              <a
+                href="https://bit.ly/Resume_25"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center text-sm font-medium text-text-secondary/80 dark:text-text-light/70 hover:text-text-primary dark:hover:text-text-light transition-colors py-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/10"
+              >
+                Resume
               </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </motion.nav>
-  )
+  );
 }
