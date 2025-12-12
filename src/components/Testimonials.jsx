@@ -1,27 +1,27 @@
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const testimonials = [
   {
-    text: 'Trained and supported 40+ agents on CRM and marketing tools, achieving 80% adoption and a 38% lift in qualified leads.',
-    author: 'Team Enablement',
-    role: 'RE/MAX Properties',
+    text: "Trained and supported 40+ agents on CRM and marketing tools, achieving 80% adoption and a 38% lift in qualified leads.",
+    author: "Team Enablement",
+    role: "Berkshire Hathaway HomeServices",
   },
   {
-    text: 'Rebuilt lead scoring, routing, and nurture flows. Improved MQL-to-SQL conversion by 21% and cut time to contact by 50%.',
-    author: 'RevOps Transformation',
-    role: 'Marketing Automation',
+    text: "Rebuilt lead scoring, routing, and nurture flows. Improved MQL-to-SQL conversion by 21% and cut time to contact by 50%.",
+    author: "RevOps Transformation",
+    role: "Marketing Automation",
   },
   {
-    text: 'Helped rank the Becky Gloriod Partners team in the top 0.5% of realtors nationwide through integrated marketing strategy.',
-    author: 'National Recognition',
-    role: 'RE/MAX Properties',
+    text: "Helped rank the Becky Gloriod Partners team in the top 0.5% of realtors nationwide through integrated marketing strategy.",
+    author: "National Recognition",
+    role: "RE/MAX Properties",
   },
-]
+];
 
 export default function Testimonials() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section className="py-24 px-6">
@@ -61,5 +61,5 @@ export default function Testimonials() {
         </div>
       </div>
     </section>
-  )
+  );
 }

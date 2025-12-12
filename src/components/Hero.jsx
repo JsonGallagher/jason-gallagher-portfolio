@@ -1,21 +1,24 @@
-import { motion } from 'framer-motion'
-import { Mail } from 'lucide-react'
+import { motion } from "framer-motion";
+import { Mail } from "lucide-react";
 
 const stats = [
-  { value: '$300M+', label: 'Sales Volume Driven' },
-  { value: '50%', label: 'Lower Acquisition Cost' },
-  { value: '+23%', label: 'Conversion Rate Lift' },
-  { value: 'Top 0.5%', label: 'National Ranking' },
-]
+  { value: "$300M+", label: "Sales Volume Driven" },
+  { value: "50%", label: "Lower Acquisition Cost" },
+  { value: "+23%", label: "Conversion Rate Lift" },
+  { value: "Top 0.5%", label: "National Ranking" },
+];
 
 const browserCards = [
-  { title: 'Growth Strategy', desc: 'Full-funnel GTM planning & execution' },
-  { title: 'Marketing Automation', desc: 'AI agents, workflows & RevOps' },
-  { title: 'Performance Marketing', desc: 'Paid media, SEO & CRO optimization' },
-  { title: 'Data & Analytics', desc: 'SQL, Python, attribution modeling' },
-  { title: 'Web Development', desc: 'React, Webflow, custom builds' },
-  { title: 'Content & Brand', desc: 'Scaled to 50K+ followers' },
-]
+  { title: "Growth Strategy", desc: "Full-funnel GTM planning & execution" },
+  { title: "Marketing Automation", desc: "AI agents, workflows & RevOps" },
+  {
+    title: "Performance Marketing",
+    desc: "Paid media, SEO & CRO optimization",
+  },
+  { title: "Data & Analytics", desc: "SQL, Python, attribution modeling" },
+  { title: "Web Development", desc: "React, Webflow, custom builds" },
+  { title: "Content & Brand", desc: "Scaled to 50K+ followers" },
+];
 
 export default function Hero() {
   return (
@@ -38,7 +41,9 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="font-serif text-5xl md:text-7xl lg:text-8xl font-normal leading-[1.1] tracking-tight max-w-4xl mb-6"
       >
-        Marketing leader<br />who <em className="italic">codes.</em>
+        Marketing leader
+        <br />
+        who <em className="italic">codes.</em>
       </motion.h1>
 
       {/* Subtitle */}
@@ -48,8 +53,9 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="text-lg text-text-secondary dark:text-text-light/60 max-w-xl mb-10 leading-relaxed"
       >
-        Data-driven marketing & analytics leader delivering $300M+ in sales volume, 
-        50% lower acquisition costs, and 23% higher conversion rates. I build what I strategize.
+        Data-driven marketing & analytics leader delivering $300M+ in sales
+        volume, 50% lower acquisition costs, and 23% higher conversion rates. I
+        build what I strategize.
       </motion.p>
 
       {/* CTA Buttons */}
@@ -77,8 +83,12 @@ export default function Hero() {
       >
         {stats.map((stat, i) => (
           <div key={i} className="text-center">
-            <div className="font-serif text-3xl md:text-4xl tracking-tight">{stat.value}</div>
-            <div className="text-sm text-text-secondary dark:text-text-light/50 mt-1">{stat.label}</div>
+            <div className="font-serif text-3xl md:text-4xl tracking-tight">
+              {stat.value}
+            </div>
+            <div className="text-sm text-text-secondary dark:text-text-light/50 mt-1">
+              {stat.label}
+            </div>
           </div>
         ))}
       </motion.div>
@@ -96,7 +106,7 @@ export default function Hero() {
           <div className="w-3 h-3 rounded-full bg-yellow-400" />
           <div className="w-3 h-3 rounded-full bg-green-400" />
           <span className="flex-1 text-center text-xs text-text-secondary dark:text-text-light/40">
-            jasongallagher.io
+            jasongallagher.co
           </span>
         </div>
 
@@ -123,5 +133,5 @@ export default function Hero() {
         </div>
       </motion.div>
     </section>
-  )
+  );
 }
