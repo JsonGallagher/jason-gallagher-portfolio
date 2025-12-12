@@ -48,6 +48,16 @@
       rel="stylesheet"
     />
     <title>Jason Gallagher – Marketing Leader Who Codes</title>
+    <!-- Sets the initial theme before React loads by applying/removing the `dark` class on <html> using saved preference (localStorage "darkMode") or the OS setting to prevent a light/dark flash on first paint -->
+
+    <script>
+      const saved = localStorage.getItem("darkMode");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const darkMode = saved !== null ? JSON.parse(saved) : prefersDark;
+      document.documentElement.classList.toggle("dark", darkMode);
+    </script>
   </head>
   <body>
     <div id="root"></div>
