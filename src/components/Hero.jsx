@@ -69,7 +69,7 @@ export default function Hero() {
         className="flex flex-wrap justify-center gap-4 mb-14"
       >
         <a href="mailto:jasong13@gmail.com" className="btn btn-primary">
-          <Mail className="w-4 h-4" />
+          <Mail className="w-4 h-4 text-blue-500" />
           Let's Connect
         </a>
       </motion.div>
