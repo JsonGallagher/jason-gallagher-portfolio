@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const features = [
   {
@@ -31,11 +31,23 @@ const features = [
   },
 ];
 
-function RadialVisual({ rotate }) {
+function RadialVisual() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { margin: "-100px", amount: 0.4 });
   const lines = Array.from({ length: 24 }, (_, i) => i * 15);
 
   return (
-    <motion.div className="relative w-48 h-48" style={{ rotate }}>
+    <motion.div
+      ref={ref}
+      className="relative w-60 h-60"
+      animate={inView ? { rotate: 360 } : { rotate: 0 }}
+      transition={{
+        duration: 100,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "linear",
+      }}
+    >
       <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-text-light rounded-full -translate-x-1/2 -translate-y-1/2" />
       {lines.map((deg) => (
         <div
@@ -62,7 +74,7 @@ function CirclesVisual() {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
           <motion.div
-            className="rounded-full border border-text-light/30"
+            className="rounded-full border-2 border-text-light/30"
             style={{ width: size, height: size }}
             initial={{ scale: 1, opacity: 0.35 }}
             animate={
@@ -101,17 +113,44 @@ function CirclesVisual() {
 }
 
 function BarsVisual() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { margin: "-100px", amount: 0.4 });
+  const [hasAnimatedIn, setHasAnimatedIn] = useState(false);
   const heights = [40, 65, 85, 100, 75, 55, 90, 70];
+
+  useEffect(() => {
+    if (inView && !hasAnimatedIn) {
+      const timer = setTimeout(() => {
+        setHasAnimatedIn(true);
+      }, 1200);
+      return () => clearTimeout(timer);
+    }
+  }, [inView, hasAnimatedIn]);
+
   return (
-    <div className="flex items-end gap-3 h-48">
+    <div ref={ref} className="flex items-end gap-3 h-48">
       {heights.map((h, i) => (
         <motion.div
           key={i}
-          initial={{ height: 0 }}
-          whileInView={{ height: `${h}%` }}
-          transition={{ duration: 0.6, delay: i * 0.1 }}
-          viewport={{ once: true }}
           className="w-2 bg-text-light/30 rounded"
+          initial={{ height: 0 }}
+          animate={
+            hasAnimatedIn
+              ? { height: [`${h}%`, `${h - 8}%`, `${h}%`] }
+              : inView
+              ? { height: `${h}%` }
+              : { height: 0 }
+          }
+          transition={
+            hasAnimatedIn
+              ? {
+                  duration: 2.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: i * 0.15,
+                }
+              : { duration: 0.6, delay: i * 0.1 }
+          }
         />
       ))}
     </div>
@@ -121,13 +160,6 @@ function BarsVisual() {
 function FeatureCard({ feature }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 180]);
 
   const Visual = {
     radial: RadialVisual,
@@ -154,7 +186,7 @@ function FeatureCard({ feature }) {
           feature.reverse ? "md:direction-ltr" : ""
         }`}
       >
-        <span className="section-label">{feature.label}</span>
+        <span className="expertise-label">{feature.label}</span>
         <h3 className="section-title">
           {feature.title} <em className="italic">{feature.titleAccent}</em>
         </h3>
@@ -169,11 +201,7 @@ function FeatureCard({ feature }) {
           feature.reverse ? "md:order-first md:direction-ltr" : ""
         }`}
       >
-        {feature.visual === "radial" ? (
-          <RadialVisual rotate={rotate} />
-        ) : (
-          <Visual />
-        )}
+        <Visual />
       </div>
     </motion.div>
   );

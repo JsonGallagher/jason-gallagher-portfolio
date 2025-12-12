@@ -30,7 +30,7 @@ export default function CTA() {
             rel="noopener noreferrer"
             className="btn btn-secondary"
           >
-            <Linkedin className="w-4 h-4" />
+            <Linkedin className="w-4 h-4 -translate-y-px" />
             LinkedIn
           </a>
         </div>

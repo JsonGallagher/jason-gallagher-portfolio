@@ -68,7 +68,7 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.3 }}
         className="flex flex-wrap justify-center gap-4 mb-14"
       >
-        <a href="mailto:jasong13@gmail.com" className="btn btn-primary">
+        <a href="mailto:jason@jasongallagher.co" className="btn btn-primary">
           <Mail className="w-4 h-4 text-blue-500" />
           Let's Connect
         </a>

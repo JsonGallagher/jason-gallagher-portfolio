@@ -34,6 +34,15 @@
     @apply font-serif text-4xl md:text-5xl font-normal leading-tight tracking-tight mb-6;
   }
 
+  .expertise-label {
+    @apply inline-block px-3 py-1 rounded text-sm font-medium uppercase tracking-wider text-text-light/70 mb-5;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 100%
+    );
+  }
+
   .card {
     @apply bg-white dark:bg-white/5 rounded-2xl;
   }
@@ -41,7 +50,7 @@
 
 /* Radial lines animation */
 .radial-line {
-  @apply absolute top-1/2 left-1/2 w-20 h-px origin-left;
+  @apply absolute top-1/2 left-1/2 w-28 h-px origin-left;
   background: linear-gradient(90deg, transparent, currentColor);
 }
 
