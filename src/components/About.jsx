@@ -1,0 +1,83 @@
+import { motion } from 'framer-motion'
+import { useInView } from 'framer-motion'
+import { useRef } from 'react'
+import { Linkedin, Mail } from 'lucide-react'
+import headshot from '../assets/headshot.jpg'
+
+export default function About() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-100px' })
+
+  return (
+    <section id="about" className="py-24 px-6 bg-white dark:bg-white/5">
+      <div 
+        ref={ref}
+        className="max-w-5xl mx-auto grid md:grid-cols-[280px_1fr] gap-12 md:gap-16 items-center"
+      >
+        {/* Headshot */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.6 }}
+          className="relative mx-auto md:mx-0"
+        >
+          <div className="relative w-56 h-56 md:w-full md:h-auto md:aspect-square">
+            <img
+              src={headshot}
+              alt="Jason Gallagher"
+              className="w-full h-full object-cover object-top rounded-full"
+            />
+            {/* Ring accent */}
+            <div className="absolute -inset-2 border border-black/10 dark:border-white/20 rounded-full pointer-events-none" />
+          </div>
+        </motion.div>
+
+        {/* Content */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-center md:text-left"
+        >
+          <span className="section-label">About</span>
+          <h2 className="section-title">Jason Gallagher</h2>
+          <p className="text-text-secondary dark:text-text-light/60 text-lg mb-6">
+            Marketing Director • Colorado Springs, CO
+          </p>
+          
+          <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-4">
+            Marketing leader with 11+ years scaling B2B and B2C brands. I've led cross-functional teams 
+            of 25+ while driving $300M+ in sales volume through full-funnel strategy, campaign execution, 
+            and automation. What sets me apart: I build what I strategize—from dashboards and automations 
+            to websites and AI workflows.
+          </p>
+          
+          <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-8">
+            Currently leveraging AI to scale personalization, performance, and team productivity. 
+            Always looking for the next challenge where strategy meets execution.
+          </p>
+
+          {/* Links */}
+          <div className="flex justify-center md:justify-start gap-6">
+            <a
+              href="https://linkedin.com/in/jsongallagher"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-medium hover:opacity-60 transition-opacity"
+            >
+              <Linkedin className="w-5 h-5" />
+              LinkedIn
+            </a>
+            <a
+              href="mailto:jasong13@gmail.com"
+              className="inline-flex items-center gap-2 font-medium hover:opacity-60 transition-opacity"
+            >
+              <Mail className="w-5 h-5" />
+              Email
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
