@@ -49,16 +49,53 @@ function RadialVisual({ rotate }) {
 }
 
 function CirclesVisual() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { margin: "-100px", amount: 0.4 });
+
+  const rings = [60, 120, 180, 240];
+
   return (
-    <div className="relative w-60 h-60">
-      {[60, 120, 180, 240].map((size, i) => (
+    <div ref={ref} className="relative w-60 h-60">
+      {rings.map((size, i) => (
         <div
           key={i}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-text-light/30"
-          style={{ width: size, height: size }}
-        />
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <motion.div
+            className="rounded-full border border-text-light/30"
+            style={{ width: size, height: size }}
+            initial={{ scale: 1, opacity: 0.35 }}
+            animate={
+              inView
+                ? { scale: [1, 1.06, 1], opacity: [0.25, 0.55, 0.25] }
+                : { scale: 1, opacity: 0.35 }
+            }
+            transition={
+              inView
+                ? {
+                    duration: 2.8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: i * 0.18,
+                  }
+                : { duration: 0.2 }
+            }
+          />
+        </div>
       ))}
-      <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-text-light rounded-full -translate-x-1/2 -translate-y-1/2" />
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <motion.div
+          className="w-2 h-2 bg-text-light rounded-full"
+          initial={{ scale: 1 }}
+          animate={inView ? { scale: [1, 1.25, 1] } : { scale: 1 }}
+          transition={
+            inView
+              ? { duration: 1.8, repeat: Infinity, ease: "easeInOut" }
+              : { duration: 0.2 }
+          }
+        />
+      </div>
     </div>
   );
 }
