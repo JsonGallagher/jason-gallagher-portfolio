@@ -116,7 +116,7 @@ export default function Experience() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="py-24 px-6">
+    <section id="experience" className="pt-12 pb-12 px-6">
       <div ref={ref} className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -135,6 +135,10 @@ export default function Experience() {
             <TimelineItem key={i} experience={exp} index={i} />
           ))}
         </div>
+      </div>
+      {/* Subtle section divider */}
+      <div className="mt-24 flex justify-center">
+        <div className="h-px w-48 sm:w-64 md:w-80 lg:w-[26rem] bg-gradient-to-r from-transparent via-black/10 to-transparent dark:via-white/10" />
       </div>
     </section>
   );

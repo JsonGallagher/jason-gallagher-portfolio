@@ -24,7 +24,7 @@ export default function Testimonials() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 px-6">
+    <section className="pt-12 pb-12 px-6">
       <div ref={ref} className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -57,6 +57,10 @@ export default function Testimonials() {
             </motion.div>
           ))}
         </div>
+      </div>
+      {/* Subtle section divider */}
+      <div className="mt-24 flex justify-center">
+        <div className="h-px w-48 sm:w-64 md:w-80 lg:w-[26rem] bg-gradient-to-r from-transparent via-black/10 to-transparent dark:via-white/10" />
       </div>
     </section>
   );

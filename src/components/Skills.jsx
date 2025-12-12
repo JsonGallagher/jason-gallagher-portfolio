@@ -1,31 +1,31 @@
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const skillCategories = [
   {
-    title: 'AI & Automation',
-    skills: ['ChatGPT', 'Jasper', 'Notion AI', 'AI Agents', 'Claude'],
+    title: "AI & Automation",
+    skills: ["ChatGPT", "Jasper", "Notion AI", "AI Agents", "Claude"],
   },
   {
-    title: 'Marketing & RevOps',
-    skills: ['HubSpot', 'Salesforce', '6sense', 'Google Ads', 'Meta Ads'],
+    title: "Marketing & RevOps",
+    skills: ["HubSpot", "Salesforce", "6sense", "Google Ads", "Meta Ads"],
   },
   {
-    title: 'Data & Analytics',
-    skills: ['SQL', 'Python', 'GA4', 'Amplitude', 'GTM', 'Klaviyo', 'Tableau'],
+    title: "Data & Analytics",
+    skills: ["SQL", "Python", "GA4", "Amplitude", "GTM", "Klaviyo", "Tableau"],
   },
   {
-    title: 'Web Development',
-    skills: ['HTML/CSS', 'JavaScript', 'React', 'Webflow', 'WordPress'],
+    title: "Web Development",
+    skills: ["HTML/CSS", "JavaScript", "React", "Webflow", "WordPress"],
   },
-]
+];
 
 export default function Skills() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-24 px-6">
+    <section id="skills" className="pt-24 pb-12 px-6">
       <div ref={ref} className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,6 +65,10 @@ export default function Skills() {
           ))}
         </div>
       </div>
+      {/* Subtle section divider */}
+      <div className="mt-36 flex justify-center">
+        <div className="h-px w-48 sm:w-64 md:w-80 lg:w-[26rem] bg-gradient-to-r from-transparent via-black/10 to-transparent dark:via-white/10" />
+      </div>
     </section>
-  )
+  );
 }

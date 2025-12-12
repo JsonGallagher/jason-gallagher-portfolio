@@ -181,13 +181,17 @@ function FeatureCard({ feature }) {
 
 export default function Expertise() {
   return (
-    <section id="expertise" className="py-24 px-6">
+    <section id="expertise" className="pt-24 pb-12 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid gap-8">
           {features.map((feature, i) => (
             <FeatureCard key={i} feature={feature} />
           ))}
         </div>
+      </div>
+      {/* Subtle section divider */}
+      <div className="mt-24 flex justify-center">
+        <div className="h-px w-48 sm:w-64 md:w-80 lg:w-[26rem] bg-gradient-to-r from-transparent via-black/10 to-transparent dark:via-white/10" />
       </div>
     </section>
   );
