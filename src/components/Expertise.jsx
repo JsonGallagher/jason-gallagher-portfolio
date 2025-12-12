@@ -1,4 +1,6 @@
-import { motion, useInView } from "framer-motion";
+"use client";
+
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const features = [
@@ -29,10 +31,11 @@ const features = [
   },
 ];
 
-function RadialVisual() {
+function RadialVisual({ rotate }) {
   const lines = Array.from({ length: 24 }, (_, i) => i * 15);
+
   return (
-    <div className="relative w-48 h-48">
+    <motion.div className="relative w-48 h-48" style={{ rotate }}>
       <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-text-light rounded-full -translate-x-1/2 -translate-y-1/2" />
       {lines.map((deg) => (
         <div
@@ -41,7 +44,7 @@ function RadialVisual() {
           style={{ transform: `rotate(${deg}deg)` }}
         />
       ))}
-    </div>
+    </motion.div>
   );
 }
 
@@ -81,6 +84,13 @@ function BarsVisual() {
 function FeatureCard({ feature }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 180]);
 
   const Visual = {
     radial: RadialVisual,
@@ -122,7 +132,11 @@ function FeatureCard({ feature }) {
           feature.reverse ? "md:order-first md:direction-ltr" : ""
         }`}
       >
-        <Visual />
+        {feature.visual === "radial" ? (
+          <RadialVisual rotate={rotate} />
+        ) : (
+          <Visual />
+        )}
       </div>
     </motion.div>
   );
@@ -134,7 +148,7 @@ export default function Expertise() {
       <div className="max-w-6xl mx-auto">
         <div className="grid gap-8">
           {features.map((feature, i) => (
-            <FeatureCard key={i} feature={feature} index={i} />
+            <FeatureCard key={i} feature={feature} />
           ))}
         </div>
       </div>
