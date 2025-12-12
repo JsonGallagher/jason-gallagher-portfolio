@@ -10,12 +10,12 @@ const testimonials = [
   {
     text: "Rebuilt lead scoring, routing, and nurture flows. Improved MQL-to-SQL conversion by 21% and cut time to contact by 50%.",
     author: "RevOps Transformation",
-    role: "Marketing Automation",
+    role: "RE/MAX Properties",
   },
   {
     text: "Helped rank the Becky Gloriod Partners team in the top 0.5% of realtors nationwide through integrated marketing strategy.",
     author: "National Recognition",
-    role: "RE/MAX Properties",
+    role: "Berkshire Hathaway HomeServices",
   },
 ];
 
@@ -44,9 +44,7 @@ export default function Testimonials() {
               transition={{ duration: 0.6, delay: i * 0.15 }}
               className="card p-8"
             >
-              <div className="text-4xl text-text-secondary/30 dark:text-text-light/20 mb-4 font-serif">
-                "
-              </div>
+              <div className="text-4xl text-text-secondary/30 dark:text-text-light/20 mb-4 font-serif"></div>
               <p className="font-serif text-lg leading-relaxed mb-6">
                 {item.text}
               </p>

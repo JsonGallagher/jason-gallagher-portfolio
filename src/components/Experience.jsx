@@ -1,43 +1,76 @@
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const experiences = [
   {
-    period: 'Mar 2014 – Present',
-    duration: '11 years',
-    title: 'Marketing Director',
-    company: 'RE/MAX Properties • Colorado Springs, CO',
+    period: "Mar 2014 – Present",
+    duration: "11 years",
+    title: "Marketing Director",
+    company: "RE/MAX Properties • Colorado Springs, CO",
     highlights: [
-      'Promoted from Coordinator (2014) → Manager (2018) → Director (2020)',
-      'Led $300M+ in sales; team ranked top 0.5% nationally',
-      'Reduced CPA by 34% and increased retention by 15%',
-      'Boosted lead-to-close rates 23% via SEO, CRO, and ROAS optimization',
-      'Overhauled CRM and automation to reduce CAC by 50%',
+      "Promoted from Coordinator (2014) → Manager (2018) → Director (2020)",
+      "Led $300M+ in sales; team ranked top 0.5% nationally",
+      "Reduced CPA by 34% and increased retention by 15%",
+      "Boosted lead-to-close rates 23% via SEO, CRO, and ROAS optimization",
+      "Overhauled CRM and automation to reduce CAC by 50%",
+      "Trained 40+ agents on CRM and marketing tools; drove 80% adoption and a 38% lift in qualified leads.",
     ],
   },
   {
-    period: 'Jun 2013 – Mar 2014',
-    title: 'Sales Representative',
-    company: 'Verizon Wireless • Colorado Springs, CO',
+    period: "Jun 2013 – Mar 2014",
+    duration: "10 months",
+    title: "Sales Representative",
+    company: "Verizon Wireless • Colorado Springs, CO",
     highlights: [
-      '23% quarterly sales increase through segmentation-based positioning',
-      'Rolled out training initiatives that boosted NPS by 18%',
+      "23% quarterly sales increase through segmentation-based positioning",
+      "Rolled out training initiatives that boosted NPS by 18%",
     ],
   },
   {
-    period: 'Sep 2011 – Jun 2013',
-    title: 'Business Account Executive',
-    company: 'AT&T Mobility B2B • Rochester, NY',
+    period: "Sep 2011 – Jun 2013",
+    duration: "1 year 10 months",
+    title: "Business Account Executive",
+    company: "AT&T Mobility B2B • Rochester, NY",
     highlights: [
-      'Managed 150+ SMB accounts; improved conversion by 32%',
-      'Added 450+ new service lines in under 12 months',
+      "Managed 150+ SMB accounts; improved conversion by 32%",
+      "Added 450+ new service lines in under 12 months",
     ],
   },
-]
+  {
+    period: "Jun 2011 – Aug 2011",
+    duration: "3 months",
+    title: "Marketing & Social Media Manager - Internship",
+    company: "SUNY Geneseo • Geneseo, NY",
+    highlights: [
+      "Led targeted Facebook, Twitter (X), and Instagram campaigns; +17% alumni event participation.",
+      "Co-developed strategy and content with the alumni team; strengthened alumni-university ties.",
+      "Optimized campaigns using analytics; +12% reach and engagement.",
+    ],
+  },
+  {
+    period: "Apr 2009 – May 2011",
+    duration: "2 years 2 months",
+    title: "Manager - Campus Auxiliary Services",
+    company: "SUNY Geneseo • Geneseo, NY",
+    highlights: ["Led hiring and ops for food services across campus."],
+  },
+  {
+    period: "Mar 2006 – Mar 2009",
+    duration: "3 years",
+    title: "Retail Store Manager",
+    company: "Zuimez Inc. • Rochester, NY",
+    highlights: [
+      "Directed daily operations; hit sales milestones and earned the $100K Sales Award twice.",
+      "Trained and mentored the team, building a high-performance culture that exceeded targets.",
+      "Managed scheduling and inventory; drove a 12% annual profitability increase during tenure.",
+      "Launched local marketing initiatives that increased foot traffic and strengthened loyalty.",
+    ],
+  },
+];
 
 function TimelineItem({ experience, index }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px' })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <motion.div
@@ -62,23 +95,25 @@ function TimelineItem({ experience, index }) {
         </div>
         <ul className="space-y-2">
           {experience.highlights.map((highlight, i) => (
-            <li 
+            <li
               key={i}
               className="flex gap-3 text-text-secondary dark:text-text-light/70 text-sm leading-relaxed"
             >
-              <span className="text-text-primary dark:text-text-light shrink-0">→</span>
+              <span className="text-text-primary dark:text-text-light shrink-0">
+                →
+              </span>
               {highlight}
             </li>
           ))}
         </ul>
       </div>
     </motion.div>
-  )
+  );
 }
 
 export default function Experience() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section id="experience" className="py-24 px-6">
@@ -102,5 +137,5 @@ export default function Experience() {
         </div>
       </div>
     </section>
-  )
+  );
 }
