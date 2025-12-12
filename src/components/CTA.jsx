@@ -1,10 +1,10 @@
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Mail, Linkedin } from 'lucide-react'
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Mail, Linkedin } from "lucide-react";
 
 export default function CTA() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section className="py-32 px-6">
@@ -18,10 +18,10 @@ export default function CTA() {
         <h2 className="section-title">
           Let's build something <em className="italic">remarkable</em> together.
         </h2>
-        
+
         <div className="flex flex-wrap justify-center gap-4">
           <a href="mailto:jasong13@gmail.com" className="btn btn-primary">
-            <Mail className="w-4 h-4" />
+            <Mail className="w-4 h-4 text-blue-500" />
             Get in Touch
           </a>
           <a
@@ -36,5 +36,5 @@ export default function CTA() {
         </div>
       </motion.div>
     </section>
-  )
+  );
 }
