@@ -60,7 +60,8 @@ export default function Hero() {
           partner closely with product, sales, and engineering.
         </span>
       </motion.p>
-      {/* CTA Buttons */}
+
+      {/* CTA Button */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
