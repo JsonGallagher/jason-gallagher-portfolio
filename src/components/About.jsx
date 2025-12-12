@@ -62,22 +62,23 @@ export default function About() {
           </p>
 
           {/* Links */}
-          <div className="flex justify-center md:justify-start gap-6">
+          <div className="flex items-center justify-center md:justify-start gap-6">
             <a
               href="https://linkedin.com/in/jsongallagher"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-medium hover:opacity-60 transition-opacity"
+              className="inline-flex items-center gap-2 font-medium leading-none hover:opacity-60 transition-opacity"
             >
-              <Linkedin className="w-5 h-5" />
-              LinkedIn
+              <Linkedin className="w-5 h-5 -translate-y-0.5" />
+              <span>LinkedIn</span>
             </a>
+
             <a
               href="mailto:jasong13@gmail.com"
-              className="inline-flex items-center gap-2 font-medium hover:opacity-60 transition-opacity"
+              className="inline-flex items-center gap-2 font-medium leading-none hover:opacity-60 transition-opacity"
             >
               <Mail className="w-5 h-5" />
-              Email
+              <span>Email</span>
             </a>
           </div>
         </motion.div>
