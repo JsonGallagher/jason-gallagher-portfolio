@@ -51,19 +51,21 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="text-lg text-text-secondary dark:text-text-light/60 max-w-xl mb-10 leading-relaxed"
+        className="text-lg md:text-xl text-text-secondary/90 dark:text-text-light/80 max-w-2xl mb-8 leading-relaxed"
       >
-        Data-driven marketing & analytics leader delivering $300M+ in sales
-        volume, 50% lower acquisition costs, and 23% higher conversion rates. I
-        build what I strategize.
+        Data-driven marketing leader spanning growth, lifecycle, and
+        performance, with deep analytics and modern AI fluency.
+        <span className="block mt-2 text-text-secondary/80 dark:text-text-light/70">
+          I lead strategy, build measurement and experimentation systems, and
+          partner closely with product, sales, and engineering.
+        </span>
       </motion.p>
-
       {/* CTA Buttons */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="flex flex-wrap justify-center gap-4 mb-16"
+        className="flex flex-wrap justify-center gap-4 mb-14"
       >
         <a href="mailto:jasong13@gmail.com" className="btn btn-primary">
           <Mail className="w-4 h-4" />
