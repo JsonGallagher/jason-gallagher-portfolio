@@ -1,33 +1,35 @@
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { CheckCircle, Layers, Palette, Lock } from 'lucide-react'
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { CheckCircle, Layers, Palette, Lock } from "lucide-react";
 
 const values = [
   {
     icon: CheckCircle,
-    title: 'Strategic',
-    description: 'Full-funnel thinking with measurable business outcomes.',
+    title: "Strategic",
+    description: "Full-funnel strategy tied to measurable outcomes.",
   },
   {
     icon: Layers,
-    title: 'Technical',
-    description: 'SQL, Python, React—I build what I strategize.',
+    title: "Technical",
+    description:
+      "JavaScript + React. Websites and growth systems. SQL/Python to measure and learn.",
   },
   {
     icon: Palette,
-    title: 'Creative',
-    description: 'Content and brand strategies that scaled to 50K+ followers.',
+    title: "Creative",
+    description: "Content and brand strategies that scaled to 50K+ followers.",
   },
   {
     icon: Lock,
-    title: 'Results-Driven',
-    description: '$300M+ in sales, 50% CAC reduction, 23% conversion lift.',
+    title: "Results-Driven",
+    description:
+      "$300M+ in sales volume, 50% lower acquisition costs, 23% higher conversion.",
   },
-]
+];
 
 export default function Values() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section className="py-24 px-6 bg-primary dark:bg-primary-dark">
@@ -62,5 +64,5 @@ export default function Values() {
         </div>
       </div>
     </section>
-  )
+  );
 }
