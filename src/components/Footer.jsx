@@ -9,8 +9,9 @@ export default function Footer() {
               Jason Gallagher
             </h3>
             <p className="text-text-light/60 leading-relaxed max-w-md">
-              Marketing leader with 11+ years scaling B2B and B2C brands. 
-              Technical marketer fluent in growth strategy, analytics, AI, and code.
+              Marketing leader with 11+ years scaling B2B and B2C brands.
+              Technical marketer fluent in growth strategy, analytics, AI, and
+              code.
             </p>
           </div>
 
@@ -21,16 +22,16 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a 
-                  href="mailto:jasong13@gmail.com" 
+                <a
+                  href="mailto:jason@jasongallagher.co"
                   className="hover:text-text-light/70 transition-colors"
                 >
-                  jasong13@gmail.com
+                  jason@jasongallagher.co
                 </a>
               </li>
               <li>
-                <a 
-                  href="tel:5859051130" 
+                <a
+                  href="tel:5859051130"
                   className="hover:text-text-light/70 transition-colors"
                 >
                   (585) 905-1130
@@ -56,6 +57,16 @@ export default function Footer() {
                   LinkedIn
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://github.com/JsonGallagher"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-text-light/70 transition-colors"
+                >
+                  GitHub
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -66,5 +77,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail, Github } from "lucide-react";
 import headshot from "../assets/headshot.jpg";
 
 export default function About() {
@@ -62,22 +62,30 @@ export default function About() {
           </p>
 
           {/* Links */}
-          <div className="flex items-center justify-center md:justify-start gap-6">
+          <div className="flex items-center justify-center md:justify-start gap-3">
             <a
               href="https://linkedin.com/in/jsongallagher"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-medium leading-none hover:opacity-60 transition-opacity"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 text-blue-500 hover:bg-blue-500/20 transition-colors font-medium"
             >
-              <Linkedin className="w-5 h-5 -translate-y-0.5" />
+              <Linkedin className="w-4 h-4 -translate-y-px" />
               <span>LinkedIn</span>
             </a>
-
             <a
-              href="mailto:jasong13@gmail.com"
-              className="inline-flex items-center gap-2 font-medium leading-none hover:opacity-60 transition-opacity"
+              href="https://github.com/JsonGallagher"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 text-blue-500 hover:bg-blue-500/20 transition-colors font-medium"
             >
-              <Mail className="w-5 h-5" />
+              <Github className="w-4 h-4" />
+              <span>GitHub</span>
+            </a>
+            <a
+              href="mailto:jason@jasongallagher.co"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 text-blue-500 hover:bg-blue-500/20 transition-colors font-medium"
+            >
+              <Mail className="w-4 h-4" />
               <span>Email</span>
             </a>
           </div>
