@@ -1,16 +1,16 @@
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Linkedin, Mail } from 'lucide-react'
-import headshot from '../assets/headshot.jpg'
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { Linkedin, Mail } from "lucide-react";
+import headshot from "../assets/headshot.jpg";
 
 export default function About() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section id="about" className="py-24 px-6 bg-white dark:bg-white/5">
-      <div 
+      <div
         ref={ref}
         className="max-w-5xl mx-auto grid md:grid-cols-[280px_1fr] gap-12 md:gap-16 items-center"
       >
@@ -44,17 +44,21 @@ export default function About() {
           <p className="text-text-secondary dark:text-text-light/60 text-lg mb-6">
             Marketing Director • Colorado Springs, CO
           </p>
-          
+
           <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-4">
-            Marketing leader with 11+ years scaling B2B and B2C brands. I've led cross-functional teams 
-            of 25+ while driving $300M+ in sales volume through full-funnel strategy, campaign execution, 
-            and automation. What sets me apart: I build what I strategize—from dashboards and automations 
-            to websites and AI workflows.
+            Marketing leader with 11+ years across B2B and B2C. I’ve led
+            cross-functional teams of 25+ and driven $300M+ in sales volume
+            through full-funnel strategy, execution, and performance
+            optimization.
           </p>
-          
+
           <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-8">
-            Currently leveraging AI to scale personalization, performance, and team productivity. 
-            Always looking for the next challenge where strategy meets execution.
+            I bring a technical edge to marketing, especially in analytics,
+            experimentation, and the systems behind scale. I use AI to move
+            faster on planning, testing, and personalization, while staying
+            grounded in measurement and outcomes. I'm exploring new
+            opportunities with deeply curious, high-ownership teams building
+            ambitious products.
           </p>
 
           {/* Links */}
@@ -79,5 +83,5 @@ export default function About() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
