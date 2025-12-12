@@ -71,62 +71,6 @@ jason-gallagher-portfolio/
 └── vite.config.js
 ```
 
-## 🌐 Deployment
-
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Import your repository
-4. Vercel auto-detects Vite and deploys
-
-Or use the CLI:
-
-```bash
-npm i -g vercel
-vercel
-```
-
-### Netlify
-
-1. Push your code to GitHub
-2. Go to [netlify.com](https://netlify.com)
-3. "Add new site" → "Import from Git"
-4. Build command: `npm run build`
-5. Publish directory: `dist`
-
-### GitHub Pages
-
-```bash
-npm install gh-pages --save-dev
-```
-
-Add to `package.json`:
-
-```json
-{
-  "scripts": {
-    "deploy": "gh-pages -d dist"
-  }
-}
-```
-
-Update `vite.config.js`:
-
-```js
-export default defineConfig({
-  base: "/your-repo-name/",
-  plugins: [react()],
-});
-```
-
-Then run:
-
-```bash
-npm run build
-npm run deploy
-```
-
 ## 🛠 Customization
 
 ### Colors
