@@ -9,7 +9,10 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 px-6 bg-white dark:bg-white/5">
+    <section
+      id="about"
+      className="py-24 px-6 bg-white dark:bg-white/5 scroll-mt-16"
+    >
       <div
         ref={ref}
         className="max-w-5xl mx-auto grid md:grid-cols-[280px_1fr] gap-12 md:gap-16 items-center"

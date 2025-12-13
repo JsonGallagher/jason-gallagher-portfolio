@@ -116,7 +116,7 @@ export default function Experience() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="pt-12 pb-12 px-6">
+    <section id="experience" className="pt-24 pb-12 px-6 scroll-mt-16">
       <div ref={ref} className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -211,7 +211,7 @@ function FeatureCard({ feature }) {
 
 export default function Expertise() {
   return (
-    <section id="expertise" className="pt-24 pb-12 px-6">
+    <section id="expertise" className="pt-24 pb-12 px-6 scroll-mt-16">
       <div className="max-w-6xl mx-auto">
         <div className="grid gap-8">
           {features.map((feature, i) => (
