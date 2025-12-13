@@ -42,13 +42,12 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="card p-8"
+              className="card p-10 flex flex-col"
             >
-              <div className="text-4xl text-text-secondary/30 dark:text-text-light/20 mb-4 font-serif"></div>
-              <p className="font-serif text-lg leading-relaxed mb-6">
+              <p className="text-text-secondary text-lg leading-7 tracking-wide mb-6 dark:text-text-light/60">
                 {item.text}
               </p>
-              <div>
+              <div className="mt-auto">
                 <div className="font-semibold">{item.author}</div>
                 <div className="text-sm text-text-secondary dark:text-text-light/50">
                   {item.role}
