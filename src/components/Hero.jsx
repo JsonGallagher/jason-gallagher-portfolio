@@ -79,11 +79,15 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="flex flex-wrap justify-center gap-8 md:gap-16 mb-16"
+        className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 md:gap-16 mb-16"
       >
         {stats.map((stat, i) => (
-          <div key={i} className="text-center">
-            <div className="font-serif text-3xl md:text-4xl tracking-tight">
+          <div key={i} className="text-center flex flex-col items-center">
+            <div
+              className={`font-serif text-3xl md:text-4xl tracking-tight ${
+                stat.value.startsWith("+") ? "-translate-x-1" : ""
+              }`}
+            >
               {stat.value}
             </div>
             <div className="text-sm text-text-secondary dark:text-text-light/50 mt-1">
