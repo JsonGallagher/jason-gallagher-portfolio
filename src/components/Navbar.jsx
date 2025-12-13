@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "../App";
+import { useActiveSection } from "../hooks/useActiveSection";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -14,6 +15,12 @@ export default function Navbar() {
   const { darkMode, toggleDarkMode } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const activeSection = useActiveSection([
+    "about",
+    "expertise",
+    "experience",
+    "skills",
+  ]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -53,7 +60,11 @@ export default function Navbar() {
               <a
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className="text-sm font-medium text-text-primary dark:text-text-light hover:opacity-60 transition-opacity"
+                className={`text-sm font-medium transition-colors ${
+                  activeSection === link.href.slice(1)
+                    ? "text-blue-600 dark:text-blue-400"
+                    : "text-text-primary dark:text-text-light hover:opacity-60"
+                }`}
               >
                 {link.label}
               </a>
@@ -88,7 +99,6 @@ export default function Navbar() {
             </a>
 
             <span className="h-6 w-px bg-black/10 dark:bg-white/10" />
-
             <a
               href="https://bit.ly/Resume_25"
               target="_blank"
@@ -129,7 +139,11 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     onClick={(e) => scrollToSection(e, link.href)}
-                    className="text-lg font-medium"
+                    className={`text-lg font-medium ${
+                      activeSection === link.href.slice(1)
+                        ? "text-blue-600 dark:text-blue-400"
+                        : ""
+                    }`}
                   >
                     {link.label}
                   </a>
