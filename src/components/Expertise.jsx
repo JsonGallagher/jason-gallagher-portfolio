@@ -186,7 +186,9 @@ function FeatureCard({ feature }) {
           feature.reverse ? "md:direction-ltr" : ""
         }`}
       >
-        <span className="expertise-label">{feature.label}</span>
+        <span className="expertise-label text-text-secondary dark:text-text-light/70">
+          {feature.label}
+        </span>
         <h3 className="section-title">
           {feature.title} <em className="italic">{feature.titleAccent}</em>
         </h3>
