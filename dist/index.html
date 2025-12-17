@@ -11,21 +11,21 @@
     <link rel="canonical" href="https://www.jasongallagher.co/" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-    <!-- Google Analytics - deferred to not block rendering -->
+    <!-- Google Analytics - delayed 3s to not block rendering or cause reflows during LCP -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag("js", new Date());
-      gtag("config", "G-N906JJKZDJ");
-      // Load GA after page is interactive
-      window.addEventListener("load", function () {
+      // Delay GA loading by 3 seconds to avoid impacting Core Web Vitals
+      setTimeout(function () {
+        gtag("js", new Date());
+        gtag("config", "G-N906JJKZDJ");
         var script = document.createElement("script");
         script.src = "https://www.googletagmanager.com/gtag/js?id=G-N906JJKZDJ";
         script.async = true;
         document.head.appendChild(script);
-      });
+      }, 3000);
     </script>
 
     <!-- Open Graph -->
@@ -59,6 +59,15 @@
       name="twitter:image"
       content="https://www.jasongallagher.co/og-image.jpg"
     />
+    <!-- Critical CSS - prevents invisible text while fonts load -->
+    <style>
+      body {
+        font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+      h1, h2, .font-serif {
+        font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+      }
+    </style>
     <!-- Font loading optimized for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -272,8 +281,8 @@
         ]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-CxjvGuGe.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DZMho85y.css">
+    <script type="module" crossorigin src="/assets/index-u_68VoQr.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-1VDyvxi8.css">
   </head>
   <body>
     <div id="root"></div>
