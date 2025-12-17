@@ -17,7 +17,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-text-light/50 mb-4">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-text-light/70 mb-4">
               Contact
             </h4>
             <ul className="space-y-2 text-sm">
@@ -43,7 +43,7 @@ export default function Footer() {
 
           {/* Connect */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-text-light/50 mb-4">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-text-light/70 mb-4">
               Connect
             </h4>
             <ul className="space-y-2 text-sm">
@@ -72,7 +72,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-white/10 text-sm text-text-light/40">
+        <div className="pt-8 border-t border-white/10 text-sm text-text-light/60">
           © {new Date().getFullYear()} Jason Gallagher. All rights reserved.
         </div>
       </div>
