@@ -32,7 +32,7 @@ export default function Values() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="pt-12 pb-12 px-6 bg-primary dark:bg-primary-dark">
+    <section className="pt-10 pb-12 px-6 bg-primary dark:bg-primary-dark">
       <div ref={ref} className="max-w-5xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
