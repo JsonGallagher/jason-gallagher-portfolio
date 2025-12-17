@@ -9,12 +9,9 @@
       content="Marketing Director with 11+ years driving $300M+ revenue through growth strategy, marketing automation, and analytics. Expert in HubSpot, Salesforce, SQL, Python, and AI-powered marketing."
     />
     <link rel="canonical" href="https://www.jasongallagher.co/" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-    <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-N906JJKZDJ"
-    ></script>
+    <!-- Google Analytics - deferred to not block rendering -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -22,6 +19,13 @@
       }
       gtag("js", new Date());
       gtag("config", "G-N906JJKZDJ");
+      // Load GA after page is interactive
+      window.addEventListener("load", function () {
+        var script = document.createElement("script");
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-N906JJKZDJ";
+        script.async = true;
+        document.head.appendChild(script);
+      });
     </script>
 
     <!-- Open Graph -->
@@ -55,12 +59,21 @@
       name="twitter:image"
       content="https://www.jasongallagher.co/og-image.jpg"
     />
+    <!-- Font loading optimized for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap"
-      rel="stylesheet"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <title>Jason Gallagher – Marketing Leader Who Codes</title>
 
     <!-- Sets the initial theme before React loads by applying/removing the `dark` class on <html> using saved preference (localStorage "darkMode") or the OS setting to prevent a light/dark flash on first paint -->

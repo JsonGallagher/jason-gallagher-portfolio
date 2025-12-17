@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Linkedin, Mail, Github } from "lucide-react";
-import headshot from "../assets/headshot.jpg";
+import headshot from "../assets/headshot.webp";
 
 export default function About() {
   const ref = useRef(null);
@@ -28,6 +28,10 @@ export default function About() {
             <img
               src={headshot}
               alt="Jason Gallagher"
+              loading="lazy"
+              decoding="async"
+              width="280"
+              height="280"
               className="w-full h-full object-cover object-top rounded-full"
             />
             {/* Ring accent */}
