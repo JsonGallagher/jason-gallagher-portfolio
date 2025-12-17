@@ -9,15 +9,30 @@ const stats = [
 ];
 
 const browserCards = [
-  { title: "Growth Strategy", desc: "Full-funnel GTM planning & execution" },
-  { title: "Marketing Automation", desc: "AI agents, workflows & RevOps" },
+  {
+    title: "Growth Strategy",
+    desc: "GTM plan, positioning, funnel + 90-day execution roadmap",
+  },
+  {
+    title: "Marketing Automation",
+    desc: "HubSpot lifecycle, lead routing, nurture, scoring + reporting",
+  },
   {
     title: "Performance Marketing",
-    desc: "Paid media, SEO & CRO optimization",
+    desc: "Lower CAC via paid search/social, SEO + CRO experiments",
   },
-  { title: "Data & Analytics", desc: "SQL, Python, attribution modeling" },
-  { title: "Web Development", desc: "React, Webflow, custom builds" },
-  { title: "Content & Brand", desc: "Scaled to 50K+ followers" },
+  {
+    title: "Data & Marketing Analytics",
+    desc: "GA4, dashboards, attribution + experiment measurement you can trust",
+  },
+  {
+    title: "Web Development",
+    desc: "High-converting landing pages + rapid iteration (Webflow/Shopify)",
+  },
+  {
+    title: "Design, Content & Brand",
+    desc: "Graphic design, photo/video production, brand systems + lead-driving content",
+  },
 ];
 
 export default function Hero() {
@@ -51,11 +66,11 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="text-lg md:text-xl text-text-secondary/90 dark:text-text-light/80 max-w-2xl mb-8 leading-relaxed"
+        className="text-lg md:text-xl text-text-secondary/80 dark:text-text-light/80 max-w-2xl mb-8 leading-relaxed"
       >
         Data-driven marketing leader spanning growth, lifecycle, and
         performance, with deep analytics and modern AI fluency.
-        <span className="block mt-2 text-text-secondary/80 dark:text-text-light/70">
+        <span className="block mt-2">
           I lead strategy, build measurement and experimentation systems, and
           partner closely with product, sales, and engineering.
         </span>
