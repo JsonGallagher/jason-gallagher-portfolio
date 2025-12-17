@@ -66,7 +66,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="text-lg md:text-xl text-text-secondary/90 dark:text-text-light/80 max-w-2xl mb-8 leading-relaxed"
+        className="text-lg md:text-xl text-text-secondary dark:text-text-light/80 max-w-2xl mb-8 leading-relaxed"
       >
         Data-driven marketing leader spanning growth, lifecycle, and
         performance, with deep analytics and modern AI fluency.
