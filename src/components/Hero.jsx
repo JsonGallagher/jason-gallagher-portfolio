@@ -85,7 +85,7 @@ export default function Hero() {
           <div key={i} className="text-center flex flex-col items-center">
             <div
               className={`font-serif text-3xl md:text-4xl tracking-tight ${
-                stat.value.startsWith("+") ? "-translate-x-1" : ""
+                stat.value.startsWith("+") ? "-translate-x-1.5" : ""
               }`}
             >
               {stat.value}
