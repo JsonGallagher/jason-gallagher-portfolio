@@ -141,9 +141,9 @@ export default function Hero() {
                 key={i}
                 className="p-4 bg-primary dark:bg-white/5 rounded-lg hover:bg-primary-dark/5 dark:hover:bg-white/10 transition-colors cursor-pointer group"
               >
-                <h4 className="font-semibold text-sm mb-1 group-hover:text-text-primary dark:group-hover:text-text-light">
+                <div className="font-semibold text-sm mb-1 group-hover:text-text-primary dark:group-hover:text-text-light">
                   {card.title}
-                </h4>
+                </div>
                 <p className="text-xs text-text-secondary dark:text-text-light/50">
                   {card.desc}
                 </p>
