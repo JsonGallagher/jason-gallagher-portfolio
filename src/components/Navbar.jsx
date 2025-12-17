@@ -103,7 +103,7 @@ export default function Navbar() {
               href="https://bit.ly/Resume_25"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-text-secondary/80 dark:text-text-light/70 hover:text-text-primary dark:hover:text-text-light transition-colors px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10"
+              className="text-sm font-medium text-text-secondary dark:text-text-light/80 hover:text-text-primary dark:hover:text-text-light transition-colors px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10"
             >
               Resume
             </a>
