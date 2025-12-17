@@ -116,7 +116,7 @@ export default function Experience() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="pt-24 pb-12 px-6 scroll-mt-16">
+    <section id="experience" className="pt-12 pb-12 px-6 scroll-mt-16">
       <div ref={ref} className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -137,7 +137,7 @@ export default function Experience() {
         </div>
       </div>
       {/* Subtle section divider */}
-      <div className="mt-24 flex justify-center">
+      <div className="mt-16 flex justify-center">
         <div className="h-px w-48 sm:w-64 md:w-80 lg:w-[26rem] bg-gradient-to-r from-transparent via-black/10 to-transparent dark:via-white/10" />
       </div>
     </section>

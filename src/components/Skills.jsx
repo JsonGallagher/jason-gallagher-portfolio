@@ -25,7 +25,7 @@ export default function Skills() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="pt-24 pb-12 px-6 scroll-mt-16">
+    <section id="skills" className="pt-16 pb-12 px-6 scroll-mt-16">
       <div ref={ref} className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ export default function Skills() {
         </div>
       </div>
       {/* Subtle section divider */}
-      <div className="mt-36 flex justify-center">
+      <div className="mt-24 flex justify-center">
         <div className="h-px w-48 sm:w-64 md:w-80 lg:w-[26rem] bg-gradient-to-r from-transparent via-black/10 to-transparent dark:via-white/10" />
       </div>
     </section>
