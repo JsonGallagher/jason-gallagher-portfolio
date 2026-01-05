@@ -9,7 +9,7 @@ export default function Footer() {
               Jason Gallagher
             </h3>
             <p className="text-text-light/60 leading-relaxed max-w-md">
-              Marketing leader with 11+ years scaling B2B and B2C brands.
+              Marketing leader with 12+ years scaling B2B and B2C brands.
               Technical marketer fluent in growth strategy, analytics, AI, and
               code.
             </p>

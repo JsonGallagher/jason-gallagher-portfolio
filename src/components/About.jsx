@@ -53,7 +53,7 @@ export default function About() {
           </p>
 
           <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-4">
-            Marketing leader with 11+ years across B2B and B2C. I’ve led
+            Marketing leader with 12+ years across B2B and B2C. I’ve led
             cross-functional teams of 25+ and driven $300M+ in sales volume
             through full-funnel strategy, execution, and performance
             optimization.

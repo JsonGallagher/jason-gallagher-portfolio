@@ -126,7 +126,7 @@ export default function Experience() {
         >
           <span className="section-label">Career</span>
           <h2 className="section-title">
-            11+ years <em className="italic">building</em> full-funnel growth.
+            12+ years <em className="italic">building</em> full-funnel growth.
           </h2>
         </motion.div>
 
