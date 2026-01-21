@@ -9,9 +9,8 @@ export default function Footer() {
               Jason Gallagher
             </h3>
             <p className="text-text-light/60 leading-relaxed max-w-md">
-              Marketing leader with 12+ years scaling B2B and B2C brands.
-              Technical marketer fluent in growth strategy, analytics, AI, and
-              code.
+              Fractional CMO. AI strategy, demand generation, and marketing
+              automation. 12+ years helping B2B and B2C brands scale.
             </p>
           </div>
 
@@ -55,6 +54,16 @@ export default function Footer() {
                   className="hover:text-text-light/70 transition-colors"
                 >
                   LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://x.com/heyjson"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-text-light/70 transition-colors"
+                >
+                  X (Twitter)
                 </a>
               </li>
               <li>

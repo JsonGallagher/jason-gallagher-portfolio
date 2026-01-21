@@ -5,28 +5,28 @@ import { useRef, useState, useEffect } from "react";
 
 const features = [
   {
-    label: "Growth & GTM",
-    title: "Drive revenue with",
+    label: "Demand Generation",
+    title: "Drive pipeline with",
     titleAccent: "strategic precision.",
     description:
-      "Led B2B and B2C segmentation and GTM planning that drove 38% YoY pipeline growth. Managed six-figure ad budgets with 32% ROAS improvement and 18% CAC reduction. I own P&L and set OKRs that teams actually hit.",
+      "Full-funnel strategy that converts. I've driven 38% YoY pipeline growth, managed six-figure ad budgets with 32% ROAS improvement, and reduced CAC by 50%. I own the metrics and set OKRs your team will actually hit.",
     visual: "radial",
   },
   {
-    label: "AI & Automation",
+    label: "AI Strategy",
     title: "Scale with",
     titleAccent: "intelligent systems.",
     description:
-      "Deployed AI agents across campaign ops, reporting, and CRM—cutting manual work by 40% and reducing execution time from days to hours. Applied generative AI to content workflows, reducing production time by 30% while scaling output.",
+      "Practical AI implementation for marketing teams. I deploy AI across campaign ops, reporting, and CRM, cutting manual work by 40%. From content personalization to predictive analytics, I help you move faster without sacrificing quality.",
     visual: "circles",
     reverse: true,
   },
   {
-    label: "Data & Analytics",
-    title: "Make decisions with",
-    titleAccent: "clarity.",
+    label: "Marketing Automation",
+    title: "Build systems that",
+    titleAccent: "compound.",
     description:
-      "Built CAC and LTV models in SQL and Python. Ran cohort and attribution analysis that reallocated spend to drive a 22% lift in ROI. I don't just interpret dashboards—I build them.",
+      "HubSpot, Salesforce, Klaviyo. I build the lifecycle, nurture, and lead scoring systems that turn leads into revenue. Trained 40+ people on CRM with 80% adoption. I don't just advise on automation. I build it.",
     visual: "bars",
   },
 ];

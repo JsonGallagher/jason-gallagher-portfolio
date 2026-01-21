@@ -16,13 +16,17 @@ export default function CTA() {
         className="max-w-2xl mx-auto text-center"
       >
         <h2 className="section-title">
-          Let's build something <em className="italic">remarkable</em> together.
+          Ready to <em className="italic">scale?</em>
         </h2>
+        <p className="text-text-secondary dark:text-text-light/60 mb-8 max-w-lg mx-auto">
+          Whether you're launching, scaling, or transforming, let's talk about
+          where you're headed and how I can help get you there.
+        </p>
 
         <div className="flex flex-wrap justify-center gap-4">
           <a href="mailto:jason@jasongallagher.co" className="btn btn-primary">
             <Mail className="w-4 h-4 text-blue-500" />
-            Get in Touch
+            Book a Call
           </a>
           <a
             href="https://linkedin.com/in/jsongallagher"

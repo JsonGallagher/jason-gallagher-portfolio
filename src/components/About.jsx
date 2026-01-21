@@ -2,6 +2,12 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Linkedin, Mail, Github } from "lucide-react";
+
+const XIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 import headshot from "../assets/headshot.webp";
 
 export default function About() {
@@ -49,27 +55,23 @@ export default function About() {
           <span className="section-label">About</span>
           <h2 className="section-title">Jason Gallagher</h2>
           <p className="text-text-secondary dark:text-text-light/60 text-lg mb-6">
-            Marketing Director • Colorado Springs, CO
+            Fractional CMO • Colorado Springs, CO
           </p>
 
           <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-4">
-            Marketing leader with 12+ years across B2B and B2C. I’ve led
-            cross-functional teams of 25+ and driven $300M+ in sales volume
-            through full-funnel strategy, execution, and performance
-            optimization.
+            Fractional CMO with 12+ years helping B2B and B2C brands scale. I've
+            driven $300M+ in sales volume, reduced CAC by 50%, and improved
+            lead-to-close rates by 23% through strategic marketing leadership.
           </p>
 
           <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-8">
-            I bring a technical edge to marketing, especially in analytics,
-            experimentation, and the systems behind scale. I use AI to move
-            faster on planning, testing, and personalization, while staying
-            grounded in measurement and outcomes. I'm exploring new
-            opportunities with deeply curious, high-ownership teams building
-            ambitious products.
+            I work with companies that need senior marketing leadership. My
+            focus: AI strategy, demand generation, and marketing automation. I
+            don't just advise. I embed with your team and build alongside you.
           </p>
 
           {/* Links */}
-          <div className="flex items-center justify-center md:justify-start gap-3">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
             <a
               href="https://linkedin.com/in/jsongallagher"
               target="_blank"
@@ -78,6 +80,15 @@ export default function About() {
             >
               <Linkedin className="w-4 h-4 -translate-y-px" />
               <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://x.com/heyjson"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 text-blue-500 hover:bg-blue-500/20 transition-colors font-medium"
+            >
+              <XIcon className="w-4 h-4" />
+              <span>X (Twitter)</span>
             </a>
             <a
               href="https://github.com/JsonGallagher"

@@ -3,20 +3,28 @@ import { useRef } from "react";
 
 const skillCategories = [
   {
-    title: "AI & Automation",
-    skills: ["ChatGPT", "Jasper", "Notion AI", "AI Agents", "Claude"],
+    title: "CRM & Email",
+    skills: ["HubSpot", "Salesforce", "Klaviyo", "Mailchimp", "6sense"],
   },
   {
-    title: "Marketing & RevOps",
-    skills: ["HubSpot", "Salesforce", "6sense", "Google Ads", "Meta Ads"],
+    title: "Paid Media",
+    skills: ["Google Ads", "Meta Ads", "LinkedIn Ads", "Microsoft Ads"],
   },
   {
-    title: "Data & Analytics",
-    skills: ["SQL", "Python", "GA4", "Amplitude", "GTM", "Klaviyo", "Tableau"],
+    title: "Analytics",
+    skills: ["GA4", "GTM", "Looker Studio", "SQL", "Python", "Tableau"],
   },
   {
-    title: "Web Development",
-    skills: ["HTML/CSS", "JavaScript", "React", "Webflow", "WordPress"],
+    title: "SEO",
+    skills: ["Google Search Console", "Semrush"],
+  },
+  {
+    title: "AI Tools",
+    skills: ["Claude", "ChatGPT", "AI Agents", "Midjourney"],
+  },
+  {
+    title: "Web & Design",
+    skills: ["WordPress", "Shopify", "Figma", "Adobe CC"],
   },
 ];
 

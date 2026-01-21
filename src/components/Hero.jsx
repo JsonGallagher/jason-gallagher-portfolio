@@ -2,36 +2,36 @@ import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 
 const stats = [
-  { value: "$300M+", label: "Sales Volume Driven" },
-  { value: "50%", label: "Lower Acquisition Cost" },
-  { value: "+23%", label: "Conversion Rate Lift" },
-  { value: "Top 0.5%", label: "National Ranking" },
+  { value: "$300M+", label: "Revenue Driven" },
+  { value: "50%", label: "Lower CAC" },
+  { value: "+23%", label: "Lead-to-Close Lift" },
+  { value: "12+", label: "Years Experience" },
 ];
 
 const browserCards = [
   {
-    title: "Growth Strategy",
-    desc: "GTM plan, positioning, funnel + 90-day execution roadmap",
+    title: "Marketing Strategy",
+    desc: "Full-funnel strategy aligned to your revenue and business goals",
+  },
+  {
+    title: "Demand Generation",
+    desc: "Pipeline growth, paid media optimization, and funnel conversion",
+  },
+  {
+    title: "AI Strategy",
+    desc: "AI implementation for marketing ops, content, and personalization",
   },
   {
     title: "Marketing Automation",
-    desc: "HubSpot lifecycle, lead routing, nurture, scoring + reporting",
+    desc: "HubSpot, Salesforce, Klaviyo: lifecycle, nurture, and lead scoring",
   },
   {
-    title: "Performance Marketing",
-    desc: "Lower CAC via paid search/social, SEO + CRO experiments",
+    title: "Analytics & Measurement",
+    desc: "Attribution, dashboards, and experimentation for smarter decisions",
   },
   {
-    title: "Data & Marketing Analytics",
-    desc: "GA4, dashboards, attribution + experiment measurement you can trust",
-  },
-  {
-    title: "Web Development",
-    desc: "High-converting landing pages + rapid iteration (Webflow/Shopify)",
-  },
-  {
-    title: "Design, Content & Brand",
-    desc: "Graphic design, photo/video production, brand systems + lead-driving content",
+    title: "Team Leadership",
+    desc: "Embed with your team to mentor, align, and execute. Not just advise.",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function Hero() {
         className="inline-flex items-center gap-2 px-4 py-2 bg-black/5 dark:bg-white/10 rounded-full text-sm mb-8"
       >
         <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-        Open to opportunities
+        Open to Opportunities
       </motion.div>
 
       {/* Headline */}
@@ -56,9 +56,9 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="font-serif text-5xl md:text-7xl lg:text-8xl font-normal leading-[1.1] tracking-tight max-w-4xl mb-6"
       >
-        Marketing leader
+        Fractional CMO
         <br />
-        who <em className="italic">codes.</em>
+        for <em className="italic">growth.</em>
       </motion.h1>
 
       {/* Subtitle */}
@@ -68,11 +68,11 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="text-lg md:text-xl text-text-secondary dark:text-text-light/80 max-w-2xl mb-8 leading-relaxed"
       >
-        Data-driven marketing leader spanning growth, lifecycle, and
-        performance, with deep analytics and modern AI fluency.
+        AI strategy, demand generation, and marketing automation.
+        Senior marketing leadership, flexible engagement.
         <span className="block mt-2">
-          I lead strategy, build measurement and experimentation systems, and
-          partner closely with product, sales, and engineering.
+          From funded startups to PE-backed SMBs, I help businesses build
+          marketing that drives revenue.
         </span>
       </motion.p>
 
@@ -85,7 +85,7 @@ export default function Hero() {
       >
         <a href="mailto:jason@jasongallagher.co" className="btn btn-primary">
           <Mail className="w-4 h-4 text-blue-500" />
-          Let's Connect
+          Book a Call
         </a>
       </motion.div>
 
@@ -144,7 +144,7 @@ export default function Hero() {
                 <div className="font-semibold text-sm mb-1 group-hover:text-text-primary dark:group-hover:text-text-light">
                   {card.title}
                 </div>
-                <p className="text-xs text-text-secondary dark:text-text-light/50">
+                <p className="text-sm text-text-secondary dark:text-text-light/50 text-balance">
                   {card.desc}
                 </p>
               </div>
