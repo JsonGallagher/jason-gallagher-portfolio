@@ -68,6 +68,7 @@ export default function About() {
             I work with companies that need senior marketing leadership. My
             focus: AI strategy, demand generation, and marketing automation. I
             don't just advise. I embed with your team and build alongside you.
+            Also open to full-time leadership roles with the right team.
           </p>
 
           {/* Links */}
