@@ -84,7 +84,7 @@ export default function Hero() {
         className="flex flex-wrap justify-center gap-4 mb-14"
       >
         <a
-          href="https://calendly.com/jasongallagher/130-minute-chat"
+          href="https://calendly.com/jasongallagher/30min-chat"
           className="btn btn-primary"
         >
           <Mail className="w-4 h-4 text-blue-500" />

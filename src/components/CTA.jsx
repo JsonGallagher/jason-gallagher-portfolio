@@ -25,7 +25,7 @@ export default function CTA() {
 
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="https://calendly.com/jasongallagher/130-minute-chat"
+            href="https://calendly.com/jasongallagher/30min-chat"
             className="btn btn-primary"
           >
             <Mail className="w-4 h-4 text-blue-500" />
