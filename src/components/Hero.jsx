@@ -69,7 +69,7 @@ export default function Hero() {
         className="text-lg md:text-xl text-text-secondary dark:text-text-light/80 max-w-2xl mb-8 leading-relaxed"
       >
         AI strategy, demand generation, and marketing automation.
-        Senior marketing leadership, flexible engagement.
+        Senior marketing leadership without the full-time commitment.
         <span className="block mt-2">
           From funded startups to PE-backed SMBs, I help businesses build
           marketing that drives revenue.
