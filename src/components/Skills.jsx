@@ -12,7 +12,7 @@ const skillCategories = [
   },
   {
     title: "Analytics",
-    skills: ["GA4", "GTM", "Looker Studio", "SQL", "Python", "Tableau"],
+    skills: ["GA4", "GTM", "Looker", "SQL", "Python", "Tableau"],
   },
   {
     title: "SEO",
