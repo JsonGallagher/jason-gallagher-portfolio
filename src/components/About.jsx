@@ -55,7 +55,7 @@ export default function About() {
           <span className="section-label">About</span>
           <h2 className="section-title">Jason Gallagher</h2>
           <p className="text-text-secondary dark:text-text-light/60 text-lg mb-6">
-            Fractional CMO • Colorado Springs, CO
+            Fractional CMO • Colorado
           </p>
 
           <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-4">

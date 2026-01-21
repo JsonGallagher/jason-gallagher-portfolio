@@ -36,7 +36,7 @@ export default function Footer() {
                   (585) 905-1130
                 </a>
               </li>
-              <li className="text-text-light/60">Colorado Springs, CO</li>
+              <li className="text-text-light/60">Colorado</li>
             </ul>
           </div>
 
