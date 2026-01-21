@@ -24,18 +24,12 @@ export default function CTA() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="mailto:jason@jasongallagher.co" className="btn btn-primary">
+          <a
+            href="https://calendly.com/jasongallagher/130-minute-chat"
+            className="btn btn-primary"
+          >
             <Mail className="w-4 h-4 text-blue-500" />
             Book a Call
-          </a>
-          <a
-            href="https://linkedin.com/in/jsongallagher"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-secondary"
-          >
-            <Linkedin className="w-4 h-4 -translate-y-px" />
-            LinkedIn
           </a>
         </div>
       </motion.div>

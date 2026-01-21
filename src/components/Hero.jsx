@@ -68,8 +68,8 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="text-lg md:text-xl text-text-secondary dark:text-text-light/80 max-w-2xl mb-8 leading-relaxed"
       >
-        AI strategy, demand generation, and marketing automation.
-        Senior marketing leadership without the full-time commitment.
+        AI strategy, demand generation, and marketing automation. Senior
+        marketing leadership without the full-time commitment.
         <span className="block mt-2">
           From funded startups to PE-backed SMBs, I help businesses build
           marketing that drives revenue.
@@ -83,7 +83,10 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.3 }}
         className="flex flex-wrap justify-center gap-4 mb-14"
       >
-        <a href="mailto:jason@jasongallagher.co" className="btn btn-primary">
+        <a
+          href="https://calendly.com/jasongallagher/130-minute-chat"
+          className="btn btn-primary"
+        >
           <Mail className="w-4 h-4 text-blue-500" />
           Book a Call
         </a>
