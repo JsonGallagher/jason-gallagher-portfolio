@@ -76,9 +76,9 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
   }
 
   const getCreatorLabel = () => {
-    if (type === 'book') return 'by'
-    if (type === 'film') return 'Directed by'
-    if (type === 'tv') return 'Created by'
+    if (type === 'book') return 'Author:'
+    if (type === 'film') return 'Directed by:'
+    if (type === 'tv') return 'Created by:'
     return ''
   }
 
