@@ -138,6 +138,7 @@
     "director": "Derek Cianfrance",
     "year": 2025,
     "tmdbId": "97367",
+    "liked": true,
     "affiliateUrl": "https://www.amazon.com/dp/B00CM8I1VM",
     "review": ""
   },
@@ -230,7 +231,7 @@
     "title": "Sixteen Candles",
     "director": "John Hughes",
     "year": 2025,
-    "tmdbId": "13576",
+    "tmdbId": "15144",
     "rating": 9,
     "affiliateUrl": "https://www.amazon.com/dp/B001AEE4QU",
     "review": ""
@@ -288,6 +289,7 @@
     "director": "Federico Fellini",
     "year": 2025,
     "tmdbId": "422",
+    "lifeChanging": true,
     "affiliateUrl": "https://www.amazon.com/dp/B000HEWMUO",
     "review": ""
   },

@@ -61,6 +61,7 @@
     "creator": "Taylor Sheridan",
     "year": 2025,
     "tmdbId": "157741",
+    "rating": 4,
     "affiliateUrl": "https://www.amazon.com/dp/B0DL1JSHQJ",
     "review": ""
   },
@@ -106,6 +107,7 @@
     "creator": "",
     "year": 2025,
     "tmdbId": "271267",
+    "liked": true,
     "affiliateUrl": "",
     "review": ""
   },
