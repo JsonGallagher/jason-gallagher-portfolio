@@ -165,7 +165,7 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
 
               {/* Creator */}
               <p className="text-sm text-text-secondary dark:text-text-light/60 mb-1">
-                {getCreatorLabel()} {getCreator()} {item.year && `(${item.year})`}
+                {getCreatorLabel()} {getCreator()}
               </p>
 
               {/* Release Year - for films and TV only */}
