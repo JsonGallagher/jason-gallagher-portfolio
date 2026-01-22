@@ -161,10 +161,10 @@ export default function Navbar() {
                 <Link
                   to="/shelf"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2 text-lg font-medium"
+                  className="flex items-center gap-1 text-lg font-medium"
                 >
                   <Library className="w-5 h-5" />
-                  <span className="translate-y-[2px]">Shelf</span>
+                  <span className="translate-y-[1px]">Shelf</span>
                 </Link>
               </li>
             </ul>
