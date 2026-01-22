@@ -5,7 +5,6 @@
     "creator": "Graham Yost",
     "year": 2025,
     "tmdbId": "125988",
-    "tags": [],
     "affiliateUrl": "https://www.amazon.com/dp/B0DJFC2CCB",
     "review": ""
   },
@@ -15,7 +14,6 @@
     "creator": "Mike White",
     "year": 2025,
     "tmdbId": "111803",
-    "tags": [],
     "affiliateUrl": "https://www.amazon.com/dp/B0DSLZFNFN",
     "review": ""
   },
@@ -25,7 +23,7 @@
     "creator": "Dan Erickson",
     "year": 2025,
     "tmdbId": "95396",
-    "tags": [],
+    "lifeChanging": true,
     "affiliateUrl": "https://www.amazon.com/dp/B0DQH5LZ9L",
     "review": ""
   },
@@ -35,7 +33,7 @@
     "creator": "Graham Yost",
     "year": 2025,
     "tmdbId": "1436",
-    "tags": [],
+    "liked": true,
     "affiliateUrl": "https://www.amazon.com/dp/B004EPYZSY",
     "review": "Seasons 1-3"
   },
@@ -45,7 +43,6 @@
     "creator": "Nathan Fielder",
     "year": 2025,
     "tmdbId": "204284",
-    "tags": [],
     "affiliateUrl": "https://www.amazon.com/dp/B0B5KRST4H",
     "review": ""
   },
@@ -55,7 +52,6 @@
     "creator": "Craig Mazin, Neil Druckmann",
     "year": 2025,
     "tmdbId": "100088",
-    "tags": [],
     "affiliateUrl": "https://www.amazon.com/dp/B0BSB8K61K",
     "review": ""
   },
@@ -65,17 +61,15 @@
     "creator": "Taylor Sheridan",
     "year": 2025,
     "tmdbId": "157741",
-    "tags": [],
     "affiliateUrl": "https://www.amazon.com/dp/B0DL1JSHQJ",
     "review": ""
   },
   {
     "id": "mobland",
     "title": "MobLand",
-    "creator": "",
+    "creator": "Nick Santora",
     "year": 2025,
     "tmdbId": "247718",
-    "tags": [],
     "affiliateUrl": "",
     "review": ""
   },
@@ -85,27 +79,24 @@
     "creator": "Doug Ellin",
     "year": 2025,
     "tmdbId": "1940",
-    "tags": [],
     "affiliateUrl": "https://www.amazon.com/dp/B000REI28I",
     "review": "Full series rewatch"
   },
   {
     "id": "black-rabbit",
     "title": "Black Rabbit",
-    "creator": "",
+    "creator": "Jason Bateman",
     "year": 2025,
     "tmdbId": "249039",
-    "tags": [],
     "affiliateUrl": "",
     "review": ""
   },
   {
     "id": "task",
     "title": "Task",
-    "creator": "",
+    "creator": "Donald Glover",
     "year": 2025,
     "tmdbId": "228305",
-    "tags": [],
     "affiliateUrl": "",
     "review": ""
   },
@@ -115,7 +106,6 @@
     "creator": "",
     "year": 2025,
     "tmdbId": "271267",
-    "tags": [],
     "affiliateUrl": "",
     "review": ""
   },
@@ -125,7 +115,6 @@
     "creator": "",
     "year": 2025,
     "tmdbId": "225171",
-    "tags": [],
     "affiliateUrl": "",
     "review": ""
   },
@@ -135,17 +124,6 @@
     "creator": "",
     "year": 2025,
     "tmdbId": "136315",
-    "tags": [],
-    "affiliateUrl": "",
-    "review": ""
-  },
-  {
-    "id": "landman-s2",
-    "title": "Landman Season 2",
-    "creator": "Taylor Sheridan",
-    "year": 2025,
-    "tmdbId": "157741",
-    "tags": [],
     "affiliateUrl": "",
     "review": ""
   }
