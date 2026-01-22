@@ -48,6 +48,8 @@ export default function MediaCard({ item, type, index = 0, posterPath, onClick }
             <img
               src={imageUrl}
               alt={item.title}
+              loading="lazy"
+              decoding="async"
               className={`w-full h-full object-cover transition-all duration-300 group-hover:scale-105 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}

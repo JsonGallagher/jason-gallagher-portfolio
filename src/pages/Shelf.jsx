@@ -14,84 +14,144 @@ import filmsData from '../data/films.json'
 import tvData from '../data/tv.json'
 
 const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY
+const CACHE_KEY = 'shelf-media-cache'
+const CACHE_DURATION = 24 * 60 * 60 * 1000 // 24 hours
+
+// Cache helpers
+const getCache = () => {
+  try {
+    const cached = localStorage.getItem(CACHE_KEY)
+    if (!cached) return null
+    const { data, timestamp } = JSON.parse(cached)
+    if (Date.now() - timestamp > CACHE_DURATION) {
+      localStorage.removeItem(CACHE_KEY)
+      return null
+    }
+    return data
+  } catch {
+    return null
+  }
+}
+
+const setCache = (data) => {
+  try {
+    localStorage.setItem(CACHE_KEY, JSON.stringify({ data, timestamp: Date.now() }))
+  } catch {
+    // localStorage might be full or unavailable
+  }
+}
 
 export default function Shelf() {
   const { darkMode, toggleDarkMode } = useTheme()
   const [activeTab, setActiveTab] = useState('films')
   const [searchQuery, setSearchQuery] = useState('')
   const [activeFilter, setActiveFilter] = useState('all')
-  const [mediaMetadata, setMediaMetadata] = useState({}) // { id: { posterPath, description } }
+  const [mediaMetadata, setMediaMetadata] = useState(() => getCache() || {})
   const [selectedItem, setSelectedItem] = useState(null)
 
-  // Fetch TMDB metadata for films and TV shows
+  // Fetch TMDB metadata for films and TV shows (parallelized)
   useEffect(() => {
     if (!TMDB_API_KEY) return
 
     const fetchTMDBMetadata = async () => {
-      const metadata = {}
       const allMedia = [...filmsData, ...tvData]
+      const itemsToFetch = allMedia.filter(
+        (item) => item.tmdbId && !mediaMetadata[`tmdb-${item.tmdbId}`]
+      )
 
-      for (const item of allMedia) {
-        if (item.tmdbId && !mediaMetadata[`tmdb-${item.tmdbId}`]) {
-          try {
-            const isTV = tvData.some((tv) => tv.tmdbId === item.tmdbId)
-            const endpoint = isTV ? 'tv' : 'movie'
+      if (itemsToFetch.length === 0) return
 
-            const res = await fetch(
-              `https://api.themoviedb.org/3/${endpoint}/${item.tmdbId}?api_key=${TMDB_API_KEY}`
-            )
-            if (res.ok) {
-              const data = await res.json()
-              const releaseDate = isTV ? data.first_air_date : data.release_date
-              metadata[`tmdb-${item.tmdbId}`] = {
+      const promises = itemsToFetch.map(async (item) => {
+        try {
+          const isTV = tvData.some((tv) => tv.tmdbId === item.tmdbId)
+          const endpoint = isTV ? 'tv' : 'movie'
+
+          const res = await fetch(
+            `https://api.themoviedb.org/3/${endpoint}/${item.tmdbId}?api_key=${TMDB_API_KEY}`
+          )
+          if (res.ok) {
+            const data = await res.json()
+            const releaseDate = isTV ? data.first_air_date : data.release_date
+            return {
+              key: `tmdb-${item.tmdbId}`,
+              value: {
                 posterPath: data.poster_path,
                 description: data.overview,
                 releaseYear: releaseDate ? releaseDate.split('-')[0] : null,
-              }
+              },
             }
-          } catch (err) {
-            console.error(`Failed to fetch metadata for ${item.title}:`, err)
           }
+        } catch (err) {
+          console.error(`Failed to fetch metadata for ${item.title}:`, err)
         }
-      }
+        return null
+      })
+
+      const results = await Promise.all(promises)
+      const metadata = {}
+      results.forEach((result) => {
+        if (result) metadata[result.key] = result.value
+      })
+
       if (Object.keys(metadata).length > 0) {
-        setMediaMetadata((prev) => ({ ...prev, ...metadata }))
+        setMediaMetadata((prev) => {
+          const updated = { ...prev, ...metadata }
+          setCache(updated)
+          return updated
+        })
       }
     }
 
     fetchTMDBMetadata()
   }, [])
 
-  // Fetch Open Library metadata for books
+  // Fetch Open Library metadata for books (parallelized)
   useEffect(() => {
     const fetchBookMetadata = async () => {
-      const metadata = {}
+      const booksToFetch = booksData.filter(
+        (book) => book.isbn && !mediaMetadata[`isbn-${book.isbn}`]
+      )
 
-      for (const book of booksData) {
-        if (book.isbn && !mediaMetadata[`isbn-${book.isbn}`]) {
-          try {
-            const res = await fetch(
-              `https://openlibrary.org/api/books?bibkeys=ISBN:${book.isbn}&format=json&jscmd=data`
-            )
-            if (res.ok) {
-              const data = await res.json()
-              const bookData = data[`ISBN:${book.isbn}`]
-              if (bookData) {
-                metadata[`isbn-${book.isbn}`] = {
+      if (booksToFetch.length === 0) return
+
+      const promises = booksToFetch.map(async (book) => {
+        try {
+          const res = await fetch(
+            `https://openlibrary.org/api/books?bibkeys=ISBN:${book.isbn}&format=json&jscmd=data`
+          )
+          if (res.ok) {
+            const data = await res.json()
+            const bookData = data[`ISBN:${book.isbn}`]
+            if (bookData) {
+              return {
+                key: `isbn-${book.isbn}`,
+                value: {
                   description: bookData.notes || bookData.excerpts?.[0]?.text || null,
-                  subjects: bookData.subjects?.slice(0, 3).map(s => s.name) || [],
+                  subjects: bookData.subjects?.slice(0, 3).map((s) => s.name) || [],
                   numberOfPages: bookData.number_of_pages,
                   publishDate: bookData.publish_date,
-                }
+                },
               }
             }
-          } catch (err) {
-            console.error(`Failed to fetch metadata for ${book.title}:`, err)
           }
+        } catch (err) {
+          console.error(`Failed to fetch metadata for ${book.title}:`, err)
         }
-      }
+        return null
+      })
+
+      const results = await Promise.all(promises)
+      const metadata = {}
+      results.forEach((result) => {
+        if (result) metadata[result.key] = result.value
+      })
+
       if (Object.keys(metadata).length > 0) {
-        setMediaMetadata((prev) => ({ ...prev, ...metadata }))
+        setMediaMetadata((prev) => {
+          const updated = { ...prev, ...metadata }
+          setCache(updated)
+          return updated
+        })
       }
     }
 
