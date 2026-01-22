@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ExternalLink, Star, Heart } from 'lucide-react'
+import { X, Star, Heart } from 'lucide-react'
 
 function StarRating({ rating, maxRating = 10 }) {
   const stars = []
@@ -88,11 +88,12 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
   const apiDescription = metadata?.description
   const userNotes = item.review
 
-  const handleAffiliateClick = () => {
-    if (item.affiliateUrl) {
-      window.open(item.affiliateUrl, '_blank', 'noopener,noreferrer')
-    }
-  }
+  // TODO: Re-enable when affiliate links are ready
+  // const handleAffiliateClick = () => {
+  //   if (item.affiliateUrl) {
+  //     window.open(item.affiliateUrl, '_blank', 'noopener,noreferrer')
+  //   }
+  // }
 
   return (
     <AnimatePresence>
@@ -220,7 +221,7 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
                 </div>
               )}
 
-              {/* Affiliate Link Button */}
+              {/* TODO: Re-enable affiliate links when ready
               {item.affiliateUrl && (
                 <div className="mt-6">
                   <button
@@ -235,6 +236,7 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
                   </p>
                 </div>
               )}
+              */}
             </div>
           </motion.div>
         </div>
