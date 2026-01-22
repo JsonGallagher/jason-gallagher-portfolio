@@ -1,5 +1,14 @@
 [
   {
+    "id": "mad-men",
+    "title": "Mad Men",
+    "creator": "Matthew Weiner",
+    "year": 2026,
+    "tmdbId": "1104",
+    "affiliateUrl": "",
+    "review": "Full series"
+  },
+  {
     "id": "silo-s2",
     "title": "Silo Season 2",
     "creator": "Graham Yost",
