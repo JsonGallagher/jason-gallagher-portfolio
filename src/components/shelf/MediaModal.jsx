@@ -159,7 +159,7 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
               </div>
 
               {/* Title */}
-              <h2 className="font-serif text-2xl tracking-tight mb-2 uppercase">
+              <h2 className="font-serif text-2xl font-bold tracking-wide mb-2 uppercase">
                 {item.title}
               </h2>
 
