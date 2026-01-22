@@ -1,0 +1,332 @@
+[
+  {
+    "id": "ex-machina",
+    "title": "Ex Machina",
+    "director": "Alex Garland",
+    "year": 2026,
+    "tmdbId": "264660",
+    "tags": [],
+    "affiliateUrl": "",
+    "liked": true,
+    "review": ""
+  },
+  {
+    "id": "shadows-1959",
+    "title": "Shadows",
+    "director": "John Cassavetes",
+    "year": 2025,
+    "tmdbId": "15484",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B001D3MLNO",
+    "review": ""
+  },
+  {
+    "id": "beverly-hills-cop",
+    "title": "Beverly Hills Cop",
+    "director": "Martin Brest",
+    "year": 2025,
+    "tmdbId": "90",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B001AQR3VA",
+    "rating": 9,
+    "review": ""
+  },
+  {
+    "id": "before-the-devil-knows-youre-dead",
+    "title": "Before the Devil Knows You're Dead",
+    "director": "Sidney Lumet",
+    "year": 2025,
+    "tmdbId": "7972",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B0012S2X2M",
+    "review": ""
+  },
+  {
+    "id": "butch-cassidy-sundance-kid",
+    "title": "Butch Cassidy and the Sundance Kid",
+    "director": "George Roy Hill",
+    "year": 2025,
+    "tmdbId": "642",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B001AQR46Y",
+    "review": ""
+  },
+  {
+    "id": "dogman",
+    "title": "Dogman",
+    "director": "Luc Besson",
+    "year": 2025,
+    "tmdbId": "483184",
+    "lifeChanging": true,
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B0CKMJQ9YB",
+    "rating": 8,
+    "review": ""
+  },
+  {
+    "id": "zero-dark-thirty",
+    "title": "Zero Dark Thirty",
+    "director": "Kathryn Bigelow",
+    "year": 2025,
+    "tmdbId": "97630",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B00BFMQ2CE",
+    "rating": 7.5,
+    "review": ""
+  },
+  {
+    "id": "jackie-brown",
+    "title": "Jackie Brown",
+    "director": "Quentin Tarantino",
+    "year": 2025,
+    "tmdbId": "184",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B000NJLSBU",
+    "rating": 9,
+    "review": ""
+  },
+  {
+    "id": "training-day",
+    "title": "Training Day",
+    "director": "Antoine Fuqua",
+    "year": 2025,
+    "tmdbId": "2034",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B00003CXON",
+    "review": ""
+  },
+  {
+    "id": "an-autumn-afternoon",
+    "title": "An Autumn Afternoon",
+    "director": "Yasujiro Ozu",
+    "year": 2025,
+    "tmdbId": "18148",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B01LTHXICE",
+    "review": ""
+  },
+  {
+    "id": "apocalypse-now",
+    "title": "Apocalypse Now",
+    "director": "Francis Ford Coppola",
+    "year": 2025,
+    "tmdbId": "28",
+    "lifeChanging": true,
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B07VBBTRVH",
+    "review": ""
+  },
+  {
+    "id": "sexy-beast",
+    "title": "Sexy Beast",
+    "director": "Jonathan Glazer",
+    "year": 2025,
+    "tmdbId": "11826",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B00005JKEU",
+    "review": ""
+  },
+  {
+    "id": "sicario",
+    "title": "Sicario",
+    "director": "Denis Villeneuve",
+    "year": 2025,
+    "tmdbId": "273481",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B016FGEKDU",
+    "review": ""
+  },
+  {
+    "id": "moonlight",
+    "title": "Moonlight",
+    "director": "Barry Jenkins",
+    "year": 2025,
+    "tmdbId": "376867",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B01MRZFQPF",
+    "review": ""
+  },
+  {
+    "id": "the-place-beyond-the-pines",
+    "title": "The Place Beyond the Pines",
+    "director": "Derek Cianfrance",
+    "year": 2025,
+    "tmdbId": "97367",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B00CM8I1VM",
+    "review": ""
+  },
+  {
+    "id": "flow",
+    "title": "Flow",
+    "director": "Gints Zilbalodis",
+    "year": 2025,
+    "tmdbId": "823219",
+    "tags": [],
+    "affiliateUrl": "",
+    "review": ""
+  },
+  {
+    "id": "sinners",
+    "title": "Sinners",
+    "director": "Ryan Coogler",
+    "year": 2025,
+    "tmdbId": "1233413",
+    "tags": [],
+    "affiliateUrl": "",
+    "review": ""
+  },
+  {
+    "id": "casino",
+    "title": "Casino",
+    "director": "Martin Scorsese",
+    "year": 2025,
+    "tmdbId": "524",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B001AC14TK",
+    "review": ""
+  },
+  {
+    "id": "perks-of-being-a-wallflower",
+    "title": "The Perks of Being a Wallflower",
+    "director": "Stephen Chbosky",
+    "year": 2025,
+    "tmdbId": "84892",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B00A2HD5N4",
+    "review": ""
+  },
+  {
+    "id": "friendship",
+    "title": "Friendship",
+    "director": "Andrew DeYoung",
+    "year": 2025,
+    "tmdbId": "1239655",
+    "tags": [],
+    "affiliateUrl": "",
+    "review": ""
+  },
+  {
+    "id": "all-the-presidents-men",
+    "title": "All the President's Men",
+    "director": "Alan J. Pakula",
+    "year": 2025,
+    "tmdbId": "891",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B001AEE4RY",
+    "review": ""
+  },
+  {
+    "id": "leave-the-world-behind",
+    "title": "Leave the World Behind",
+    "director": "Sam Esmail",
+    "year": 2025,
+    "tmdbId": "726209",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B0CLLDVX7L",
+    "rating": 4,
+    "review": ""
+  },
+  {
+    "id": "lost-in-translation",
+    "title": "Lost in Translation",
+    "director": "Sofia Coppola",
+    "year": 2025,
+    "tmdbId": "153",
+    "lifeChanging": true,
+    "affiliateUrl": "https://www.amazon.com/dp/B0001Z3TL0",
+    "rating": 10,
+    "review": ""
+  },
+  {
+    "id": "the-breakfast-club",
+    "title": "The Breakfast Club",
+    "director": "John Hughes",
+    "year": 2025,
+    "tmdbId": "2108",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B001AEE4P6",
+    "review": ""
+  },
+  {
+    "id": "sixteen-candles",
+    "title": "Sixteen Candles",
+    "director": "John Hughes",
+    "year": 2025,
+    "tmdbId": "13576",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B001AEE4QU",
+    "rating": 9,
+    "review": ""
+  },
+  {
+    "id": "do-the-right-thing",
+    "title": "Do the Right Thing",
+    "director": "Spike Lee",
+    "year": 2025,
+    "tmdbId": "925",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B001BLFKLA",
+    "review": ""
+  },
+  {
+    "id": "children-of-paradise",
+    "title": "Children of Paradise",
+    "director": "Marcel Carné",
+    "year": 2025,
+    "tmdbId": "2457",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B00A7LDQDK",
+    "review": ""
+  },
+  {
+    "id": "memories-of-murder",
+    "title": "Memories of Murder",
+    "director": "Bong Joon-ho",
+    "year": 2025,
+    "tmdbId": "11423",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B08G1Y3R7Q",
+    "review": ""
+  },
+  {
+    "id": "gattaca",
+    "title": "Gattaca",
+    "director": "Andrew Niccol",
+    "year": 2025,
+    "tmdbId": "782",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B001AEE8NQ",
+    "review": ""
+  },
+  {
+    "id": "true-romance",
+    "title": "True Romance",
+    "director": "Tony Scott",
+    "year": 2025,
+    "tmdbId": "319",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B000VDDAOY",
+    "review": ""
+  },
+  {
+    "id": "8-half",
+    "title": "8½",
+    "director": "Federico Fellini",
+    "year": 2025,
+    "tmdbId": "422",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B000HEWMUO",
+    "review": ""
+  },
+  {
+    "id": "la-piscine",
+    "title": "La Piscine",
+    "director": "Jacques Deray",
+    "year": 2025,
+    "tmdbId": "4946",
+    "tags": [],
+    "affiliateUrl": "https://www.amazon.com/dp/B07YBQNBSM",
+    "review": ""
+  }
+]

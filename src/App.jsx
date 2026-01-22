@@ -1,14 +1,7 @@
 import { useState, useEffect, createContext, useContext } from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Expertise from './components/Expertise'
-import Values from './components/Values'
-import Testimonials from './components/Testimonials'
-import Experience from './components/Experience'
-import Skills from './components/Skills'
-import CTA from './components/CTA'
-import Footer from './components/Footer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Shelf from './pages/Shelf'
 
 // Dark mode context
 export const ThemeContext = createContext()
@@ -38,20 +31,12 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <div className="min-h-screen bg-primary dark:bg-primary-dark transition-colors duration-300">
-        <Navbar />
-        <main>
-          <Hero />
-          <About />
-          <Expertise />
-          <Values />
-          <Testimonials />
-          <Experience />
-          <Skills />
-          <CTA />
-        </main>
-        <Footer />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shelf" element={<Shelf />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeContext.Provider>
   )
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X, Library } from "lucide-react";
 import { useTheme } from "../App";
 import { useActiveSection } from "../hooks/useActiveSection";
 
@@ -70,6 +71,15 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <li>
+            <Link
+              to="/shelf"
+              className="flex items-end gap-1.5 text-sm font-medium text-text-primary dark:text-text-light hover:opacity-60 transition-colors translate-y-[1px]"
+            >
+              <Library className="w-4 h-4 translate-y-[-2px]" />
+              <span className="translate-y-[1px]">Shelf</span>
+            </Link>
+          </li>
         </ul>
 
         {/* Right side: Dark mode toggle + CTA */}
@@ -97,13 +107,11 @@ export default function Navbar() {
             >
               LinkedIn
             </a>
-
-            <span className="h-6 w-px bg-black/10 dark:bg-white/10" />
             <a
               href="https://bit.ly/Resume_25"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-text-secondary dark:text-text-light/80 hover:text-text-primary dark:hover:text-text-light transition-colors px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10"
+              className="text-sm font-medium text-text-secondary dark:text-text-light/80 hover:text-text-primary dark:hover:text-text-light transition-colors"
             >
               Resume
             </a>
@@ -149,8 +157,18 @@ export default function Navbar() {
                   </a>
                 </li>
               ))}
+              <li>
+                <Link
+                  to="/shelf"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-2 text-lg font-medium"
+                >
+                  <Library className="w-5 h-5" />
+                  <span className="translate-y-[2px]">Shelf</span>
+                </Link>
+              </li>
             </ul>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 pt-4 border-t border-black/10 dark:border-white/10">
               <a
                 href="https://linkedin.com/in/jsongallagher"
                 target="_blank"
@@ -159,12 +177,11 @@ export default function Navbar() {
               >
                 LinkedIn
               </a>
-
               <a
                 href="https://bit.ly/Resume_25"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-center text-sm font-medium text-text-secondary/80 dark:text-text-light/70 hover:text-text-primary dark:hover:text-text-light transition-colors py-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/10"
+                className="text-center text-sm font-medium text-text-secondary/80 dark:text-text-light/70 hover:text-text-primary dark:hover:text-text-light transition-colors py-3"
               >
                 Resume
               </a>
