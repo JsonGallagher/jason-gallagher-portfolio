@@ -85,7 +85,7 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
   const imageUrl = getImageUrl()
   const isLifeChanging = item.lifeChanging
   const isLiked = item.liked
-  const apiDescription = metadata?.description
+  const description = item.description || metadata?.description
   const userNotes = item.review
 
   // TODO: Re-enable when affiliate links are ready
@@ -192,10 +192,10 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
                 </div>
               )}
 
-              {/* API Description */}
-              {apiDescription && (
+              {/* Description */}
+              {description && (
                 <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-4">
-                  {apiDescription}
+                  {description}
                 </p>
               )}
 
