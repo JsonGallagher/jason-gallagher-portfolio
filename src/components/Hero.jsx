@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FileText, ArrowDown, ArrowUp } from "lucide-react";
+import { FileText, ArrowDown, ArrowUp, X, Minus, Maximize2 } from "lucide-react";
 
 const stats = [
   { value: "$300M+", label: "Revenue Driven", nudge: "translate-x-0.5" },
@@ -43,7 +43,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 dark:bg-green-500/20 rounded-full text-sm mb-8 ring-1 ring-green-500/20"
+        className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 dark:bg-green-500/20 rounded-full text-sm mb-10 ring-1 ring-green-500/20"
       >
         <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
         <span className="text-green-700 dark:text-green-400">Available Now</span>
@@ -56,7 +56,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="font-serif text-5xl md:text-7xl lg:text-8xl font-normal leading-[1.1] tracking-tight max-w-4xl mb-6"
+        className="font-serif text-5xl md:text-7xl lg:text-8xl font-normal leading-[1.1] tracking-tight max-w-4xl mb-8"
       >
         Growth marketer
         <br />
@@ -68,7 +68,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="text-lg md:text-xl text-text-secondary dark:text-text-light/80 max-w-2xl mb-8 leading-relaxed"
+        className="text-lg md:text-xl text-text-secondary dark:text-text-light/80 max-w-2xl mb-10 leading-relaxed"
       >
         Demand gen, AI strategy, and marketing automation.
         <br />
@@ -83,7 +83,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="flex flex-wrap justify-center gap-4 mb-14"
+        className="flex flex-wrap justify-center gap-4 mb-16"
       >
         <a
           href="https://bit.ly/resume_26"
@@ -101,7 +101,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 md:gap-16 mb-16"
+        className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 md:gap-16 mb-20"
       >
         {stats.map((stat, i) => (
           <div key={i} className="text-center flex flex-col items-center">
@@ -125,10 +125,16 @@ export default function Hero() {
         className="w-full max-w-5xl bg-white dark:bg-white/5 rounded-xl shadow-2xl shadow-black/10 dark:shadow-black/30 overflow-hidden"
       >
         {/* Browser Header */}
-        <div className="relative flex items-center gap-2 px-4 py-3 bg-gray-50 dark:bg-white/5 border-b border-black/5 dark:border-white/10">
-          <div className="w-3 h-3 rounded-full bg-red-400" />
-          <div className="w-3 h-3 rounded-full bg-yellow-400" />
-          <div className="w-3 h-3 rounded-full bg-green-400" />
+        <div className="relative flex items-center gap-2 px-4 py-3 bg-gray-50 dark:bg-white/5 border-b border-black/5 dark:border-white/10 group/header">
+          <div className="w-3 h-3 rounded-full bg-red-400 flex items-center justify-center">
+            <X className="w-2 h-2 text-red-900 opacity-0 group-hover/header:opacity-100 transition-opacity" strokeWidth={3} />
+          </div>
+          <div className="w-3 h-3 rounded-full bg-yellow-400 flex items-center justify-center">
+            <Minus className="w-2 h-2 text-yellow-900 opacity-0 group-hover/header:opacity-100 transition-opacity" strokeWidth={3} />
+          </div>
+          <div className="w-3 h-3 rounded-full bg-green-400 flex items-center justify-center">
+            <Maximize2 className="w-2 h-2 text-green-900 opacity-0 group-hover/header:opacity-100 transition-opacity rotate-90" strokeWidth={3} />
+          </div>
 
           <span className="absolute left-1/2 -translate-x-1/2 text-xs text-text-secondary dark:text-text-light/40">
             jasongallagher.co
