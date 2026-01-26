@@ -72,7 +72,8 @@ export default function Hero() {
         <br />
         12+ years scaling pipeline and revenue for high-growth teams.
         <span className="block mt-4">
-          Seeking a full-time role with a team that values builders.
+          Seeking a full-time role with teams building ambitious, innovative
+          products.
         </span>
       </motion.p>
 
