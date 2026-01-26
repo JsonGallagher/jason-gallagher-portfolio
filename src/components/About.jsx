@@ -55,20 +55,19 @@ export default function About() {
           <span className="section-label">About</span>
           <h2 className="section-title">Jason Gallagher</h2>
           <p className="text-text-secondary dark:text-text-light/60 text-lg mb-6">
-            Fractional CMO • Colorado
+            Growth Marketer • Colorado
           </p>
 
           <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-4">
-            Fractional CMO with 12+ years helping B2B and B2C brands scale. I've
-            driven $300M+ in sales volume, reduced CAC by 50%, and improved
-            lead-to-close rates by 23% through strategic marketing leadership.
+            12+ years building marketing systems for B2B and B2C brands. $300M+
+            in revenue driven, 50% lower CAC, 23% lift in lead-to-close rates.
           </p>
 
           <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-8">
-            I work with companies that need senior marketing leadership. My
-            focus: AI strategy, demand generation, and marketing automation. I
-            don't just advise. I embed with your team and build alongside you.
-            Also open to full-time marketing roles with the right team.
+            I build demand gen engines, marketing automation, and AI-powered
+            workflows. Not a strategist who hands off decks. I get in the CRM,
+            the data, the workflows. Looking for a full-time role with a team
+            that ships.
           </p>
 
           {/* Links */}

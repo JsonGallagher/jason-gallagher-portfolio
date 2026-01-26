@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Moon, Sun, Menu, X, Library } from "lucide-react";
+import { Moon, Sun, Menu, X, Library, Linkedin } from "lucide-react";
 import { useTheme } from "../App";
 import { useActiveSection } from "../hooks/useActiveSection";
 
@@ -82,8 +82,22 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Right side: Dark mode toggle + CTA */}
-        <div className="flex items-center gap-4">
+        {/* Right side: LinkedIn + Dark mode toggle */}
+        <div className="flex items-center gap-3">
+          {/* Desktop LinkedIn */}
+          <a
+            href="https://linkedin.com/in/jsongallagher"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex btn btn-secondary text-sm"
+          >
+            <Linkedin className="w-4 h-4" />
+            <span className="translate-y-[1.5px]">LinkedIn</span>
+          </a>
+
+          {/* Divider */}
+          <div className="hidden md:block w-px h-5 bg-black/10 dark:bg-white/10" />
+
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleDarkMode}
@@ -96,26 +110,6 @@ export default function Navbar() {
               <Moon className="w-5 h-5 text-text-primary" />
             )}
           </button>
-
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="https://linkedin.com/in/jsongallagher"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-secondary text-sm"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://bit.ly/Resume_25"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-text-secondary dark:text-text-light/80 hover:text-text-primary dark:hover:text-text-light transition-colors"
-            >
-              Resume
-            </a>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -175,15 +169,8 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="btn btn-secondary justify-center"
               >
+                <Linkedin className="w-4 h-4" />
                 LinkedIn
-              </a>
-              <a
-                href="https://bit.ly/Resume_25"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-center text-sm font-medium text-text-secondary/80 dark:text-text-light/70 hover:text-text-primary dark:hover:text-text-light transition-colors py-3"
-              >
-                Resume
               </a>
             </div>
           </motion.div>

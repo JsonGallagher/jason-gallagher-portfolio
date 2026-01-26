@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, Linkedin } from "lucide-react";
+import { FileText } from "lucide-react";
 
 export default function CTA() {
   const ref = useRef(null);
@@ -16,22 +16,22 @@ export default function CTA() {
         className="max-w-2xl mx-auto text-center"
       >
         <h2 className="section-title">
-          Ready to <em className="italic">scale?</em>
+          Let's <em className="italic">connect.</em>
         </h2>
         <p className="text-text-secondary dark:text-text-light/60 mb-8 max-w-lg mx-auto">
-          Whether you're launching, scaling, or transforming, let's talk about
-          where you're headed and how I can help get you there.
+          Looking for a growth marketer who builds, not just advises? Open to
+          full-time roles with teams that ship.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          <a
-            href="https://calendly.com/jasongallagher/30min-chat"
-            className="btn btn-primary"
-          >
-            <Mail className="w-4 h-4 text-blue-500" />
-            Book a Call
-          </a>
-        </div>
+        <a
+          href="https://bit.ly/Resume_25"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary"
+        >
+          <FileText className="w-4 h-4 text-blue-500" />
+          View Resume
+        </a>
       </motion.div>
     </section>
   );

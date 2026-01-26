@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { FileText } from "lucide-react";
 
 const stats = [
   { value: "$300M+", label: "Revenue Driven" },
@@ -10,28 +10,28 @@ const stats = [
 
 const browserCards = [
   {
-    title: "Marketing Strategy",
-    desc: "Full-funnel strategy aligned to your revenue and business goals",
-  },
-  {
     title: "Demand Generation",
-    desc: "Pipeline growth, paid media optimization, and funnel conversion",
-  },
-  {
-    title: "AI Strategy",
-    desc: "AI implementation for marketing ops, content, and personalization",
+    desc: "Pipeline growth, paid media, ABM, funnel optimization",
   },
   {
     title: "Marketing Automation",
-    desc: "HubSpot, Salesforce, Klaviyo: lifecycle, nurture, and lead scoring",
+    desc: "HubSpot, Salesforce, Klaviyo. Lifecycle, nurture, lead scoring",
   },
   {
-    title: "Analytics & Measurement",
-    desc: "Attribution, dashboards, and experimentation for smarter decisions",
+    title: "AI Strategy",
+    desc: "AI for marketing ops, content workflows, personalization",
+  },
+  {
+    title: "Analytics & Attribution",
+    desc: "Dashboards, experimentation, marketing-to-revenue reporting",
+  },
+  {
+    title: "GTM Strategy",
+    desc: "Full-funnel strategy aligned to pipeline and revenue goals",
   },
   {
     title: "Team Leadership",
-    desc: "Embed with your team to mentor, align, and execute. Not just advise.",
+    desc: "Build, train, and scale marketing teams. Hands-on executor",
   },
 ];
 
@@ -56,9 +56,9 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="font-serif text-5xl md:text-7xl lg:text-8xl font-normal leading-[1.1] tracking-tight max-w-4xl mb-6"
       >
-        Fractional CMO
+        Growth marketer
         <br />
-        for <em className="italic">growth.</em>
+        who <em className="italic">builds.</em>
       </motion.h1>
 
       {/* Subtitle */}
@@ -68,11 +68,11 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="text-lg md:text-xl text-text-secondary dark:text-text-light/80 max-w-2xl mb-8 leading-relaxed"
       >
-        AI strategy, demand generation, and marketing automation. Senior
-        marketing leadership without the full-time commitment.
-        <span className="block mt-2">
-          From funded startups to PE-backed SMBs, I help businesses build
-          marketing that drives revenue.
+        Demand gen, AI strategy, and marketing automation.
+        <br />
+        12+ years scaling pipeline and revenue for high-growth teams.
+        <span className="block mt-4">
+          Seeking a full-time role with a team that values builders.
         </span>
       </motion.p>
 
@@ -84,11 +84,13 @@ export default function Hero() {
         className="flex flex-wrap justify-center gap-4 mb-14"
       >
         <a
-          href="https://calendly.com/jasongallagher/30min-chat"
+          href="https://bit.ly/Resume_25"
+          target="_blank"
+          rel="noopener noreferrer"
           className="btn btn-primary"
         >
-          <Mail className="w-4 h-4 text-blue-500" />
-          Book a Call
+          <FileText className="w-4 h-4 text-blue-500" />
+          View Resume
         </a>
       </motion.div>
 
@@ -136,7 +138,7 @@ export default function Hero() {
         {/* Browser Content */}
         <div className="p-6">
           <p className="text-text-secondary dark:text-text-light/60 mb-6">
-            How can I help your business grow?
+            Core competencies
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {browserCards.map((card, i) => (

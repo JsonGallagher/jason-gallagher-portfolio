@@ -9,8 +9,9 @@ export default function Footer() {
               Jason Gallagher
             </h3>
             <p className="text-text-light/60 leading-relaxed max-w-md">
-              Fractional CMO. AI strategy, demand generation, and marketing
-              automation. 12+ years helping B2B and B2C brands scale.
+              Growth Marketer. Demand gen, AI strategy, and marketing
+              automation. 12+ years building systems that drive pipeline and
+              revenue.
             </p>
           </div>
 

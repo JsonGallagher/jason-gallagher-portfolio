@@ -9,7 +9,7 @@ const features = [
     title: "Drive pipeline with",
     titleAccent: "strategic precision.",
     description:
-      "Full-funnel strategy that converts. I've driven 38% YoY pipeline growth, managed six-figure ad budgets with 32% ROAS improvement, and reduced CAC by 50%. I own the metrics and set OKRs your team will actually hit.",
+      "Full-funnel execution, not just strategy. 38% YoY pipeline growth, six-figure ad budgets with 32% ROAS improvement, 50% CAC reduction. I own the metrics and build the systems that hit them.",
     visual: "radial",
   },
   {
@@ -17,7 +17,7 @@ const features = [
     title: "Scale with",
     titleAccent: "intelligent systems.",
     description:
-      "Practical AI implementation for marketing teams. I deploy AI across campaign ops, reporting, and CRM, cutting manual work by 40%. From content personalization to predictive analytics, I help you move faster without sacrificing quality.",
+      "Practical AI implementation, not hype. Deployed AI across campaign ops, reporting, and CRM, cutting manual work by 40%. Content personalization, predictive analytics, workflow automation.",
     visual: "circles",
     reverse: true,
   },
@@ -26,7 +26,7 @@ const features = [
     title: "Build systems that",
     titleAccent: "compound.",
     description:
-      "HubSpot, Salesforce, Klaviyo. I build the lifecycle, nurture, and lead scoring systems that turn leads into revenue. Trained 40+ people on CRM with 80% adoption. I don't just advise on automation. I build it.",
+      "HubSpot, Salesforce, Klaviyo. Lifecycle, nurture, and lead scoring systems that turn leads into revenue. Trained 40+ people on CRM with 80% adoption. I don't advise on automation. I build it.",
     visual: "bars",
   },
 ];
@@ -138,8 +138,8 @@ function BarsVisual() {
             hasAnimatedIn
               ? { height: [`${h}%`, `${h - 8}%`, `${h}%`] }
               : inView
-              ? { height: `${h}%` }
-              : { height: 0 }
+                ? { height: `${h}%` }
+                : { height: 0 }
           }
           transition={
             hasAnimatedIn

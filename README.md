@@ -1,6 +1,6 @@
 # Jason Gallagher Portfolio
 
-A modern, responsive portfolio website for a Fractional CMO specializing in AI strategy, demand generation, and marketing automation. Built with React, Vite, and Tailwind CSS.
+A modern, responsive portfolio website for a Growth Marketer specializing in demand gen, AI strategy, and marketing automation. Built with React, Vite, and Tailwind CSS.
 
 ## 🚀 Quick Start
 
@@ -43,11 +43,10 @@ This creates an optimized build in the `dist` folder.
 ## 🎨 Features
 
 ### Portfolio
-- **Fractional CMO Positioning** - Focused on AI strategy, demand generation, and marketing automation
+- **Growth Marketer Positioning** - Job seeker focus with resume CTA
 - **Dark Mode** - Toggle between light and dark themes (persists in localStorage)
 - **Smooth Animations** - Scroll-triggered animations using Framer Motion
 - **Responsive Design** - Mobile-first, works on all screen sizes
-- **Calendly Integration** - Direct booking for consultations
 
 ### The Shelf (`/shelf`)
 A curated media collection page featuring:
