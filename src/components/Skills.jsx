@@ -49,11 +49,8 @@ export default function Skills() {
 
         <div className="grid sm:grid-cols-2 gap-6">
           {skillCategories.map((category, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
               className="p-6 rounded-3xl
                 bg-white dark:bg-white/5
                 ring-1 ring-black/10 dark:ring-white/10
@@ -73,7 +70,7 @@ export default function Skills() {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
