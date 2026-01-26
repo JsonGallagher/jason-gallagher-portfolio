@@ -2,6 +2,7 @@ import { useState, useEffect, createContext, useContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Shelf from './pages/Shelf'
+import ScrollToTop from './components/ScrollToTop'
 
 // Dark mode context
 export const ThemeContext = createContext()
@@ -32,6 +33,7 @@ function App() {
   return (
     <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shelf" element={<Shelf />} />

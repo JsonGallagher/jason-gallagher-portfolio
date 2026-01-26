@@ -8,7 +8,6 @@ import SearchBar from '../components/shelf/SearchBar'
 import FilterTags from '../components/shelf/FilterTags'
 import MediaGrid from '../components/shelf/MediaGrid'
 import MediaModal from '../components/shelf/MediaModal'
-import Essays from '../components/shelf/Essays'
 import booksData from '../data/books.json'
 import filmsData from '../data/films.json'
 import tvData from '../data/tv.json'
@@ -284,8 +283,6 @@ export default function Shelf() {
     return placeholders[activeTab] || 'Search...'
   }
 
-  const isMediaTab = ['books', 'films', 'tv'].includes(activeTab)
-
   return (
     <div className="min-h-screen bg-primary dark:bg-primary-dark transition-colors duration-300">
       {/* Header */}
@@ -333,7 +330,7 @@ export default function Shelf() {
           className="border-l-4 border-yellow-500/70 pl-6 py-2 mb-10"
         >
           <p className="font-serif text-2xl text-text-primary dark:text-text-light/90 leading-relaxed">
-            A curated collection of books, films, TV shows, and essays that have shaped my thinking.
+            A curated collection of books, films, and TV shows that have shaped my thinking.
           </p>
           <p className="text-text-secondary dark:text-text-light/50 mt-1">
             Organized by year consumed, with personal ratings and notes.
@@ -349,46 +346,38 @@ export default function Shelf() {
         >
           <ShelfTabs activeTab={activeTab} onTabChange={handleTabChange} />
 
-          {isMediaTab && (
-            <div className="w-full sm:w-64">
-              <SearchBar
-                value={searchQuery}
-                onChange={setSearchQuery}
-                placeholder={getSearchPlaceholder()}
-              />
-            </div>
-          )}
+          <div className="w-full sm:w-64">
+            <SearchBar
+              value={searchQuery}
+              onChange={setSearchQuery}
+              placeholder={getSearchPlaceholder()}
+            />
+          </div>
         </motion.div>
 
         {/* Filters and Count Row */}
-        {isMediaTab && (
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8"
-          >
-            <FilterTags
-              activeFilter={activeFilter}
-              onFilterChange={setActiveFilter}
-            />
-            <span className="text-sm text-text-secondary dark:text-text-light/50">
-              {getCountLabel()}
-            </span>
-          </motion.div>
-        )}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8"
+        >
+          <FilterTags
+            activeFilter={activeFilter}
+            onFilterChange={setActiveFilter}
+          />
+          <span className="text-sm text-text-secondary dark:text-text-light/50">
+            {getCountLabel()}
+          </span>
+        </motion.div>
 
         {/* Content */}
-        {activeTab === 'essays' ? (
-          <Essays />
-        ) : (
-          <MediaGrid
-            items={filteredItems}
-            type={getMediaType()}
-            posterPaths={posterPaths}
-            onItemClick={handleItemClick}
-          />
-        )}
+        <MediaGrid
+          items={filteredItems}
+          type={getMediaType()}
+          posterPaths={posterPaths}
+          onItemClick={handleItemClick}
+        />
       </main>
 
       {/* Modal */}

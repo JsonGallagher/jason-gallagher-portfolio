@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion'
-import { BookOpen, Film, Tv, FileText } from 'lucide-react'
+import { BookOpen, Film, Tv } from 'lucide-react'
 
 const tabs = [
   { id: 'films', label: 'Films', icon: Film },
   { id: 'tv', label: 'TV', icon: Tv },
   { id: 'books', label: 'Books', icon: BookOpen },
-  { id: 'essays', label: 'Essays', icon: FileText },
 ]
 
 export default function ShelfTabs({ activeTab, onTabChange }) {
