@@ -24,7 +24,7 @@ export default function CTA() {
         </p>
 
         <a
-          href="https://bit.ly/Resume_25"
+          href="https://bit.ly/resume_26"
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-primary"
