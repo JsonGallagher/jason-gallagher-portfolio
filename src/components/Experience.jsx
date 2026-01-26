@@ -81,7 +81,7 @@ function TimelineItem({ experience, index }) {
       className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-12 py-8 border-t border-black/10 dark:border-white/10"
     >
       <div className="text-text-secondary dark:text-text-light/50">
-        <div className="text-sm">{experience.period}</div>
+        <div className="text-sm md:text-base">{experience.period}</div>
         {experience.duration && (
           <div className="font-semibold mt-1 text-text-primary dark:text-text-light">
             {experience.duration}
@@ -90,14 +90,14 @@ function TimelineItem({ experience, index }) {
       </div>
       <div>
         <h3 className="text-xl font-semibold mb-1">{experience.title}</h3>
-        <div className="text-text-secondary dark:text-text-light/50 mb-4">
+        <div className="text-text-secondary dark:text-text-light/50 mb-4 md:text-lg">
           {experience.company}
         </div>
         <ul className="space-y-2">
           {experience.highlights.map((highlight, i) => (
             <li
               key={i}
-              className="flex gap-3 text-text-secondary dark:text-text-light/70 text-sm leading-relaxed"
+              className="flex gap-3 text-text-secondary dark:text-text-light/70 text-base md:text-lg leading-relaxed"
             >
               <span className="text-text-primary dark:text-text-light shrink-0">
                 →

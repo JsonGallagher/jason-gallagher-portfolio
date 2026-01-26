@@ -56,7 +56,7 @@ export default function Values() {
                 <value.icon className="w-7 h-7 stroke-[1.5]" />
               </div>
               <h3 className="font-semibold text-lg mb-2">{value.title}</h3>
-              <p className="text-sm text-text-secondary dark:text-text-light/60 leading-relaxed">
+              <p className="text-base md:text-lg text-text-secondary dark:text-text-light/60 leading-relaxed">
                 {value.description}
               </p>
             </motion.div>

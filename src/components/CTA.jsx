@@ -18,7 +18,7 @@ export default function CTA() {
         <h2 className="section-title">
           Let's <em className="italic">connect.</em>
         </h2>
-        <p className="text-text-secondary dark:text-text-light/60 mb-8 max-w-lg mx-auto">
+        <p className="text-text-secondary dark:text-text-light/60 mb-8 max-w-lg mx-auto md:text-lg">
           Looking for a growth marketer who builds, not just advises? Open to
           full-time roles with teams that ship.
         </p>

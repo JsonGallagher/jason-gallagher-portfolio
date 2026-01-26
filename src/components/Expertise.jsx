@@ -193,7 +193,7 @@ function FeatureCard({ feature }) {
         <h3 className="section-title">
           {feature.title} <em className="italic">{feature.titleAccent}</em>
         </h3>
-        <p className="text-text-secondary dark:text-text-light/60 leading-relaxed">
+        <p className="text-text-secondary dark:text-text-light/60 leading-relaxed md:text-lg">
           {feature.description}
         </p>
       </div>

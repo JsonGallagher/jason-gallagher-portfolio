@@ -48,7 +48,7 @@ export default function Testimonials() {
                 shadow-xl shadow-black/5 dark:shadow-black/40
                 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
-              <p className="text-text-secondary dark:text-text-light/60 leading-relaxed mb-6">
+              <p className="text-text-secondary dark:text-text-light/60 leading-relaxed mb-6 md:text-lg">
                 {item.text}
               </p>
               <div className="mt-auto">

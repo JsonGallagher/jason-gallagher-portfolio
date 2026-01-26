@@ -58,16 +58,12 @@ export default function About() {
             Growth Marketer • Colorado
           </p>
 
-          <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-4">
-            12+ years building marketing systems for B2B and B2C brands. $300M+
-            in revenue driven, 50% lower CAC, 23% lift in lead-to-close rates.
+          <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-4 md:text-lg">
+            I'm a growth marketing leader who builds and scales programs that drive revenue. I've spent 12+ years across B2B and B2C teams, owning the full funnel from acquisition to retention.
           </p>
 
-          <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-8">
-            I build demand gen engines, marketing automation, and AI-powered
-            workflows. Not a strategist who hands off decks. I get in the CRM,
-            the data, the workflows. Looking for a full-time role with a team
-            that ships.
+          <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-8 md:text-lg">
+            I combine strategy with execution. I launch, test, and optimize across the funnel, then keep improving what works. I focus on what matters: smart channel mix, strong creative, rigorous experimentation, and clear reporting. I like shipping, learning fast, and compounding wins.
           </p>
 
           {/* Links */}
