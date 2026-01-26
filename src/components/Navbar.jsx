@@ -76,7 +76,7 @@ export default function Navbar() {
               to="/shelf"
               className="flex items-end gap-1.5 text-sm font-medium text-text-primary dark:text-text-light hover:opacity-60 transition-colors translate-y-[1px]"
             >
-              <Library className="w-4 h-4 translate-y-[-2px]" />
+              <Library className="w-4 h-4 translate-y-[-2.5px]" />
               <span className="translate-y-[1px]">Shelf</span>
             </Link>
           </li>
