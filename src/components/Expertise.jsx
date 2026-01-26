@@ -178,6 +178,7 @@ function FeatureCard({ feature }) {
         ring-1 ring-black/10 dark:ring-white/10
         shadow-xl shadow-black/5 dark:shadow-black/40
         divide-y md:divide-y-0 md:divide-x divide-black/10 dark:divide-white/10
+        transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl
         ${feature.reverse ? "md:direction-rtl" : ""}`}
     >
       {/* Content */}

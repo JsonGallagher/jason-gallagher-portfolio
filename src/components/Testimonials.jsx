@@ -42,9 +42,13 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="card p-10 flex flex-col"
+              className="p-8 md:p-10 flex flex-col rounded-3xl
+                bg-white dark:bg-white/5
+                ring-1 ring-black/10 dark:ring-white/10
+                shadow-xl shadow-black/5 dark:shadow-black/40
+                transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
-              <p className="text-text-secondary text-lg leading-7 tracking-wide mb-6 dark:text-text-light/60">
+              <p className="text-text-secondary dark:text-text-light/60 leading-relaxed mb-6">
                 {item.text}
               </p>
               <div className="mt-auto">

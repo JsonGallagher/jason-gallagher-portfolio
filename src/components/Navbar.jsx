@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Moon, Sun, Menu, X, Library, Linkedin } from "lucide-react";
+import { Moon, Sun, Menu, X, Library, Linkedin, Mail } from "lucide-react";
 import { useTheme } from "../App";
 import { useActiveSection } from "../hooks/useActiveSection";
 
@@ -170,7 +170,14 @@ export default function Navbar() {
                 className="btn btn-secondary justify-center"
               >
                 <Linkedin className="w-4 h-4" />
-                LinkedIn
+                <span className="translate-y-[1.5px]">LinkedIn</span>
+              </a>
+              <a
+                href="mailto:jason@jasongallagher.co"
+                className="btn btn-primary justify-center"
+              >
+                <Mail className="w-4 h-4" />
+                <span className="translate-y-[1.5px]">Email Me</span>
               </a>
             </div>
           </motion.div>

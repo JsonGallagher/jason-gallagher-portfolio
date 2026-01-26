@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { FileText } from "lucide-react";
+import { FileText, ArrowDown, ArrowUp } from "lucide-react";
 
 const stats = [
   { value: "$300M+", label: "Revenue Driven" },
-  { value: "50%", label: "Lower CAC" },
-  { value: "+23%", label: "Lead-to-Close Lift" },
+  { value: "50%", label: "Lower CAC", arrow: "down" },
+  { value: "23%", label: "Lead-to-Close Lift", arrow: "up" },
   { value: "12+", label: "Years Experience" },
 ];
 
@@ -43,10 +43,12 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="inline-flex items-center gap-2 px-4 py-2 bg-black/5 dark:bg-white/10 rounded-full text-sm mb-8"
+        className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 dark:bg-green-500/20 rounded-full text-sm mb-8 ring-1 ring-green-500/20"
       >
         <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-        Open to Opportunities
+        <span className="text-green-700 dark:text-green-400">Available Now</span>
+        <span className="text-green-700/50 dark:text-green-400/50">·</span>
+        <span className="text-green-700/80 dark:text-green-400/80">Open to Full-Time Roles</span>
       </motion.div>
 
       {/* Headline */}
@@ -103,11 +105,9 @@ export default function Hero() {
       >
         {stats.map((stat, i) => (
           <div key={i} className="text-center flex flex-col items-center">
-            <div
-              className={`font-serif text-3xl md:text-4xl tracking-tight ${
-                stat.value.startsWith("+") ? "-translate-x-1.5" : ""
-              }`}
-            >
+            <div className="font-serif text-3xl md:text-4xl tracking-tight flex items-center justify-center gap-1">
+              {stat.arrow === "down" && <ArrowDown className="w-5 h-5 md:w-6 md:h-6 text-green-500" />}
+              {stat.arrow === "up" && <ArrowUp className="w-5 h-5 md:w-6 md:h-6 text-green-500" />}
               {stat.value}
             </div>
             <div className="text-sm text-text-secondary dark:text-text-light/50 mt-1">

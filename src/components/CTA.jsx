@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { FileText } from "lucide-react";
+import { FileText, Mail } from "lucide-react";
 
 export default function CTA() {
   const ref = useRef(null);
@@ -23,15 +23,24 @@ export default function CTA() {
           full-time roles with teams that ship.
         </p>
 
-        <a
-          href="https://bit.ly/resume_26"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-primary"
-        >
-          <FileText className="w-4 h-4 text-blue-500" />
-          View Resume
-        </a>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://bit.ly/resume_26"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
+            <FileText className="w-4 h-4 text-blue-500" />
+            View Resume
+          </a>
+          <a
+            href="mailto:jason@jasongallagher.co"
+            className="btn btn-secondary"
+          >
+            <Mail className="w-4 h-4" />
+            Get in Touch
+          </a>
+        </div>
       </motion.div>
     </section>
   );
