@@ -54,7 +54,11 @@ export default function Skills() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="card p-6"
+              className="p-6 rounded-3xl
+                bg-white dark:bg-white/5
+                ring-1 ring-black/10 dark:ring-white/10
+                shadow-xl shadow-black/5 dark:shadow-black/40
+                transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
               <h3 className="text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-text-light/50 mb-4">
                 {category.title}

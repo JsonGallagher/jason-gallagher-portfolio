@@ -129,12 +129,21 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute top-full left-0 right-0 bg-primary dark:bg-primary-dark border-t border-black/10 dark:border-white/10 py-6 px-6"
-          >
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="md:hidden fixed inset-0 top-[72px] bg-black/20 backdrop-blur-sm z-40"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="md:hidden absolute top-full left-0 right-0 bg-primary dark:bg-primary-dark border-t border-black/10 dark:border-white/10 py-6 px-6 z-50"
+            >
             <ul className="flex flex-col gap-4 mb-6">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -181,6 +190,7 @@ export default function Navbar() {
               </a>
             </div>
           </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.nav>

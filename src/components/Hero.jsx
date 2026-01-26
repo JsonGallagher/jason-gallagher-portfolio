@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { FileText, ArrowDown, ArrowUp } from "lucide-react";
 
 const stats = [
-  { value: "$300M+", label: "Revenue Driven" },
+  { value: "$300M+", label: "Revenue Driven", nudge: "translate-x-0.5" },
   { value: "50%", label: "Lower CAC", arrow: "down" },
   { value: "23%", label: "Lead-to-Close Lift", arrow: "up" },
-  { value: "12+", label: "Years Experience" },
+  { value: "12+", label: "Years Experience", nudge: "translate-x-1.5" },
 ];
 
 const browserCards = [
@@ -105,9 +105,9 @@ export default function Hero() {
       >
         {stats.map((stat, i) => (
           <div key={i} className="text-center flex flex-col items-center">
-            <div className="font-serif text-3xl md:text-4xl tracking-tight flex items-center justify-center gap-1">
+            <div className={`font-serif text-3xl md:text-4xl tracking-normal relative flex items-center justify-center gap-1 ${stat.arrow === "up" ? "translate-x-1" : ""} ${stat.nudge || ""}`}>
               {stat.arrow === "down" && <ArrowDown className="w-5 h-5 md:w-6 md:h-6 text-green-500" />}
-              {stat.arrow === "up" && <ArrowUp className="w-5 h-5 md:w-6 md:h-6 text-green-500" />}
+              {stat.arrow === "up" && <ArrowUp className="w-5 h-5 md:w-6 md:h-6 text-green-500 absolute -left-6 md:-left-7 top-1/2 -translate-y-1/2" />}
               {stat.value}
             </div>
             <div className="text-sm text-text-secondary dark:text-text-light/50 mt-1">
@@ -122,7 +122,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="w-full max-w-4xl bg-white dark:bg-white/5 rounded-xl shadow-2xl shadow-black/10 dark:shadow-black/30 overflow-hidden"
+        className="w-full max-w-5xl bg-white dark:bg-white/5 rounded-xl shadow-2xl shadow-black/10 dark:shadow-black/30 overflow-hidden"
       >
         {/* Browser Header */}
         <div className="relative flex items-center gap-2 px-4 py-3 bg-gray-50 dark:bg-white/5 border-b border-black/5 dark:border-white/10">
@@ -136,20 +136,20 @@ export default function Hero() {
         </div>
 
         {/* Browser Content */}
-        <div className="p-6">
-          <p className="text-text-secondary dark:text-text-light/60 mb-6">
+        <div className="p-8 md:p-10">
+          <p className="text-text-secondary dark:text-text-light/60 mb-6 md:text-lg">
             Core competencies
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {browserCards.map((card, i) => (
               <div
                 key={i}
-                className="p-4 bg-primary dark:bg-white/5 rounded-lg hover:bg-primary-dark/5 dark:hover:bg-white/10 transition-colors cursor-pointer group"
+                className="p-5 bg-primary dark:bg-white/5 rounded-lg hover:bg-primary-dark/5 dark:hover:bg-white/10 transition-colors cursor-pointer group"
               >
-                <div className="font-semibold text-sm mb-1 group-hover:text-text-primary dark:group-hover:text-text-light">
+                <div className="font-semibold text-sm md:text-base mb-1 group-hover:text-text-primary dark:group-hover:text-text-light">
                   {card.title}
                 </div>
-                <p className="text-sm text-text-secondary dark:text-text-light/50 text-balance">
+                <p className="text-sm md:text-base text-text-secondary dark:text-text-light/50 text-balance">
                   {card.desc}
                 </p>
               </div>
