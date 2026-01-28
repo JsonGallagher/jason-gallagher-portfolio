@@ -25,7 +25,7 @@ export default function CTA() {
 
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="https://bit.ly/resume_26"
+            href="/resume"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"

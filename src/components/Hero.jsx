@@ -86,7 +86,7 @@ export default function Hero() {
         className="flex flex-wrap justify-center gap-4 mb-16"
       >
         <a
-          href="https://bit.ly/resume_26"
+          href="/resume"
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-primary"
