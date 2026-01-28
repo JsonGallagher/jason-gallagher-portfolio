@@ -2,8 +2,8 @@
 
 **Date:** 2026-01-27
 **Type:** Migration
-**Status:** In Progress
-**Estimated Timeline:** 3-7 days (mostly waiting for DNS/transfer)
+**Status:** Complete
+**Completed:** 2026-01-28 (2 days)
 **Cost:** ~$10-12/year domain renewal at cost (vs ~$15-18 at Namecheap)
 
 ---
@@ -16,8 +16,8 @@
 | Phase 2: Add Site to Cloudflare | Done | 2026-01-27 |
 | Phase 3: Set Up Cloudflare Pages | Done | 2026-01-28 |
 | Phase 4: Point Nameservers | Done | 2026-01-27 |
-| Phase 5: Domain Transfer | In Progress | - |
-| Phase 6: Post-Migration Cleanup | In Progress | - |
+| Phase 5: Domain Transfer | Done | 2026-01-28 |
+| Phase 6: Post-Migration Cleanup | Done | 2026-01-28 |
 
 ---
 
@@ -161,53 +161,53 @@ Consolidate hosting and domain management by:
 - [x] Saved changes
 
 ### 4.2 Verify Propagation
-- [ ] Use [dnschecker.org](https://dnschecker.org) to monitor NS records
-- [ ] Check that nameservers show Cloudflare's globally
-- [ ] Run `dig NS jasongallagher.co +short` to verify
+- [x] Use [dnschecker.org](https://dnschecker.org) to monitor NS records
+- [x] Check that nameservers show Cloudflare's globally
+- [x] Run `dig NS jasongallagher.co +short` to verify
 
 ### 4.3 Confirm in Cloudflare
-- [ ] Cloudflare dashboard shows "Active" status
-- [ ] SSL certificate provisioned automatically
+- [x] Cloudflare dashboard shows "Active" status
+- [x] SSL certificate provisioned automatically
 
-**Note:** Site continues to work via Netlify during propagation. Cloudflare proxies traffic to Netlify's IP (75.2.60.5) until Cloudflare Pages is set up.
-
-**Completed:** 2026-01-27 (awaiting propagation confirmation)
+**Completed:** 2026-01-27
 
 ---
 
-## Phase 5: Domain Transfer (Day 3+) - IN PROGRESS
+## Phase 5: Domain Transfer (Day 3+) - COMPLETED
 
 ### 5.1 Unlock Domain at Namecheap
 - [x] Namecheap > Domain List > your domain
 - [x] Turned off Domain Lock
-- [ ] Awaiting propagation (WHOIS still shows clientTransferProhibited)
+- [x] Propagation complete
 
 ### 5.2 Get Auth/EPP Code
 - [x] Requested Auth Code
 - [x] Code received
 
 ### 5.3 Initiate Transfer in Cloudflare
-1. Cloudflare Dashboard > Domain Registration > Transfer Domains
-2. Enter your domain name
-3. Enter the EPP code
-4. Pay the renewal fee (extends domain by 1 year)
+- [x] Cloudflare Dashboard > Domain Registration > Transfer Domains
+- [x] Entered domain name
+- [x] Entered EPP code
+- [x] Paid renewal fee (extends domain by 1 year)
 
 ### 5.4 Approve Transfer
-1. Check email for transfer approval request from Namecheap
-2. Approve immediately to speed up transfer
-3. Transfer completes in 1-5 days (often faster if approved quickly)
+- [x] Received transfer approval request from Namecheap
+- [x] Approved transfer
+- [x] Transfer completed
+
+**Completed:** 2026-01-28
 
 ---
 
-## Phase 6: Post-Migration Cleanup - IN PROGRESS
+## Phase 6: Post-Migration Cleanup - COMPLETED
 
 ### 6.1 Verify Everything Works
 - [x] Website loads on custom domain
 - [x] SSL certificate is active (padlock icon)
 - [x] All pages load correctly (test React Router routes)
-- [x] **Test iCloud email:** Send a test email TO your @jasongallagher.co address
-- [ ] **Test outbound:** Send a test email FROM your @jasongallagher.co address
-- [ ] Check email doesn't land in spam (SPF/DKIM should pass)
+- [x] **Test iCloud email:** Send a test email TO jason@jasongallagher.co
+- [x] **Test outbound:** Send a test email FROM jason@jasongallagher.co
+- [x] Email delivery working correctly (SPF/DKIM passing)
 
 **Email troubleshooting:** If email breaks, verify in Cloudflare DNS:
 - MX records point to `mx01.mail.icloud.com` and `mx02.mail.icloud.com`
@@ -216,18 +216,19 @@ Consolidate hosting and domain management by:
 - All email records have proxy **disabled** (gray cloud, not orange)
 
 ### 6.2 Configure Cloudflare Settings (Optional)
-- [ ] Enable "Always Use HTTPS"
-- [ ] Set up Page Rules for caching
-- [ ] Enable Web Analytics (free, privacy-focused)
-- [ ] Review security settings
+- [x] Enable "Always Use HTTPS"
+- [x] Reviewed Page Rules - defaults sufficient for static site
+- [x] Reviewed Web Analytics - optional, can enable later
+- [x] Reviewed security settings - defaults appropriate
+- [x] Reviewed Smart Tiered Cache - not needed for Cloudflare Pages (no external origin)
 
 ### 6.3 Remove Netlify Site
 - [x] Disabled Netlify site (stops builds)
 - [ ] Optionally delete site completely later
 
 ### 6.4 Update Documentation
-- [ ] Update any README references to hosting
-- [ ] Update deploy instructions if documented anywhere
+- [x] Updated README with Cloudflare Pages deployment info
+- [x] Added live URL, build config, and deployment workflow
 
 ---
 
@@ -259,7 +260,8 @@ Your existing setup is fully compatible:
 ### Current State (as of 2026-01-28)
 - DNS managed by Cloudflare
 - Hosting on Cloudflare Pages (jasongallagher.co + www)
-- Domain registration still at Namecheap (transfer pending)
+- Domain registration at Cloudflare (transfer complete)
+- Email working: jason@jasongallagher.co (inbound + outbound)
 
 ---
 
@@ -302,3 +304,8 @@ Your existing setup is fully compatible:
 | 2026-01-28 | Verified site and email | All working on Cloudflare Pages |
 | 2026-01-28 | Disabled Netlify site | Stops unnecessary builds |
 | 2026-01-28 | Unlocked domain at Namecheap | Awaiting propagation for transfer |
+| 2026-01-28 | Domain transfer complete | jasongallagher.co now registered at Cloudflare |
+| 2026-01-28 | Email verified | Inbound and outbound working for jason@jasongallagher.co |
+| 2026-01-28 | Reviewed Cloudflare settings | HTTPS enabled, reviewed caching/security options |
+| 2026-01-28 | Updated README | Added deployment section with Cloudflare Pages info |
+| 2026-01-28 | Migration complete | All phases finished |

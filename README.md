@@ -40,6 +40,17 @@ npm run build
 
 This creates an optimized build in the `dist` folder.
 
+## Deployment
+
+The site is hosted on **Cloudflare Pages** with automatic deployments from the `main` branch.
+
+- **Live URL:** [jasongallagher.co](https://jasongallagher.co)
+- **Domain & DNS:** Cloudflare Registrar
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+
+Pushing to `main` triggers an automatic build and deploy. The `wrangler.jsonc` file configures SPA routing for client-side navigation.
+
 ## 🎨 Features
 
 ### Portfolio
