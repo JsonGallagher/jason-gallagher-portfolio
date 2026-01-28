@@ -3,7 +3,7 @@ import { FileText, ArrowDown, ArrowUp, X, Minus, Maximize2 } from "lucide-react"
 
 const stats = [
   { value: "$300M+", label: "Revenue Driven", nudge: "translate-x-0.5" },
-  { value: "50%", label: "Lower CAC", arrow: "down" },
+  { value: "50%", label: "Acquisition Cost", arrow: "down", nudge: "-translate-x-1" },
   { value: "23%", label: "Lead-to-Close Lift", arrow: "up" },
   { value: "12+", label: "Years Experience", nudge: "translate-x-1.5" },
 ];

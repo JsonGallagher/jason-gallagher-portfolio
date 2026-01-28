@@ -26,14 +26,17 @@ export default function Testimonials() {
   return (
     <section className="pt-12 pb-12 px-6">
       <div ref={ref} className="max-w-6xl mx-auto">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="section-title text-center mb-12"
+          className="text-center mb-12"
         >
-          Impact at Scale
-        </motion.h2>
+          <span className="section-label">Results</span>
+          <h2 className="section-title">
+            Impact at <em className="italic">scale.</em>
+          </h2>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((item, i) => (
