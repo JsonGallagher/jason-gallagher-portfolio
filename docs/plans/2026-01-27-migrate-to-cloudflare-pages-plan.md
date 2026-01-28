@@ -16,7 +16,7 @@
 | Phase 2: Add Site to Cloudflare | Done | 2026-01-27 |
 | Phase 3: Set Up Cloudflare Pages | Done | 2026-01-28 |
 | Phase 4: Point Nameservers | Done | 2026-01-27 |
-| Phase 5: Domain Transfer | Not Started | - |
+| Phase 5: Domain Transfer | In Progress | - |
 | Phase 6: Post-Migration Cleanup | In Progress | - |
 
 ---
@@ -175,17 +175,16 @@ Consolidate hosting and domain management by:
 
 ---
 
-## Phase 5: Domain Transfer (Day 3+) - NOT STARTED
+## Phase 5: Domain Transfer (Day 3+) - IN PROGRESS
 
 ### 5.1 Unlock Domain at Namecheap
-1. Namecheap > Domain List > your domain
-2. Go to "Sharing & Transfer" tab
-3. Turn off Domain Lock
+- [x] Namecheap > Domain List > your domain
+- [x] Turned off Domain Lock
+- [ ] Awaiting propagation (WHOIS still shows clientTransferProhibited)
 
 ### 5.2 Get Auth/EPP Code
-1. Same page > Request Auth Code
-2. Code will be emailed to your registered email
-3. Code is valid for a limited time
+- [x] Requested Auth Code
+- [x] Code received
 
 ### 5.3 Initiate Transfer in Cloudflare
 1. Cloudflare Dashboard > Domain Registration > Transfer Domains
@@ -223,8 +222,8 @@ Consolidate hosting and domain management by:
 - [ ] Review security settings
 
 ### 6.3 Remove Netlify Site
-1. Netlify Dashboard > your site > Site configuration
-2. Delete site (do this AFTER confirming everything works on Cloudflare Pages)
+- [x] Disabled Netlify site (stops builds)
+- [ ] Optionally delete site completely later
 
 ### 6.4 Update Documentation
 - [ ] Update any README references to hosting
@@ -301,3 +300,5 @@ Your existing setup is fully compatible:
 | 2026-01-28 | Deployed to workers.dev | jason-gallagher-portfolio.jasong13.workers.dev |
 | 2026-01-28 | Added custom domains | jasongallagher.co and www.jasongallagher.co |
 | 2026-01-28 | Verified site and email | All working on Cloudflare Pages |
+| 2026-01-28 | Disabled Netlify site | Stops unnecessary builds |
+| 2026-01-28 | Unlocked domain at Namecheap | Awaiting propagation for transfer |
