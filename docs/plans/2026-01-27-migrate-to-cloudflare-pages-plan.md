@@ -14,10 +14,10 @@
 |-------|--------|-----------|
 | Phase 1: Preparation | Done | 2026-01-27 |
 | Phase 2: Add Site to Cloudflare | Done | 2026-01-27 |
-| Phase 3: Set Up Cloudflare Pages | Not Started | - |
+| Phase 3: Set Up Cloudflare Pages | Done | 2026-01-28 |
 | Phase 4: Point Nameservers | Done | 2026-01-27 |
 | Phase 5: Domain Transfer | Not Started | - |
-| Phase 6: Post-Migration Cleanup | Not Started | - |
+| Phase 6: Post-Migration Cleanup | In Progress | - |
 
 ---
 
@@ -120,32 +120,32 @@ Consolidate hosting and domain management by:
 
 ---
 
-## Phase 3: Set Up Cloudflare Pages - NOT STARTED
+## Phase 3: Set Up Cloudflare Pages - COMPLETED
 
 ### 3.1 Connect GitHub Repository
-1. Cloudflare Dashboard > Pages > Create a project
-2. Click "Connect to Git"
-3. Authorize Cloudflare to access your GitHub
-4. Select `jason-gallagher-portfolio` repository
+- [x] Cloudflare Dashboard > Developer Platform > Start Building
+- [x] Connected to Git and authorized GitHub access
+- [x] Selected `jason-gallagher-portfolio` repository
 
 ### 3.2 Configure Build Settings
-| Setting | Value |
-|---------|-------|
-| Production branch | `main` |
-| Framework preset | Vite |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
+- [x] Build command: `npm run build`
+- [x] Added `VITE_TMDB_API_KEY` environment variable
+- [x] Created `wrangler.jsonc` for static asset deployment
+- [x] Configured `not_found_handling: single-page-application` for SPA routing
 
 ### 3.3 Deploy and Test
-1. Click "Save and Deploy"
-2. Wait for build to complete
-3. Test using the provided `*.pages.dev` URL
-4. Verify all pages and features work correctly
+- [x] Initial deploy failed (missing wrangler config)
+- [x] Second deploy failed (_redirects infinite loop)
+- [x] Fixed by using wrangler.jsonc SPA handling instead of _redirects rule
+- [x] Successfully deployed to: `jason-gallagher-portfolio.jasong13.workers.dev`
 
 ### 3.4 Set Up Custom Domain
-1. Cloudflare Pages > your project > Custom domains
-2. Add `jasongallagher.co` and `www.jasongallagher.co`
-3. Cloudflare auto-configures the DNS records (replaces Netlify A/CNAME)
+- [x] Deleted old Netlify DNS records (A record and www CNAME)
+- [x] Added `jasongallagher.co` custom domain
+- [x] Added `www.jasongallagher.co` custom domain
+- [x] Cloudflare auto-configured new DNS records
+
+**Completed:** 2026-01-28
 
 ---
 
@@ -200,13 +200,13 @@ Consolidate hosting and domain management by:
 
 ---
 
-## Phase 6: Post-Migration Cleanup - NOT STARTED
+## Phase 6: Post-Migration Cleanup - IN PROGRESS
 
 ### 6.1 Verify Everything Works
-- [ ] Website loads on custom domain
-- [ ] SSL certificate is active (padlock icon)
-- [ ] All pages load correctly (test React Router routes)
-- [ ] **Test iCloud email:** Send a test email TO your @jasongallagher.co address
+- [x] Website loads on custom domain
+- [x] SSL certificate is active (padlock icon)
+- [x] All pages load correctly (test React Router routes)
+- [x] **Test iCloud email:** Send a test email TO your @jasongallagher.co address
 - [ ] **Test outbound:** Send a test email FROM your @jasongallagher.co address
 - [ ] Check email doesn't land in spam (SPF/DKIM should pass)
 
@@ -257,10 +257,10 @@ Your existing setup is fully compatible:
 - Tailwind CSS: No special config needed
 - Framer Motion: Works as-is
 
-### Current State (as of 2026-01-27)
+### Current State (as of 2026-01-28)
 - DNS managed by Cloudflare
-- Hosting still on Netlify (traffic proxied through Cloudflare)
-- Domain registration still at Namecheap
+- Hosting on Cloudflare Pages (jasongallagher.co + www)
+- Domain registration still at Namecheap (transfer pending)
 
 ---
 
@@ -294,4 +294,10 @@ Your existing setup is fully compatible:
 | 2026-01-27 | Added site to Cloudflare | Free plan selected |
 | 2026-01-27 | Imported DNS records | Fixed sig1._domainkey proxy setting |
 | 2026-01-27 | Changed nameservers at Namecheap | leonidas.ns.cloudflare.com, lola.ns.cloudflare.com |
-| 2026-01-27 | Awaiting DNS propagation | Check with `dig NS jasongallagher.co +short` |
+| 2026-01-27 | DNS propagation complete | Verified with `dig NS jasongallagher.co +short` |
+| 2026-01-28 | Created Cloudflare Pages project | Connected GitHub repo, configured build |
+| 2026-01-28 | Added wrangler.jsonc | For static asset deployment from dist/ |
+| 2026-01-28 | Fixed SPA routing | Used not_found_handling instead of _redirects rule |
+| 2026-01-28 | Deployed to workers.dev | jason-gallagher-portfolio.jasong13.workers.dev |
+| 2026-01-28 | Added custom domains | jasongallagher.co and www.jasongallagher.co |
+| 2026-01-28 | Verified site and email | All working on Cloudflare Pages |
