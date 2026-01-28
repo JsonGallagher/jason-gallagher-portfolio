@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-primary text-text-primary dark:bg-primary-dark dark:text-text-light;
+    @apply bg-primary text-text-primary dark:bg-primary-dark dark:text-text-light overflow-x-hidden;
     font-family: "DM Sans", system-ui, sans-serif;
   }
 }
