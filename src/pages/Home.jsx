@@ -6,6 +6,7 @@ import Values from '../components/Values'
 import Testimonials from '../components/Testimonials'
 import Experience from '../components/Experience'
 import Skills from '../components/Skills'
+import FeaturedProjects from '../components/FeaturedProjects'
 import CTA from '../components/CTA'
 import Footer from '../components/Footer'
 
@@ -21,6 +22,7 @@ export default function Home() {
         <Testimonials />
         <Experience />
         <Skills />
+        <FeaturedProjects />
         <CTA />
       </main>
       <Footer />
