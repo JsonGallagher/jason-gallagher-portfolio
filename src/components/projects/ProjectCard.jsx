@@ -1,136 +1,191 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { ExternalLink, Github } from "lucide-react";
 
-const statusColors = {
-  Shipped: "bg-green-500/10 text-green-600 dark:text-green-400",
-  WIP: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
-  Archived: "bg-gray-500/10 text-gray-600 dark:text-gray-400",
+const statusConfig = {
+  Shipped: {
+    classes: "bg-green-500/10 text-green-600 dark:text-green-400",
+    dot: "bg-green-500",
+  },
+  WIP: {
+    classes: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+    dot: "bg-blue-500",
+  },
+  Archived: {
+    classes: "bg-gray-500/10 text-gray-600 dark:text-gray-400",
+    dot: "bg-gray-500",
+  },
 };
+
+function SectionLabel({ children }) {
+  return (
+    <h4 className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-text-secondary/70 dark:text-text-light/40 mb-1.5">
+      <span className="w-3 h-px bg-current" />
+      {children}
+    </h4>
+  );
+}
 
 export default function ProjectCard({ project, variant = "full", index = 0 }) {
   const isPreview = variant === "preview";
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`rounded-3xl bg-white dark:bg-white/5 ring-1 ring-black/10 dark:ring-white/10 shadow-xl shadow-black/5 dark:shadow-black/40 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl overflow-hidden ${
-        isPreview ? "flex flex-col" : ""
-      }`}
-    >
-      {/* Image */}
-      <div className="aspect-video bg-gray-100 dark:bg-white/5 overflow-hidden rounded-t-3xl">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover"
-          onError={(e) => {
-            e.target.style.display = "none";
-          }}
-        />
-      </div>
+  const status = statusConfig[project.status] || statusConfig.Archived;
 
-      <div className={isPreview ? "p-5 flex flex-col flex-1" : "p-6 sm:p-8"}>
-        {/* Header */}
-        <div className="flex items-start justify-between gap-3 mb-3">
-          <div>
-            <h3
-              className={`font-serif font-medium ${
-                isPreview ? "text-lg" : "text-xl sm:text-2xl"
-              }`}
-            >
+  if (isPreview) {
+    return (
+      <motion.article
+        ref={ref}
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, delay: index * 0.12 }}
+        className="group relative flex flex-col rounded-2xl bg-white dark:bg-white/[0.03] ring-1 ring-black/[0.06] dark:ring-white/[0.08] shadow-lg shadow-black/[0.03] dark:shadow-black/30 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-blue-500/20 dark:hover:ring-blue-400/20"
+      >
+        <div className="relative aspect-video bg-gray-100 dark:bg-white/5 overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            onError={(e) => {
+              e.target.style.display = "none";
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </div>
+
+        <div className="p-5 flex flex-col flex-1">
+          <div className="flex items-start justify-between gap-2 mb-2">
+            <h3 className="font-serif text-lg font-medium leading-snug">
               {project.title}
             </h3>
-            <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-text-light/50">
+            <span
+              className={`shrink-0 flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium ${status.classes}`}
+            >
+              <span className={`w-1 h-1 rounded-full ${status.dot}`} />
+              {project.status}
+            </span>
+          </div>
+
+          <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-text-secondary/60 dark:text-text-light/40 mb-2">
+            {project.category}
+          </span>
+
+          <p className="text-sm text-text-secondary dark:text-text-light/60 leading-relaxed mb-4">
+            {project.tagline}
+          </p>
+
+          <div className="flex flex-wrap gap-1.5 mt-auto">
+            {project.stack.slice(0, 3).map((tech) => (
+              <span
+                key={tech}
+                className="px-2 py-0.5 bg-blue-500/[0.07] text-blue-600/80 dark:text-blue-400/70 rounded text-[11px] font-medium"
+              >
+                {tech}
+              </span>
+            ))}
+            {project.stack.length > 3 && (
+              <span className="px-2 py-0.5 text-text-secondary/50 dark:text-text-light/30 text-[11px]">
+                +{project.stack.length - 3}
+              </span>
+            )}
+          </div>
+        </div>
+      </motion.article>
+    );
+  }
+
+  // Full variant
+  return (
+    <motion.article
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+      className="group relative rounded-2xl overflow-hidden"
+    >
+      {/* Glow border effect */}
+      <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-blue-500/20 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-blue-400/25 dark:to-cyan-400/15" />
+
+      <div className="relative bg-white dark:bg-white/[0.03] ring-1 ring-black/[0.06] dark:ring-white/[0.08] rounded-2xl overflow-hidden transition-shadow duration-500 hover:shadow-2xl hover:shadow-blue-500/[0.08] dark:hover:shadow-blue-400/[0.06]">
+        {/* Image with overlay */}
+        <div className="relative aspect-video bg-gray-100 dark:bg-white/5 overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+            onError={(e) => {
+              e.target.style.display = "none";
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+
+          {/* Floating badges over image */}
+          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2">
+            <span
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium backdrop-blur-md bg-white/80 dark:bg-black/50 ${status.classes}`}
+            >
+              <span
+                className={`w-1.5 h-1.5 rounded-full ${status.dot}`}
+              />
+              {project.status}
+            </span>
+          </div>
+          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
+            <span className="px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-[0.15em] backdrop-blur-md bg-white/80 dark:bg-black/50 text-text-secondary dark:text-text-light/70">
               {project.category} &middot; {project.year}
             </span>
           </div>
-          <span
-            className={`shrink-0 px-2.5 py-1 rounded-full text-xs font-medium ${
-              statusColors[project.status] || statusColors.Archived
-            }`}
-          >
-            {project.status}
-          </span>
         </div>
 
-        {isPreview ? (
-          /* Preview variant */
-          <>
-            <p className="text-sm text-text-secondary dark:text-text-light/60 mb-4 leading-relaxed">
-              {project.tagline}
-            </p>
-            <div className="flex flex-wrap gap-1.5 mt-auto">
-              {project.stack.slice(0, 3).map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2.5 py-1 bg-blue-500/10 text-blue-500 dark:text-blue-400 rounded-md text-xs"
-                >
-                  {tech}
-                </span>
-              ))}
-              {project.stack.length > 3 && (
-                <span className="px-2.5 py-1 text-text-secondary dark:text-text-light/40 text-xs">
-                  +{project.stack.length - 3}
-                </span>
-              )}
-            </div>
-          </>
-        ) : (
-          /* Full variant */
-          <>
-            {/* Problem → Approach → Result */}
-            <div className="space-y-4 mb-6">
-              <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-text-light/50 mb-1">
-                  Problem
-                </h4>
-                <p className="text-sm text-text-secondary dark:text-text-light/70 leading-relaxed">
-                  {project.problem}
-                </p>
-              </div>
-              <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-text-light/50 mb-1">
-                  Approach
-                </h4>
-                <p className="text-sm text-text-secondary dark:text-text-light/70 leading-relaxed">
-                  {project.approach}
-                </p>
-              </div>
-              <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-text-light/50 mb-1">
-                  Result
-                </h4>
-                <p className="text-sm text-text-secondary dark:text-text-light/70 leading-relaxed">
-                  {project.result}
-                </p>
-              </div>
-            </div>
+        <div className="p-6 sm:p-8">
+          {/* Title */}
+          <h3 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight mb-6">
+            {project.title}
+          </h3>
 
-            {/* Stack tags */}
-            <div className="flex flex-wrap gap-2 mb-6">
+          {/* Problem → Approach → Result */}
+          <div className="space-y-5 mb-8">
+            {[
+              { label: "Problem", text: project.problem },
+              { label: "Approach", text: project.approach },
+              { label: "Result", text: project.result },
+            ].map((section) => (
+              <div key={section.label}>
+                <SectionLabel>{section.label}</SectionLabel>
+                <p className="text-base text-text-secondary dark:text-text-light/60 leading-relaxed pl-0 sm:pl-5">
+                  {section.text}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-black/[0.06] to-transparent dark:via-white/[0.06] mb-6" />
+
+          {/* Stack + Links row */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex flex-wrap gap-1.5">
               {project.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1.5 bg-blue-500/10 text-blue-500 dark:text-blue-400 rounded-md text-sm"
+                  className="px-2.5 py-1 bg-blue-500/[0.07] text-blue-600/80 dark:text-blue-400/70 rounded text-sm font-medium"
                 >
                   {tech}
                 </span>
               ))}
             </div>
 
-            {/* Links */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex gap-2 shrink-0">
               {project.links?.github && (
                 <a
                   href={project.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-secondary text-sm"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium rounded-lg border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
                 >
-                  <Github className="w-4 h-4" />
-                  View Source
+                  <Github className="w-3.5 h-3.5" />
+                  Source
                 </a>
               )}
               {project.links?.demo && (
@@ -138,15 +193,15 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
                   href={project.links.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primary text-sm"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium rounded-lg bg-primary-dark text-text-light dark:bg-text-light dark:text-primary-dark hover:opacity-90 transition-opacity"
                 >
-                  <ExternalLink className="w-4 h-4" />
-                  Live Demo
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  Demo
                 </a>
               )}
             </div>
-          </>
-        )}
+          </div>
+        </div>
       </div>
     </motion.article>
   );

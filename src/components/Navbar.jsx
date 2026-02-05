@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Moon, Sun, Menu, X, FolderGit2, Library, Linkedin, Mail } from "lucide-react";
+import { Moon, Sun, Menu, X, Terminal, Library, Linkedin, Mail } from "lucide-react";
 import { useTheme } from "../App";
 import { useActiveSection } from "../hooks/useActiveSection";
 
@@ -76,8 +76,8 @@ export default function Navbar() {
               to="/projects"
               className="flex items-end gap-1.5 text-sm font-medium text-text-primary dark:text-text-light hover:opacity-60 transition-colors translate-y-[1px]"
             >
-              <FolderGit2 className="w-4 h-4 translate-y-[-2.5px]" />
-              <span className="translate-y-[1px]">Projects</span>
+              <Terminal className="w-4 h-4 translate-y-[-2.5px]" />
+              <span className="translate-y-[0.5px]">Projects</span>
             </Link>
           </li>
           <li>
@@ -173,10 +173,10 @@ export default function Navbar() {
                 <Link
                   to="/projects"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-1 text-lg font-medium"
+                  className="flex items-center gap-1.5 text-lg font-medium"
                 >
-                  <FolderGit2 className="w-5 h-5" />
-                  <span className="translate-y-[1px]">Projects</span>
+                  <Terminal className="w-5 h-5" />
+                  <span className="translate-y-[0.5px]">Projects</span>
                 </Link>
               </li>
               <li>
@@ -186,7 +186,7 @@ export default function Navbar() {
                   className="flex items-center gap-1 text-lg font-medium"
                 >
                   <Library className="w-5 h-5" />
-                  <span className="translate-y-[1px]">Shelf</span>
+                  <span className="translate-y-[1.5px]">Shelf</span>
                 </Link>
               </li>
             </ul>
