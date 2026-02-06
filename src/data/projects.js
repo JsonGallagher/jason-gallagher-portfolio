@@ -13,7 +13,7 @@ const projects = [
       "Created a Svelte-based dashboard backed by Supabase that ingests structured data and renders interactive charts for median prices, inventory, and days on market.",
     result:
       "Enabled real-time comparison across zip codes with a clean, responsive interface that loads in under a second.",
-    stack: ["Svelte", "Supabase", "Chart.js", "Tailwind CSS"],
+    stack: ["Svelte", "Supabase", "Chart.js", "OpenAI API"],
     links: { github: "https://github.com/JsonGallagher/market-data" },
     featured: true,
   },
