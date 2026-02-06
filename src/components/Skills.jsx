@@ -25,7 +25,7 @@ const skillCategories = [
       "Python",
       "Attribution",
       "Dashboards",
-      "BigQuery",
+      "Julius",
     ],
   },
   {
