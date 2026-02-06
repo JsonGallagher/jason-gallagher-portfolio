@@ -1,6 +1,6 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState, useCallback } from "react";
+import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 
 const statusConfig = {
   Shipped: {
@@ -16,6 +16,95 @@ const statusConfig = {
     dot: "bg-gray-500",
   },
 };
+
+const swipeThreshold = 50;
+
+function ImageCarousel({ images, alt }) {
+  const [[activeIndex, direction], setActiveIndex] = useState([0, 0]);
+  const hasMultiple = images.length > 1;
+
+  const paginate = useCallback(
+    (dir) => {
+      setActiveIndex(([prev]) => {
+        const next = (prev + dir + images.length) % images.length;
+        return [next, dir];
+      });
+    },
+    [images.length]
+  );
+
+  const handleDragEnd = useCallback(
+    (_, info) => {
+      if (info.offset.x < -swipeThreshold) paginate(1);
+      else if (info.offset.x > swipeThreshold) paginate(-1);
+    },
+    [paginate]
+  );
+
+  const variants = {
+    enter: (dir) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir) => ({ x: dir > 0 ? "-100%" : "100%", opacity: 0 }),
+  };
+
+  return (
+    <div className="relative aspect-video bg-gray-100 dark:bg-white/5 overflow-hidden">
+      <AnimatePresence initial={false} custom={direction} mode="popLayout">
+        <motion.img
+          key={activeIndex}
+          src={images[activeIndex]}
+          alt={`${alt} - ${activeIndex + 1}`}
+          className="absolute inset-0 w-full h-full object-cover"
+          custom={direction}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          drag={hasMultiple ? "x" : false}
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.12}
+          onDragEnd={hasMultiple ? handleDragEnd : undefined}
+        />
+      </AnimatePresence>
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+
+      {hasMultiple && (
+        <>
+          <button
+            onClick={() => paginate(-1)}
+            className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-black/60"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => paginate(1)}
+            className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-black/60"
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIndex([i, i > activeIndex ? 1 : -1])}
+                className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
+                  i === activeIndex
+                    ? "bg-white w-4"
+                    : "bg-white/50 hover:bg-white/75"
+                }`}
+                aria-label={`Go to image ${i + 1}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 function SectionLabel({ children }) {
   return (
@@ -44,7 +133,7 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
       >
         <div className="relative aspect-video bg-gray-100 dark:bg-white/5 overflow-hidden">
           <img
-            src={project.image}
+            src={(project.images || [project.image])[0]}
             alt={project.title}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             onError={(e) => {
@@ -108,20 +197,15 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
       <div className="absolute -inset-px rounded-3xl bg-gradient-to-b from-blue-500/20 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-blue-400/25 dark:to-cyan-400/15" />
 
       <div className="relative bg-white dark:bg-[#232323] rounded-3xl overflow-hidden">
-        {/* Image with overlay */}
-        <div className="relative aspect-video bg-gray-100 dark:bg-white/5 overflow-hidden">
-          <img
-            src={project.image}
+        {/* Image carousel */}
+        <div className="relative">
+          <ImageCarousel
+            images={project.images || [project.image]}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-            onError={(e) => {
-              e.target.style.display = "none";
-            }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
           {/* Floating badges over image */}
-          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2">
+          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2 z-10 pointer-events-none">
             <span
               className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium backdrop-blur-md bg-white/80 dark:bg-black/50 ${status.classes}`}
             >
@@ -131,7 +215,7 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
               {project.status}
             </span>
           </div>
-          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
+          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 z-10 pointer-events-none">
             <span className="px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-[0.15em] backdrop-blur-md bg-white/80 dark:bg-black/50 text-text-secondary dark:text-text-light/70">
               {project.category} &middot; {project.year}
             </span>

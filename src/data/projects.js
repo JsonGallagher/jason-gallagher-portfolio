@@ -6,7 +6,13 @@ const projects = [
     category: "Data & Analytics",
     status: "Shipped",
     year: "2026",
-    image: "/images/projects/market-data.png",
+    images: [
+      "/images/projects/market_data/market_data.png",
+      "/images/projects/market_data/market_data-2.png",
+      "/images/projects/market_data/market_data-3.png",
+      "/images/projects/market_data/market_data-4.png",
+      "/images/projects/market_data/market_data-5.png",
+    ],
     problem:
       "Local real estate market data is scattered across MLS exports and government PDFs, making it hard to spot trends or compare neighborhoods quickly.",
     approach:
@@ -24,7 +30,7 @@ const projects = [
     category: "Creative Dev",
     status: "Shipped",
     year: "2025",
-    image: "/images/projects/808-lab.png",
+    images: ["/images/projects/808-lab.png"],
     problem:
       "Classic drum machine emulators are either desktop-only or locked behind paywalls, making casual beat-making inaccessible.",
     approach:
@@ -42,7 +48,7 @@ const projects = [
     category: "AI Automations",
     status: "Shipped",
     year: "2025",
-    image: "/images/projects/ad-research-tool.png",
+    images: ["/images/projects/ad-research-tool.png"],
     problem:
       "Manually monitoring competitor ads across Meta is time-consuming and easy to miss shifts in creative strategy or spend patterns.",
     approach:
@@ -60,7 +66,7 @@ const projects = [
     category: "AI Automations",
     status: "Shipped",
     year: "2024",
-    image: "/images/projects/color-palette.png",
+    images: ["/images/projects/color-palette.png"],
     problem:
       "Designers and developers often struggle to pick cohesive color palettes that match a mood or brand direction without deep color theory knowledge.",
     approach:
