@@ -12,7 +12,7 @@ const projects = [
     approach:
       "Created a Svelte-based dashboard backed by Supabase that ingests structured data and renders interactive charts for median prices, inventory, and days on market.",
     result:
-      "Enabled real-time comparison across zip codes with a clean, responsive interface that loads in under a second.",
+      "Enabled market data analysis & AI insights with a clean, responsive interface that loads in under a second.",
     stack: ["Svelte", "Supabase", "Chart.js", "OpenAI API"],
     links: { github: "https://github.com/JsonGallagher/market-data" },
     featured: true,
@@ -30,7 +30,7 @@ const projects = [
     approach:
       "Built a browser-based 808 drum machine using the Web Audio API with a step sequencer, tempo control, and per-channel volume mixing in a retro-styled UI.",
     result:
-      "A fun, zero-install drum machine that runs entirely in the browser with low-latency audio playback.",
+      "A fun, zero-install drum machine that runs entirely in the browser with low-latency audio playback and MIDI input support.",
     stack: ["TypeScript", "React", "Web Audio API", "Tailwind CSS"],
     links: { github: "https://github.com/JsonGallagher/808lab" },
     featured: false,
