@@ -28,9 +28,9 @@ const projects = [
     problem:
       "Classic drum machine emulators are either desktop-only or locked behind paywalls, making casual beat-making inaccessible.",
     approach:
-      "Built a browser-based 808 drum machine using the Web Audio API with a step sequencer, tempo control, and per-channel volume mixing in a retro-styled UI.",
+      "Built a browser-based 808 drum sample generator using the Web Audio API with a step sequencer, tempo control, and audio effects in a retro-styled UI.",
     result:
-      "A fun, zero-install drum machine that runs entirely in the browser with low-latency audio playback and MIDI input support.",
+      "A fun, zero-install drum sample generator that runs entirely in the browser with low-latency audio playback and MIDI input support.",
     stack: ["TypeScript", "React", "Web Audio API", "Tailwind CSS"],
     links: { github: "https://github.com/JsonGallagher/808lab" },
     featured: false,
