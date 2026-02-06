@@ -33,7 +33,7 @@ const projects = [
       "A fun, zero-install drum sample generator that runs entirely in the browser with low-latency audio playback and MIDI input support.",
     stack: ["TypeScript", "React", "Web Audio API", "Tailwind CSS"],
     links: { github: "https://github.com/JsonGallagher/808lab" },
-    featured: false,
+    featured: true,
   },
   {
     id: "ad-research-tool",
@@ -71,7 +71,7 @@ const projects = [
     links: {
       github: "https://github.com/JsonGallagher/color_palette_generator",
     },
-    featured: true,
+    featured: false,
   },
 ];
 

@@ -102,12 +102,12 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-      className="group relative rounded-2xl overflow-hidden"
+      className="group relative rounded-3xl overflow-hidden ring-1 ring-black/10 dark:ring-white/10 shadow-xl shadow-black/5 dark:shadow-black/40 transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
     >
       {/* Glow border effect */}
-      <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-blue-500/20 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-blue-400/25 dark:to-cyan-400/15" />
+      <div className="absolute -inset-px rounded-3xl bg-gradient-to-b from-blue-500/20 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-blue-400/25 dark:to-cyan-400/15" />
 
-      <div className="relative bg-white dark:bg-[#232323] ring-1 ring-black/10 dark:ring-white/10 rounded-2xl overflow-hidden shadow-xl shadow-black/5 dark:shadow-black/40 transition-shadow duration-500 hover:shadow-2xl">
+      <div className="relative bg-white dark:bg-[#232323] rounded-3xl overflow-hidden">
         {/* Image with overlay */}
         <div className="relative aspect-video bg-gray-100 dark:bg-white/5 overflow-hidden">
           <img
