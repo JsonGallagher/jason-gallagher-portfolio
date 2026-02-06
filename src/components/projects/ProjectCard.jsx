@@ -107,7 +107,7 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
       {/* Glow border effect */}
       <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-blue-500/20 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-blue-400/25 dark:to-cyan-400/15" />
 
-      <div className="relative bg-white dark:bg-white/[0.03] ring-1 ring-black/[0.06] dark:ring-white/[0.08] rounded-2xl overflow-hidden transition-shadow duration-500 hover:shadow-2xl hover:shadow-blue-500/[0.08] dark:hover:shadow-blue-400/[0.06]">
+      <div className="relative bg-white dark:bg-[#232323] ring-1 ring-black/[0.06] dark:ring-white/[0.08] rounded-2xl overflow-hidden transition-shadow duration-500 hover:shadow-2xl hover:shadow-blue-500/[0.08] dark:hover:shadow-blue-400/[0.06]">
         {/* Image with overlay */}
         <div className="relative aspect-video bg-gray-100 dark:bg-white/5 overflow-hidden">
           <img
