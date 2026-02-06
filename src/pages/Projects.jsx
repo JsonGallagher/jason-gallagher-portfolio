@@ -8,7 +8,7 @@ import projects from "../data/projects";
 
 function NetworkBg() {
   return (
-    <div className="pointer-events-none fixed inset-0 overflow-hidden z-0">
+    <div className="pointer-events-none absolute inset-0 overflow-hidden z-0">
       <svg
         className="absolute inset-0 w-full h-full opacity-[0.08] dark:opacity-[0.06]"
         xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ export default function Projects() {
   const heroY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    <div className="min-h-screen bg-primary dark:bg-primary-dark transition-colors duration-300">
+    <div className="relative min-h-screen bg-primary dark:bg-primary-dark transition-colors duration-300">
       <NetworkBg />
 
       {/* Header */}
