@@ -124,23 +124,16 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
 
   if (isPreview) {
     return (
-      <motion.article
-        ref={ref}
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5, delay: index * 0.12 }}
-        className="group relative flex flex-col rounded-2xl bg-white dark:bg-white/5 ring-1 ring-black/10 dark:ring-white/10 shadow-xl shadow-black/5 dark:shadow-black/40 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-      >
+      <article className="group relative flex flex-col rounded-2xl bg-white dark:bg-white/5 ring-1 ring-black/10 dark:ring-white/10 shadow-xl shadow-black/5 dark:shadow-black/40 overflow-hidden">
         <div className="relative aspect-video bg-gray-100 dark:bg-white/5 overflow-hidden">
           <img
             src={(project.images || [project.image])[0]}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className="w-full h-full object-cover"
             onError={(e) => {
               e.target.style.display = "none";
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
         <div className="p-5 flex flex-col flex-1">
@@ -180,7 +173,7 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
             )}
           </div>
         </div>
-      </motion.article>
+      </article>
     );
   }
 
