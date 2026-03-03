@@ -9,11 +9,13 @@ const experiences = [
     company: "RE/MAX Properties • Colorado Springs, CO",
     highlights: [
       "Promoted from Coordinator (2014) → Manager (2018) → Director (2020)",
+      "Sole marketing leader; built the marketing function from scratch, managing agencies, vendors, and contractors across all channels",
       "Led $300M+ in sales; team ranked top 0.5% nationally",
+      "Doubled lead volume and reduced CAC by 50% via CRM automation, lifecycle campaigns, and AI-driven segmentation",
       "Reduced CPA by 34% and increased retention by 15%",
       "Boosted lead-to-close rates 23% via SEO, CRO, and ROAS optimization",
-      "Overhauled CRM and automation to reduce CAC by 50%",
-      "Trained 40+ agents on CRM and marketing tools; drove 80% adoption and a 38% lift in qualified leads.",
+      "Architected HubSpot RevOps infrastructure — lead scoring, lifecycle stages, and attribution modeling — from the ground up",
+      "Trained 40+ agents on CRM and marketing tools; drove 80% adoption and a 38% lift in qualified leads",
     ],
   },
   {
