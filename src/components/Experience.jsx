@@ -4,7 +4,7 @@ import { useRef } from "react";
 const experiences = [
   {
     period: "Mar 2014 – Present",
-    duration: "11 years",
+    duration: "12 years",
     title: "Marketing Director",
     company: "RE/MAX Properties • Colorado Springs, CO",
     highlights: [
