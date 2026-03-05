@@ -9,13 +9,13 @@ const experiences = [
     company: "RE/MAX Properties • Colorado Springs, CO",
     highlights: [
       "Promoted from Coordinator (2014) → Manager (2018) → Director (2020)",
-      "Sole marketing leader; built the marketing function from scratch, managing agencies, vendors, and contractors across all channels",
-      "Led $300M+ in sales; team ranked top 0.5% nationally",
-      "Doubled lead volume and reduced CAC by 50% via CRM automation, lifecycle campaigns, and AI-driven segmentation",
-      "Reduced CPA by 34% and increased retention by 15%",
-      "Boosted lead-to-close rates 23% via SEO, CRO, and ROAS optimization",
-      "Architected HubSpot RevOps infrastructure — lead scoring, lifecycle stages, and attribution modeling — from the ground up",
-      "Trained 40+ agents on CRM and marketing tools; drove 80% adoption and a 38% lift in qualified leads",
+      "Sole marketing leader; built the marketing function from scratch, managing agencies, vendors, and contractors across all channels.",
+      "Led $300M+ in sales; team ranked top 0.5% nationally.",
+      "Doubled lead volume and reduced CAC by 50% via CRM automation, lifecycle campaigns, and AI-driven segmentation.",
+      "Reduced CPA by 34% and increased retention by 15%.",
+      "Boosted lead-to-close rates 23% via SEO, CRO, and ROAS optimization.",
+      "Architected HubSpot RevOps infrastructure from the ground up, including lead scoring, lifecycle stages, and attribution modeling.",
+      "Trained 40+ agents on CRM and marketing tools; drove 80% adoption and a 38% lift in qualified leads.",
     ],
   },
   {
@@ -24,8 +24,8 @@ const experiences = [
     title: "Sales Representative",
     company: "Verizon Wireless • Colorado Springs, CO",
     highlights: [
-      "23% quarterly sales increase through segmentation-based positioning",
-      "Rolled out training initiatives that boosted NPS by 18%",
+      "23% quarterly sales increase through segmentation-based positioning.",
+      "Rolled out training initiatives that boosted NPS by 18%.",
     ],
   },
   {
@@ -34,8 +34,8 @@ const experiences = [
     title: "Business Account Executive",
     company: "AT&T Mobility B2B • Rochester, NY",
     highlights: [
-      "Managed 150+ SMB accounts; improved conversion by 32%",
-      "Added 450+ new service lines in under 12 months",
+      "Managed 150+ SMB accounts; improved conversion by 32%.",
+      "Added 450+ new service lines in under 12 months.",
     ],
   },
   {
