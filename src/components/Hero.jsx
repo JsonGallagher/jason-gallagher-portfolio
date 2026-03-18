@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 const stats = [
-  { value: "$300M+", label: "Revenue Driven", nudge: "translate-x-0.5" },
+  { value: "$300M+", label: "Sales Volume", nudge: "translate-x-0.5" },
   {
     value: "50%",
     label: "Acquisition Cost",
