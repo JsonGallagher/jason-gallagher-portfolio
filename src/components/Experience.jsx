@@ -3,19 +3,27 @@ import { useRef } from "react";
 
 const experiences = [
   {
-    period: "Mar 2014 – Present",
-    duration: "12 years",
+    period: "Aug 2024 – Present",
+    summary: "In-house marketing leader for a top-producing real estate team ranked top 0.5% nationally, managing external agencies and vendor partners across all channels. Owns full-funnel strategy and revenue marketing.",
     title: "Marketing Director",
     company: "RE/MAX Properties • Colorado Springs, CO",
     highlights: [
-      "Promoted from Coordinator (2014) → Manager (2018) → Director (2020)",
-      "Sole marketing leader; built the marketing function from scratch, managing agencies, vendors, and contractors across all channels.",
-      "Led $300M+ in sales; team ranked top 0.5% nationally.",
-      "Doubled lead volume and reduced CAC by 50% via CRM automation, lifecycle campaigns, and AI-driven segmentation.",
-      "Reduced CPA by 34% and increased retention by 15%.",
-      "Boosted lead-to-close rates 23% via SEO, CRO, and ROAS optimization.",
-      "Architected HubSpot RevOps infrastructure from the ground up, including lead scoring, lifecycle stages, and attribution modeling.",
-      "Trained 40+ agents on CRM and marketing tools; drove 80% adoption and a 38% lift in qualified leads.",
+      "Restructured paid media strategy across Google and Meta, reducing CPA 34% by reallocating spend to highest-converting audience segments.",
+      "Increased lead volume 2x through AI-driven segmentation and lifecycle automation while cutting CAC by 50%.",
+      "Redesigned lead scoring, routing, and nurture workflows, improving MQL-to-SQL conversion 21% and reducing time to first contact by 50%.",
+      "Built full-funnel HubSpot RevOps infrastructure including lead scoring, lifecycle stages, and multi-touch attribution, enabling leadership to track pipeline from first touch to close for the first time.",
+    ],
+  },
+  {
+    period: "Mar 2014 – Aug 2024",
+    summary: "First marketing hire for a high-growth real estate team. Built the function from scratch and scaled it over a decade, earning two promotions.",
+    title: "Marketing Manager",
+    company: "Berkshire Hathaway HomeServices • Colorado Springs, CO",
+    highlights: [
+      "Improved lead-to-close rate 23% by launching SEO-driven content, landing page CRO, and a structured sales-marketing feedback loop.",
+      "Built the team's first full-funnel demand gen program from scratch, including CRM automation, lifecycle campaigns, and nurture sequences, establishing the foundation for a decade of pipeline growth.",
+      "Drove CRM adoption from near-zero to 80% across 40+ agents through hands-on training and enablement, lifting qualified lead flow 38%.",
+      "Architected digital campaigns, paid media, and performance analytics programs that directly supported $300M+ in team sales volume over 10 years.",
     ],
   },
   {
@@ -84,17 +92,17 @@ function TimelineItem({ experience, index }) {
     >
       <div className="text-text-secondary dark:text-text-light/50">
         <div className="text-sm md:text-base">{experience.period}</div>
-        {experience.duration && (
-          <div className="font-semibold mt-1 text-text-primary dark:text-text-light">
-            {experience.duration}
-          </div>
-        )}
       </div>
       <div>
         <h3 className="text-xl font-semibold mb-1">{experience.title}</h3>
-        <div className="text-text-secondary dark:text-text-light/50 mb-4 md:text-lg">
+        <div className="text-text-secondary dark:text-text-light/50 mb-3 md:text-lg">
           {experience.company}
         </div>
+        {experience.summary && (
+          <p className="border-l-2 border-black/20 dark:border-white/20 pl-3 text-text-secondary dark:text-text-light/60 text-base leading-relaxed mb-4">
+            {experience.summary}
+          </p>
+        )}
         <ul className="space-y-2">
           {experience.highlights.map((highlight, i) => (
             <li
