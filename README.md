@@ -1,192 +1,110 @@
 # Jason Gallagher Portfolio
 
-A modern, responsive portfolio website for a Growth Marketer specializing in demand gen, AI strategy, and marketing automation. Built with React, Vite, and Tailwind CSS.
+Jason Gallagher's growth marketing portfolio, built with React, Vite, Tailwind CSS, and Framer Motion.
 
-## 🚀 Quick Start
+Live site: [jasongallagher.co](https://jasongallagher.co)
 
-### Prerequisites
+## Site overview
 
-- Node.js 18+
-- npm or yarn
+- **Homepage (`/`):** Introduction, bio, expertise, featured projects, career experience, skills, results, values, and resume/contact links.
+- **Projects (`/projects`):** “The lab.” — project screenshots, Problem / Approach / Result case studies, technology lists, and source/demo links.
+- **Navigation:** Homepage section links and Projects, with desktop and mobile menus.
+- **Theme:** Light and dark modes, initially based on the system preference and saved in local storage.
 
-### Installation
+The design uses Instrument Serif headings, DM Sans body text, a warm neutral palette, grouped text lists for skills, and real project imagery. Project metadata appears as plain text below titles rather than badges over screenshots.
+
+The older `/shelf` route is retained for direct access but is no longer linked in the navigation. Its setup and data documentation are in [docs/shelf.md](docs/shelf.md).
+
+## Local development
+
+Requirements: npm and Node.js 20.19+ on Node 20, or Node.js 22.12+.
 
 ```bash
-# Clone or download the project
+git clone https://github.com/JsonGallagher/jason-gallagher-portfolio.git
 cd jason-gallagher-portfolio
-
-# Install dependencies
-npm install
-
-# Start development server
+npm ci
 npm run dev
 ```
 
-The site will be available at `http://localhost:5173`
+Vite normally serves the site at `http://localhost:5173`. Check the terminal output for the actual port.
 
-### Environment Variables
+The homepage and Projects page do not require environment variables.
 
-Create a `.env` file for API integrations:
-
-```bash
-VITE_TMDB_API_KEY=your_tmdb_api_key
-```
-
-### Build for Production
+## Production build
 
 ```bash
 npm run build
+npm run preview
 ```
 
-This creates an optimized build in the `dist` folder.
+The build writes static assets to `dist`. The preview command serves that build locally.
 
 ## Deployment
 
-The site is hosted on **Cloudflare Pages** with automatic deployments from the `main` branch.
+Cloudflare Workers Builds is connected to the GitHub repository. Pushing to `main` triggers an automatic production build and deployment to [jasongallagher.co](https://jasongallagher.co).
 
-- **Live URL:** [jasongallagher.co](https://jasongallagher.co)
-- **Domain & DNS:** Cloudflare Registrar
 - **Build command:** `npm run build`
-- **Output directory:** `dist`
+- **Static asset directory:** `dist`
+- **Configuration:** [wrangler.jsonc](wrangler.jsonc)
+- **Routing:** `assets.not_found_handling` is set to `single-page-application` for client-side routes.
 
-Pushing to `main` triggers an automatic build and deploy. The `wrangler.jsonc` file configures SPA routing for client-side navigation.
+Run a local build before pushing application or dependency changes. Cloudflare builds the source again during deployment; there is no need to commit or manually upload `dist`.
 
-## 🎨 Features
+## Editing content
 
-### Portfolio
-- **Growth Marketer Positioning** - Job seeker focus with resume CTA
-- **Dark Mode** - Toggle between light and dark themes (persists in localStorage)
-- **Smooth Animations** - Scroll-triggered animations using Framer Motion
-- **Responsive Design** - Mobile-first, works on all screen sizes
+| Content | Source |
+| --- | --- |
+| Headline, summary, metrics, and competencies | `src/components/Hero.jsx` |
+| Bio and social links | `src/components/About.jsx` |
+| Expertise | `src/components/Expertise.jsx` |
+| Career experience | `src/components/Experience.jsx` |
+| Skill categories and tool lists | `src/components/Skills.jsx` |
+| Results and values | `src/components/Testimonials.jsx`, `src/components/Values.jsx` |
+| Project descriptions, screenshots, stacks, and links | `src/data/projects.js` |
+| Homepage project previews | `src/components/FeaturedProjects.jsx` |
+| Project case-study presentation and carousels | `src/components/projects/ProjectCard.jsx` |
+| Navigation | `src/components/Navbar.jsx` |
+| Resume destination | `public/_redirects` |
 
-### The Shelf (`/shelf`)
-A curated media collection page featuring:
-- **Books, Films, TV Shows, Essays** - Organized by year consumed
-- **Star Ratings** - 10-point scale with half-star support
-- **Badges** - "Life-Changing" (star) and "Liked" (heart) indicators
-- **Search & Filter** - Filter by status or search by title/creator
-- **API Integrations**:
-  - TMDB API for film/TV posters and descriptions
-  - Open Library API for book covers and metadata
-- **Detail Modals** - Rich media details with ratings, notes, and affiliate links
+Homepage section order is defined in `src/pages/Home.jsx`; routes are defined in `src/App.jsx`.
 
-## 📁 Project Structure
+## Styles and assets
+
+- **Palette and font families:** `tailwind.config.js`
+- **Shared styles and font declarations:** `src/styles/globals.css`
+- **Fonts:** Self-hosted WOFF2 files in `public/fonts`, preloaded in `index.html`. Update the files, CSS declarations, preloads, and Tailwind font families together when changing fonts.
+- **Portrait:** `src/assets/headshot.webp`
+- **Project screenshots:** `public/images/projects`
+- **Page metadata, font preloads, and structured data:** `index.html`
+- **Social preview image and favicon:** `public/og-image.jpg`, `public/favicon.svg`
+
+## Project structure
 
 ```text
 jason-gallagher-portfolio/
-├── public/
-│   └── favicon.svg
+├── public/                 # Fonts, project screenshots, redirects, and metadata assets
 ├── src/
-│   ├── assets/
-│   │   └── headshot.jpg
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── Hero.jsx
-│   │   ├── About.jsx
-│   │   ├── Expertise.jsx
-│   │   ├── Values.jsx
-│   │   ├── Testimonials.jsx
-│   │   ├── Experience.jsx
-│   │   ├── Skills.jsx
-│   │   ├── CTA.jsx
-│   │   ├── Footer.jsx
-│   │   └── shelf/
-│   │       ├── ShelfTabs.jsx
-│   │       ├── SearchBar.jsx
-│   │       ├── FilterTags.jsx
-│   │       ├── MediaGrid.jsx
-│   │       ├── MediaCard.jsx
-│   │       ├── MediaModal.jsx
-│   │       └── Essays.jsx
-│   ├── data/
-│   │   ├── books.json
-│   │   ├── films.json
-│   │   └── tv.json
-│   ├── pages/
-│   │   └── Shelf.jsx
-│   ├── styles/
-│   │   └── globals.css
-│   ├── App.jsx
-│   └── main.jsx
+│   ├── assets/             # Portrait
+│   ├── components/         # Homepage sections and shared UI
+│   │   ├── projects/       # Project cards and screenshot carousels
+│   │   └── shelf/          # Retained collection components
+│   ├── data/               # Projects and retained collection data
+│   ├── hooks/              # Active-section tracking
+│   ├── pages/              # Home, Projects, and retained Shelf route
+│   ├── styles/             # Global styles and font declarations
+│   ├── App.jsx             # Routes and theme state
+│   └── main.jsx            # React entry point
+├── docs/                   # Design audit and maintenance notes
 ├── index.html
 ├── package.json
+├── package-lock.json
 ├── tailwind.config.js
-├── postcss.config.js
-└── vite.config.js
+├── vite.config.js
+└── wrangler.jsonc
 ```
 
-## 📚 Media Data Schema
+The [design audit](docs/design-audit/audit.md) records the original visual findings, implemented refinements, screenshots, and remaining observations.
 
-### Films & TV Shows
-```json
-{
-  "id": "film-slug",
-  "title": "Film Title",
-  "director": "Director Name",
-  "year": 2025,
-  "tmdbId": "12345",
-  "lifeChanging": false,
-  "liked": true,
-  "rating": 8.5,
-  "review": "Personal notes...",
-  "affiliateUrl": "https://..."
-}
-```
+## License
 
-### Books
-```json
-{
-  "id": "book-slug",
-  "title": "Book Title",
-  "author": "Author Name",
-  "year": 2025,
-  "isbn": "9781234567890",
-  "lifeChanging": true,
-  "liked": false,
-  "rating": 9,
-  "review": "Personal notes...",
-  "affiliateUrl": "https://..."
-}
-```
-
-## 🛠 Customization
-
-### Colors
-
-Edit `tailwind.config.js` to change the color palette:
-
-```js
-colors: {
-  primary: {
-    DEFAULT: '#f1f0ed',  // Light background
-    dark: '#1a1a1a',     // Dark background
-  },
-  // ...
-}
-```
-
-### Fonts
-
-The site uses Google Fonts (Instrument Serif + DM Sans). To change fonts:
-
-1. Update the `<link>` in `index.html`
-2. Update `fontFamily` in `tailwind.config.js`
-
-### Content
-
-Portfolio content is organized in component files:
-- `Hero.jsx` - Headline, stats, service cards
-- `About.jsx` - Bio text
-- `Expertise.jsx` - Feature cards
-- `Experience.jsx` - Timeline data
-- `Skills.jsx` - Skill categories
-
-Media content is stored in JSON files under `src/data/`.
-
-## 📝 License
-
-MIT License - feel free to use this as a template for your own portfolio!
-
----
-
-Built with React, Vite, Tailwind CSS, and Framer Motion
+MIT License — feel free to use this as a template for your own portfolio.
