@@ -1,226 +1,91 @@
-import { motion, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-
-const features = [
+const caseStudies = [
   {
-    label: "Demand Generation",
-    title: "Drive pipeline with",
-    titleAccent: "strategic precision.",
-    description:
-      "Full-funnel execution, not just strategy. 38% YoY pipeline growth, six-figure ad budgets with 32% ROAS improvement, 50% CAC reduction. I own the metrics and build the systems that hit them.",
-    visual: "radial",
+    id: "case-acquisition",
+    company: "RE/MAX Properties",
+    title: "Acquisition efficiency",
+    problem: "Improve the efficiency of paid acquisition while growing lead volume.",
+    contribution: "I restructured Google and Meta paid media, reallocating spend to the highest-converting audience segments. I also used AI-driven segmentation and lifecycle automation to expand lead generation.",
+    results: [
+      { value: "34%", label: "Lower cost per acquisition from paid media restructuring" },
+      { value: "2×", label: "Lead volume with segmentation and lifecycle automation" },
+      { value: "50%", label: "Lower customer acquisition cost alongside that lead growth" },
+    ],
   },
   {
-    label: "AI Strategy",
-    title: "Scale with",
-    titleAccent: "intelligent systems.",
-    description:
-      "Practical AI implementation, not hype. Deployed AI across campaign ops, reporting, and CRM, cutting manual work by 40%. Content personalization, predictive analytics, workflow automation.",
-    visual: "circles",
-    reverse: true,
+    id: "case-hubspot",
+    company: "RE/MAX Properties",
+    title: "HubSpot lifecycle infrastructure",
+    problem: "Leadership lacked a view of the pipeline from first touch to close. Lead qualification and follow-up needed improvement.",
+    contribution: "I built the full-funnel HubSpot infrastructure: lifecycle stages, lead scoring, routing, nurture workflows, and multi-touch attribution. Leadership could track the pipeline from first touch to close for the first time.",
+    results: [
+      { value: "21%", label: "Improvement in marketing-qualified to sales-qualified lead conversion" },
+      { value: "50%", label: "Reduction in time to first contact" },
+    ],
   },
   {
-    label: "Marketing Automation",
-    title: "Build systems that",
-    titleAccent: "compound.",
-    description:
-      "HubSpot, Salesforce, Klaviyo. Lifecycle, nurture, and lead scoring systems that turn leads into revenue. Trained 40+ people on CRM with 80% adoption. I don't advise on automation. I build it.",
-    visual: "bars",
+    id: "case-marketing-function",
+    company: "Berkshire Hathaway HomeServices",
+    title: "Building the marketing function",
+    problem: "The team needed its first full-funnel marketing program, with CRM adoption starting near zero.",
+    contribution: "As the first marketing hire, I built the function from scratch: demand generation, CRM automation, lifecycle campaigns, and nurture sequences. I trained and supported 40+ agents on CRM and marketing tools.",
+    results: [
+      { value: "80%", label: "CRM adoption, up from near zero" },
+      { value: "38%", label: "Lift in qualified lead flow" },
+    ],
   },
 ];
 
-function RadialVisual() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { margin: "-100px", amount: 0.4 });
-  const lines = Array.from({ length: 24 }, (_, i) => i * 15);
-
+function SupportingCase({ study }) {
   return (
-    <motion.div
-      ref={ref}
-      className="relative w-60 h-60"
-      animate={inView ? { rotate: 360 } : { rotate: 0 }}
-      transition={{
-        duration: 100,
-        repeat: Infinity,
-        repeatType: "loop",
-        ease: "linear",
-      }}
-    >
-      <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-text-light rounded-full -translate-x-1/2 -translate-y-1/2" />
-      {lines.map((deg) => (
-        <div
-          key={deg}
-          className="radial-line text-text-light/80"
-          style={{ transform: `rotate(${deg}deg)` }}
-        />
-      ))}
-    </motion.div>
-  );
-}
-
-function CirclesVisual() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { margin: "-100px", amount: 0.4 });
-
-  const rings = [60, 120, 180, 240];
-
-  return (
-    <div ref={ref} className="relative w-60 h-60">
-      {rings.map((size, i) => (
-        <div
-          key={i}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-        >
-          <motion.div
-            className="rounded-full border-2 border-text-light/30"
-            style={{ width: size, height: size }}
-            initial={{ scale: 1, opacity: 0.35 }}
-            animate={
-              inView
-                ? { scale: [1, 1.06, 1], opacity: [0.25, 0.55, 0.25] }
-                : { scale: 1, opacity: 0.35 }
-            }
-            transition={
-              inView
-                ? {
-                    duration: 2.8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: i * 0.18,
-                  }
-                : { duration: 0.2 }
-            }
-          />
-        </div>
-      ))}
-
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <motion.div
-          className="w-2 h-2 bg-text-light rounded-full"
-          initial={{ scale: 1 }}
-          animate={inView ? { scale: [1, 1.25, 1] } : { scale: 1 }}
-          transition={
-            inView
-              ? { duration: 1.8, repeat: Infinity, ease: "easeInOut" }
-              : { duration: 0.2 }
-          }
-        />
-      </div>
-    </div>
-  );
-}
-
-function BarsVisual() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { margin: "-100px", amount: 0.4 });
-  const [hasAnimatedIn, setHasAnimatedIn] = useState(false);
-  const heights = [40, 65, 85, 100, 75, 55, 90, 70];
-
-  useEffect(() => {
-    if (inView && !hasAnimatedIn) {
-      const timer = setTimeout(() => {
-        setHasAnimatedIn(true);
-      }, 1200);
-      return () => clearTimeout(timer);
-    }
-  }, [inView, hasAnimatedIn]);
-
-  return (
-    <div ref={ref} className="flex items-end gap-3 h-48">
-      {heights.map((h, i) => (
-        <motion.div
-          key={i}
-          className="w-2 bg-text-light/30 rounded"
-          initial={{ height: 0 }}
-          animate={
-            hasAnimatedIn
-              ? { height: [`${h}%`, `${h - 8}%`, `${h}%`] }
-              : inView
-                ? { height: `${h}%` }
-                : { height: 0 }
-          }
-          transition={
-            hasAnimatedIn
-              ? {
-                  duration: 2.4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: i * 0.15,
-                }
-              : { duration: 0.6, delay: i * 0.1 }
-          }
-        />
-      ))}
-    </div>
-  );
-}
-
-function FeatureCard({ feature }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const Visual = {
-    radial: RadialVisual,
-    circles: CirclesVisual,
-    bars: BarsVisual,
-  }[feature.visual];
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6 }}
-      className={`overflow-hidden grid md:grid-cols-2 min-h-[400px] rounded-3xl
-        bg-white dark:bg-white/5
-        ring-1 ring-black/10 dark:ring-white/10
-        shadow-xl shadow-black/5 dark:shadow-black/40
-        divide-y md:divide-y-0 md:divide-x divide-black/10 dark:divide-white/10
-        transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl
-        ${feature.reverse ? "md:direction-rtl" : ""}`}
-    >
-      {/* Content */}
-      <div
-        className={`p-8 md:p-12 flex flex-col justify-center ${
-          feature.reverse ? "md:direction-ltr" : ""
-        }`}
-      >
-        <span className="expertise-label text-text-secondary dark:text-text-light/70">
-          {feature.label}
-        </span>
-        <h3 className="section-title">
-          {feature.title} <em className="italic">{feature.titleAccent}</em>
-        </h3>
-        <p className="text-text-secondary dark:text-text-light/60 leading-relaxed md:text-lg">
-          {feature.description}
-        </p>
-      </div>
-
-      {/* Visual */}
-      <div
-        className={`bg-primary-dark dark:bg-black/40 flex items-center justify-center p-8 order-first md:order-none ${
-          feature.reverse ? "md:order-first md:direction-ltr" : ""
-        }`}
-      >
-        <Visual />
-      </div>
-    </motion.div>
+    <article id={study.id} tabIndex={-1} aria-labelledby={`${study.id}-title`} className="flex flex-col scroll-mt-24">
+      <header className="mb-5">
+        <h3 id={`${study.id}-title`} className="font-serif text-3xl sm:text-4xl leading-tight mb-3">{study.title}</h3>
+        <p className="text-sm font-medium text-text-secondary dark:text-text-light/75">{study.company}</p>
+      </header>
+      <p className="text-text-secondary dark:text-text-light/75 leading-relaxed mb-3">{study.problem}</p>
+      <p className="text-text-secondary dark:text-text-light/75 leading-relaxed">{study.contribution}</p>
+      <dl aria-label="Documented results" className="grid grid-cols-2 gap-5 pt-6 mt-auto">
+        {study.results.map((result) => (
+          <div key={result.label} className="flex flex-col">
+            <dt className="order-2 text-sm text-text-secondary dark:text-text-light/75 leading-relaxed mt-2">{result.label}</dt>
+            <dd className="order-1 font-serif text-5xl text-blue-700 dark:text-blue-300">{result.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </article>
   );
 }
 
 export default function Expertise() {
+  const [featured, ...supporting] = caseStudies;
+
   return (
-    <section id="expertise" className="pt-24 pb-12 px-6 scroll-mt-16">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid gap-8">
-          {features.map((feature, i) => (
-            <FeatureCard key={i} feature={feature} />
-          ))}
-        </div>
+    <section tabIndex={-1} id="expertise" aria-labelledby="case-studies-title" className="pt-10 md:pt-12 pb-6 md:pb-8 scroll-mt-24">
+      <div className="px-6">
+        <h2 id="case-studies-title" className="content-width section-title">Marketing case studies</h2>
       </div>
-      {/* Subtle section divider */}
-      <div className="mt-24 flex justify-center">
-        <div className="h-px w-48 sm:w-64 md:w-80 lg:w-[26rem] bg-gradient-to-r from-transparent via-black/10 to-transparent dark:via-white/10" />
+      <article id={featured.id} tabIndex={-1} aria-labelledby={`${featured.id}-title`} className="case-feature px-6 py-10 md:py-14 scroll-mt-24">
+        <div className="content-width grid md:grid-cols-[1.1fr_1fr] gap-8 md:gap-14 items-center">
+          <div>
+            <h3 id={`${featured.id}-title`} className="font-serif text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-4">Acquisition <em>efficiency</em></h3>
+            <p className="text-sm font-medium mb-6">{featured.company}</p>
+            <p className="case-feature-secondary text-lg leading-relaxed mb-4">{featured.problem}</p>
+            <p className="case-feature-secondary leading-relaxed">{featured.contribution}</p>
+          </div>
+          <dl aria-label="Documented results" className="case-feature-results">
+            {featured.results.map((result) => (
+              <div key={result.label} className="grid grid-cols-[100px_1fr] sm:grid-cols-[132px_1fr] gap-5 items-center py-5 border-t first:border-t-0 first:pt-0 last:pb-0">
+                <dt className="order-2 case-feature-secondary text-sm sm:text-base leading-relaxed">{result.label}</dt>
+                <dd className="order-1 font-serif text-6xl sm:text-7xl leading-none tracking-tight">{result.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </article>
+      <div className="px-6">
+        <div className="content-width grid md:grid-cols-2 gap-8 md:gap-12 py-10 md:py-12">
+          {supporting.map((study) => <SupportingCase key={study.id} study={study} />)}
+        </div>
       </div>
     </section>
   );

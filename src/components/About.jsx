@@ -1,104 +1,26 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Linkedin, Mail, Github } from "lucide-react";
-import XIcon from "./icons/XIcon";
 import headshot from "../assets/headshot.webp";
+import Skills from "./Skills";
 
 export default function About() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section
-      id="about"
-      className="py-24 px-6 bg-white dark:bg-white/5 scroll-mt-16"
-    >
-      <div
-        ref={ref}
-        className="max-w-5xl mx-auto grid md:grid-cols-[280px_1fr] gap-12 md:gap-16 items-center"
-      >
-        {/* Headshot */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.6 }}
-          className="relative mx-auto md:mx-0"
-        >
-          <div className="relative w-56 h-56 md:w-full md:h-auto md:aspect-square">
-            <img
-              src={headshot}
-              alt="Jason Gallagher"
-              loading="lazy"
-              decoding="async"
-              width="280"
-              height="280"
-              className="w-full h-full object-cover object-top rounded-full"
-            />
-            {/* Ring accent */}
-            <div className="absolute -inset-2 border border-black/10 dark:border-white/20 rounded-full pointer-events-none" />
-          </div>
-        </motion.div>
-
-        {/* Content */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center md:text-left"
-        >
-          <h2 className="section-title">Jason Gallagher</h2>
-          <p className="text-text-secondary dark:text-text-light/60 text-lg mb-6">
-            Growth Marketer • Colorado
+    <section id="about" tabIndex={-1} aria-labelledby="about-title" className="section-spacing px-6 bg-white dark:bg-white/5 scroll-mt-24">
+      <div className="content-width grid md:grid-cols-[280px_1fr] gap-6 md:gap-14 items-start">
+        <img src={headshot} alt="Jason Gallagher" loading="lazy" decoding="async" width="280" height="280" className="w-40 h-40 md:w-[280px] md:h-[280px] object-cover object-top rounded-full" />
+        <div>
+          <h2 id="about-title" className="section-title mb-4">Jason Gallagher</h2>
+          <p className="text-text-secondary dark:text-text-light/75 mb-5">Marketing leader & curious builder · Colorado</p>
+          <p className="text-text-secondary dark:text-text-light/75 leading-relaxed mb-4">
+            My marketing leadership experience is in real estate, with earlier
+            sales roles in telecom and SMB account management. That work shaped
+            how I approach acquisition, lifecycle systems, and sales alignment.
           </p>
-
-          <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-4 md:text-lg">
-            I'm a growth marketing leader who builds and scales programs that drive revenue. I've spent 12+ years across B2B and B2C teams, owning the full funnel from acquisition to retention.
+          <p className="text-text-secondary dark:text-text-light/75 leading-relaxed">
+            I like making things, learning fast, and improving what works.
+            Outside campaign work, I build analytics tools and creative experiments.
           </p>
-
-          <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-8 md:text-lg">
-            I combine strategy with execution. I launch, test, and optimize across the funnel, then keep improving what works. I focus on what matters: smart channel mix, strong creative, rigorous experimentation, and clear reporting. I like shipping, learning fast, and compounding wins.
-          </p>
-
-          {/* Links */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-1">
-            <a
-              href="https://linkedin.com/in/jsongallagher"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              <Linkedin className="w-4 h-4 -translate-y-px" />
-              <span>LinkedIn</span>
-            </a>
-            <a
-              href="https://x.com/heyjson"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              <XIcon className="w-4 h-4" />
-              <span>X (Twitter)</span>
-            </a>
-            <a
-              href="https://github.com/JsonGallagher"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              <Github className="w-4 h-4" />
-              <span>GitHub</span>
-            </a>
-            <a
-              href="mailto:jason@jasongallagher.co"
-              className="social-link"
-            >
-              <Mail className="w-4 h-4" />
-              <span>Email</span>
-            </a>
-          </div>
-        </motion.div>
+        </div>
       </div>
+      <Skills />
     </section>
   );
 }

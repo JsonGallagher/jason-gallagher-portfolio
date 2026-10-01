@@ -1,47 +1,20 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { FileText, Mail } from "lucide-react";
-
 export default function CTA() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section className="pt-12 pb-24 px-6">
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-        className="max-w-2xl mx-auto text-center"
-      >
-        <h2 className="section-title">
-          Let's <em className="italic">connect.</em>
-        </h2>
-        <p className="text-text-secondary dark:text-text-light/60 mb-8 max-w-lg mx-auto md:text-lg">
-          Looking for a growth marketer who builds, not just advises? Open to
-          full-time roles with teams that ship.
-        </p>
-
-        <div className="flex flex-wrap justify-center gap-4">
-          <a
-            href="/resume"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            <FileText className="w-4 h-4 text-blue-500" />
-            View Resume
-          </a>
-          <a
-            href="mailto:jason@jasongallagher.co"
-            className="btn btn-secondary"
-          >
-            <Mail className="w-4 h-4" />
-            Get in Touch
-          </a>
+    <section tabIndex={-1} id="contact" aria-labelledby="contact-title" className="section-spacing px-6 scroll-mt-24">
+      <div className="content-width grid md:grid-cols-[240px_1fr] gap-4 md:gap-10">
+        <h2 id="contact-title" className="section-title mb-0">Contact</h2>
+        <div>
+          <p className="text-text-secondary dark:text-text-light/75 mb-5 max-w-xl leading-relaxed">
+            Open to senior growth marketing, demand generation, and marketing leadership roles.
+          </p>
+          <a href="mailto:jason@jasongallagher.co" className="social-link text-lg sm:text-xl break-all">jason@jasongallagher.co</a>
+          <div className="flex flex-wrap gap-x-6 gap-y-1 mt-2">
+            <a href="/resume" target="_blank" rel="noopener noreferrer" className="social-link">View résumé</a>
+            <a href="https://linkedin.com/in/jsongallagher" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
+            <a href="https://github.com/JsonGallagher" target="_blank" rel="noopener noreferrer" className="social-link">GitHub</a>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

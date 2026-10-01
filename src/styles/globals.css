@@ -44,15 +44,30 @@
     @apply bg-primary text-text-primary dark:bg-primary-dark dark:text-text-light overflow-x-hidden;
     font-family: "DM Sans", system-ui, sans-serif;
   }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
 }
 
 @layer components {
+  .skip-link {
+    @apply fixed top-3 left-3 z-[60] px-4 py-3 rounded-lg bg-primary-dark text-text-light dark:bg-text-light dark:text-primary-dark;
+    transform: translateY(-150%);
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
   .btn {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer;
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded text-sm font-medium transition-colors duration-150 cursor-pointer;
   }
 
   .btn-primary {
-    @apply bg-primary-dark text-text-light dark:bg-text-light dark:text-primary-dark hover:opacity-90 hover:-translate-y-0.5;
+    @apply bg-primary-dark text-text-light dark:bg-text-light dark:text-primary-dark hover:bg-text-primary dark:hover:bg-white;
   }
 
   .btn-secondary {
@@ -77,8 +92,46 @@
     outline-offset: 4px;
   }
 
+  .content-width {
+    @apply max-w-5xl mx-auto;
+  }
+
+  .section-spacing {
+    @apply py-10 md:py-12;
+  }
+
   .section-title {
     @apply font-serif text-4xl md:text-5xl font-normal leading-tight tracking-tight mb-6;
+  }
+
+  .case-feature {
+    @apply bg-primary-dark text-text-light dark:bg-primary dark:text-text-primary;
+  }
+
+  .case-feature-secondary {
+    @apply text-text-light/80 dark:text-text-secondary;
+  }
+
+  .case-feature-results > div {
+    @apply border-white/20 dark:border-black/15;
+  }
+
+  .project-layout {
+    display: grid;
+    grid-template-areas: "title" "image" "copy";
+    gap: 1.5rem;
+  }
+
+  .project-title {
+    grid-area: title;
+  }
+
+  .project-image {
+    grid-area: image;
+  }
+
+  .project-copy {
+    grid-area: copy;
   }
 
   .expertise-label {
@@ -96,6 +149,32 @@
 
   .card {
     @apply bg-white dark:bg-white/5 rounded-2xl;
+  }
+}
+
+@media (min-width: 768px) {
+  .project-layout {
+    grid-template-areas: "image title" "image copy";
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: auto 1fr;
+    column-gap: 3rem;
+    row-gap: 1.25rem;
+  }
+
+  .project-image {
+    align-self: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

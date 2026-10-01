@@ -1,26 +1,5 @@
 const projects = [
   {
-    id: "beat-canvas",
-    title: "Beat Canvas",
-    tagline: "Audio-reactive vertical video creator — all client-side in the browser",
-    category: "Creative Dev",
-    status: "Shipped",
-    year: "2026",
-    images: [
-      "/images/projects/beat_canvas/beat_canvas-2.png",
-      "/images/projects/beat_canvas/beat_canvas-1.png",
-    ],
-    problem:
-      "Creating visualized music clips for social media requires expensive software or clunky online tools that send your audio to a server and spit back generic visuals.",
-    approach:
-      "Built a fully client-side pipeline using the Web Audio API with a custom FFT to extract bass, mids, and treble at 30 FPS, driving 19 Three.js visual templates. ffmpeg.wasm handles final export to 9:16 video — no backend needed.",
-    result:
-      "Upload a song, trim a clip, pick a template, customize colors and text, and export a share-ready vertical video without ever leaving the browser.",
-    stack: ["Next.js", "React", "Three.js", "Web Audio API", "ffmpeg.wasm", "Zustand", "Tailwind CSS"],
-    links: { github: "https://github.com/JsonGallagher/beat-canvas" },
-    featured: true,
-  },
-  {
     id: "market-data",
     title: "Market Data Dashboard",
     tagline: "Real estate market data explorer with interactive charts",
@@ -40,8 +19,29 @@ const projects = [
       "Created a Svelte-based dashboard backed by Supabase that ingests structured data and renders interactive charts for median prices, inventory, and days on market.",
     result:
       "Enabled market data analysis & AI insights with a clean, responsive interface that loads in under a second.",
-    stack: ["Svelte", "Supabase", "Chart.js", "OpenAI API"],
+    stack: ["Svelte", "Supabase", "ApexCharts", "OpenAI API"],
     links: { github: "https://github.com/JsonGallagher/market-data" },
+    featured: true,
+  },
+  {
+    id: "beat-canvas",
+    title: "Beat Canvas",
+    tagline: "Audio-reactive vertical video creator — all client-side in the browser",
+    category: "Creative Dev",
+    status: "Shipped",
+    year: "2026",
+    images: [
+      "/images/projects/beat_canvas/beat_canvas-2.png",
+      "/images/projects/beat_canvas/beat_canvas-1.png",
+    ],
+    problem:
+      "Creating visualized music clips for social media requires expensive software or clunky online tools that send your audio to a server and spit back generic visuals.",
+    approach:
+      "Built a fully client-side pipeline using the Web Audio API with a custom FFT to extract bass, mids, and treble at 30 FPS, driving 19 Three.js visual templates. ffmpeg.wasm handles final export to 9:16 video — no backend needed.",
+    result:
+      "Upload a song, trim a clip, pick a template, customize colors and text, and export a share-ready vertical video without ever leaving the browser.",
+    stack: ["Next.js", "React", "Three.js", "Web Audio API", "ffmpeg.wasm", "Zustand", "Tailwind CSS"],
+    links: { github: "https://github.com/JsonGallagher/beat-canvas" },
     featured: true,
   },
   {

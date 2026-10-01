@@ -46,6 +46,7 @@ export default function Projects() {
           <div className="flex items-center justify-between">
             <Link
               to="/"
+              aria-label="Back to homepage"
               className="flex items-center gap-2 text-sm font-medium text-text-secondary dark:text-text-light/70 hover:text-text-primary dark:hover:text-text-light transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -135,7 +136,7 @@ export default function Projects() {
               Want to collab?
             </p>
             <p className="text-text-secondary dark:text-text-light/50 text-base mb-8">
-              Let's let's build.
+              Let's build.
             </p>
             <a
               href="mailto:jason@jasongallagher.co"

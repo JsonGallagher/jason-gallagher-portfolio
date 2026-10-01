@@ -103,10 +103,10 @@ function ImageCarousel({ images, alt }) {
 
 function SectionLabel({ children }) {
   return (
-    <h4 className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-text-secondary/70 dark:text-text-light/40 mb-1.5">
+    <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-text-secondary dark:text-text-light/70 mb-1.5">
       <span className="w-3 h-px bg-current" />
       {children}
-    </h4>
+    </h3>
   );
 }
 
@@ -186,9 +186,9 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
 
         <div className="p-6 sm:p-8">
           {/* Title */}
-          <h3 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight mb-2">
+          <h2 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight mb-2">
             {project.title}
-          </h3>
+          </h2>
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs mb-6">
             <p className="text-text-secondary dark:text-text-light/70">
               {project.category} &middot; {project.year}

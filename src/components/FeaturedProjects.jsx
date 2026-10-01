@@ -1,60 +1,42 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import ProjectCard from "./projects/ProjectCard";
 import projects from "../data/projects";
 
-const featuredProjects = projects.filter((p) => p.featured);
+const project = projects.find((item) => item.id === "market-data");
 
 export default function FeaturedProjects() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section id="projects" className="pt-16 pb-12 px-6 scroll-mt-16">
-      <div ref={ref} className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="section-title">
-            Things I've <em className="italic">built.</em>
-          </h2>
-        </motion.div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {featuredProjects.map((project, i) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              variant="preview"
-              index={i}
-            />
-          ))}
+    <section tabIndex={-1} id="projects" aria-labelledby="featured-project-title" className="section-spacing px-6 scroll-mt-24">
+      <div className="content-width">
+        <div className="project-layout">
+          <h2 id="featured-project-title" className="section-title project-title mb-0">{project.title}</h2>
+          <figure className="project-image">
+            <Link to="/projects#market-data" className="block aspect-[5/4] overflow-hidden" aria-label="Explore the Market Data Dashboard project">
+              <img src={project.images[2]} alt="Market Data Dashboard charts comparing prices, active listings, and sales" loading="lazy" width="3988" height="2270" className="w-full h-full object-cover" />
+            </Link>
+            <figcaption className="text-sm text-text-secondary dark:text-text-light/75 leading-relaxed mt-3">Market trends and AI insights for client conversations.</figcaption>
+          </figure>
+          <div className="project-copy">
+            <p className="text-lg text-text-secondary dark:text-text-light/75 leading-relaxed mb-4">
+              Built for real estate agents analyzing local markets. MLS exports
+              and government PDFs make it difficult to spot trends or compare
+              neighborhoods quickly.
+            </p>
+            <p className="text-text-secondary dark:text-text-light/75 leading-relaxed">
+              I built a responsive dashboard that brings structured data into
+              interactive views of median prices, inventory, and days on market,
+              with AI insights to help agents prepare client conversations.
+            </p>
+            <p className="text-sm text-text-secondary dark:text-text-light/75 leading-relaxed mt-5">{project.stack.join(" · ")}</p>
+            <div className="flex flex-wrap gap-x-6 gap-y-1 mt-2">
+              <Link to="/projects#market-data" className="social-link">Explore the project</Link>
+              <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="social-link">Source</a>
+            </div>
+          </div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-8"
-        >
-          <Link
-            to="/projects"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 dark:text-blue-400 hover:opacity-70 transition-opacity"
-          >
-            View all projects
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </motion.div>
-      </div>
-
-      {/* Subtle section divider */}
-      <div className="mt-24 flex justify-center">
-        <div className="h-px w-48 sm:w-64 md:w-80 lg:w-[26rem] bg-gradient-to-r from-transparent via-black/10 to-transparent dark:via-white/10" />
+        <div className="mt-8 pt-4 border-t border-black/15 dark:border-white/20 flex flex-col sm:flex-row sm:items-baseline gap-x-6 gap-y-1">
+          <Link to="/projects" className="social-link shrink-0">View all projects</Link>
+          <p className="text-sm text-text-secondary dark:text-text-light/75 leading-relaxed">Beat Canvas, 808Lab, AI workflows, and other creative experiments.</p>
+        </div>
       </div>
     </section>
   );
