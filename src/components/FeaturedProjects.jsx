@@ -20,7 +20,6 @@ export default function FeaturedProjects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="section-label">Projects</span>
           <h2 className="section-title">
             Things I've <em className="italic">built.</em>
           </h2>

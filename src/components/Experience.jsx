@@ -134,7 +134,6 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="section-label">Career</span>
           <h2 className="section-title">
             12+ years <em className="italic">building</em> full-funnel growth.
           </h2>

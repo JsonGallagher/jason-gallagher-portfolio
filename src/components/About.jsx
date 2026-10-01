@@ -47,7 +47,6 @@ export default function About() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center md:text-left"
         >
-          <span className="section-label">About</span>
           <h2 className="section-title">Jason Gallagher</h2>
           <p className="text-text-secondary dark:text-text-light/60 text-lg mb-6">
             Growth Marketer • Colorado
@@ -62,12 +61,12 @@ export default function About() {
           </p>
 
           {/* Links */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-1">
             <a
               href="https://linkedin.com/in/jsongallagher"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 text-blue-500 hover:bg-blue-500/20 transition-colors font-medium"
+              className="social-link"
             >
               <Linkedin className="w-4 h-4 -translate-y-px" />
               <span>LinkedIn</span>
@@ -76,7 +75,7 @@ export default function About() {
               href="https://x.com/heyjson"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 text-blue-500 hover:bg-blue-500/20 transition-colors font-medium"
+              className="social-link"
             >
               <XIcon className="w-4 h-4" />
               <span>X (Twitter)</span>
@@ -85,14 +84,14 @@ export default function About() {
               href="https://github.com/JsonGallagher"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 text-blue-500 hover:bg-blue-500/20 transition-colors font-medium"
+              className="social-link"
             >
               <Github className="w-4 h-4" />
               <span>GitHub</span>
             </a>
             <a
               href="mailto:jason@jasongallagher.co"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 text-blue-500 hover:bg-blue-500/20 transition-colors font-medium"
+              className="social-link"
             >
               <Mail className="w-4 h-4" />
               <span>Email</span>

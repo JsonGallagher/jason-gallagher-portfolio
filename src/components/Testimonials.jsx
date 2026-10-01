@@ -32,7 +32,6 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="section-label">Results</span>
           <h2 className="section-title">
             Impact at <em className="italic">scale.</em>
           </h2>

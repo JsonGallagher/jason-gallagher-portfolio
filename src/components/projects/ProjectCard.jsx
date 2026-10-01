@@ -4,16 +4,13 @@ import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 
 const statusConfig = {
   Shipped: {
-    classes: "bg-green-500/10 text-green-600 dark:text-green-400",
-    dot: "bg-green-500",
+    classes: "text-green-700 dark:text-green-400",
   },
   WIP: {
-    classes: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
-    dot: "bg-blue-500",
+    classes: "text-blue-700 dark:text-blue-300",
   },
   Archived: {
-    classes: "bg-gray-500/10 text-gray-600 dark:text-gray-400",
-    dot: "bg-gray-500",
+    classes: "text-gray-600 dark:text-gray-300",
   },
 };
 
@@ -68,20 +65,18 @@ function ImageCarousel({ images, alt }) {
         />
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-
       {hasMultiple && (
         <>
           <button
             onClick={() => paginate(-1)}
-            className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-black/60"
+            className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-primary-dark text-white flex items-center justify-center hover:bg-black transition-colors"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={() => paginate(1)}
-            className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-black/60"
+            className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-primary-dark text-white flex items-center justify-center hover:bg-black transition-colors"
             aria-label="Next image"
           >
             <ChevronRight className="w-4 h-4" />
@@ -142,14 +137,13 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
               {project.title}
             </h3>
             <span
-              className={`shrink-0 flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium ${status.classes}`}
+              className={`shrink-0 text-xs font-medium ${status.classes}`}
             >
-              <span className={`w-1 h-1 rounded-full ${status.dot}`} />
               {project.status}
             </span>
           </div>
 
-          <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-text-secondary/60 dark:text-text-light/40 mb-2">
+          <span className="text-xs text-text-secondary dark:text-text-light/70 mb-2">
             {project.category}
           </span>
 
@@ -157,21 +151,16 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
             {project.tagline}
           </p>
 
-          <div className="flex flex-wrap gap-1.5 mt-auto">
+          <ul className="plain-text-list text-xs text-text-secondary dark:text-text-light/70 mt-auto">
             {project.stack.slice(0, 3).map((tech) => (
-              <span
-                key={tech}
-                className="px-2 py-0.5 bg-blue-500/[0.07] text-blue-600/80 dark:text-blue-400/70 rounded text-[11px] font-medium"
-              >
-                {tech}
-              </span>
+              <li key={tech}>{tech}</li>
             ))}
             {project.stack.length > 3 && (
-              <span className="px-2 py-0.5 text-text-secondary/50 dark:text-text-light/30 text-[11px]">
+              <li>
                 +{project.stack.length - 3}
-              </span>
+              </li>
             )}
-          </div>
+          </ul>
         </div>
       </article>
     );
@@ -184,11 +173,8 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-      className="group relative rounded-3xl overflow-hidden ring-1 ring-black/10 dark:ring-white/10 shadow-xl shadow-black/5 dark:shadow-black/40 transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
+      className="group relative rounded-3xl overflow-hidden ring-1 ring-black/10 dark:ring-white/10 shadow-xl shadow-black/5 dark:shadow-black/40"
     >
-      {/* Glow border effect */}
-      <div className="absolute -inset-px rounded-3xl bg-gradient-to-b from-blue-500/20 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-blue-400/25 dark:to-cyan-400/15" />
-
       <div className="relative bg-white dark:bg-[#232323] rounded-3xl overflow-hidden">
         {/* Image carousel */}
         <div className="relative">
@@ -196,30 +182,19 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
             images={project.images || [project.image]}
             alt={project.title}
           />
-
-          {/* Floating badges over image */}
-          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2 z-10 pointer-events-none">
-            <span
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium backdrop-blur-md bg-white/80 dark:bg-black/50 ${status.classes}`}
-            >
-              <span
-                className={`w-1.5 h-1.5 rounded-full ${status.dot}`}
-              />
-              {project.status}
-            </span>
-          </div>
-          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 z-10 pointer-events-none">
-            <span className="px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-[0.15em] backdrop-blur-md bg-white/80 dark:bg-black/50 text-text-secondary dark:text-text-light/70">
-              {project.category} &middot; {project.year}
-            </span>
-          </div>
         </div>
 
         <div className="p-6 sm:p-8">
           {/* Title */}
-          <h3 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight mb-6">
+          <h3 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight mb-2">
             {project.title}
           </h3>
+          <div className="flex flex-wrap items-center justify-between gap-2 text-xs mb-6">
+            <p className="text-text-secondary dark:text-text-light/70">
+              {project.category} &middot; {project.year}
+            </p>
+            <p className={status.classes}>{project.status}</p>
+          </div>
 
           {/* Problem → Approach → Result */}
           <div className="space-y-5 mb-8">
@@ -242,16 +217,11 @@ export default function ProjectCard({ project, variant = "full", index = 0 }) {
 
           {/* Stack + Links row */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div className="flex flex-wrap gap-1.5">
+            <ul className="plain-text-list text-sm text-text-secondary dark:text-text-light/70">
               {project.stack.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2.5 py-1 bg-blue-500/[0.07] text-blue-600/80 dark:text-blue-400/70 rounded text-sm font-medium"
-                >
-                  {tech}
-                </span>
+                <li key={tech}>{tech}</li>
               ))}
-            </div>
+            </ul>
 
             <div className="flex gap-2 shrink-0">
               {project.links?.github && (

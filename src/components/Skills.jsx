@@ -100,35 +100,29 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="section-label">Toolkit</span>
           <h2 className="section-title">
             Technical & strategic <em className="italic">fluency.</em>
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-x-10 gap-y-6">
           {skillCategories.map((category, i) => (
             <div
               key={i}
-              className="p-6 rounded-3xl
-                bg-white dark:bg-white/5
-                ring-1 ring-black/10 dark:ring-white/10
-                shadow-xl shadow-black/5 dark:shadow-black/40
-                transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl"
+              className="pt-5 border-t border-black/15 dark:border-white/20"
             >
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-text-light/50 mb-4">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-text-light/70 mb-3">
                 {category.title}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <ul className="plain-text-list text-base text-text-secondary dark:text-text-light/70 leading-relaxed">
                 {category.skills.map((skill, j) => (
-                  <span
+                  <li
                     key={j}
-                    className="px-3 py-1.5 bg-blue-500/10 text-blue-500 dark:text-blue-400 rounded-md text-sm"
                   >
                     {skill}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
         </div>

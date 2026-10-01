@@ -50,23 +50,6 @@ const browserCards = [
 export default function Hero() {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-32 pb-16">
-      {/* Badge */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 dark:bg-green-500/20 rounded-full text-sm mb-10 ring-1 ring-green-500/20"
-      >
-        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-        <span className="text-green-700 dark:text-green-400">
-          Available Now
-        </span>
-        <span className="text-green-700/50 dark:text-green-400/50">·</span>
-        <span className="text-green-700/80 dark:text-green-400/80">
-          Open to Full-Time Roles
-        </span>
-      </motion.div>
-
       {/* Headline */}
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
