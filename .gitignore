@@ -46,3 +46,6 @@ coverage/
 
 # Misc
 *.local
+
+# Internal documentation
+/docs/

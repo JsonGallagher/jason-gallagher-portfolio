@@ -13,7 +13,7 @@ Live site: [jasongallagher.co](https://jasongallagher.co)
 
 The design uses Instrument Serif headings, DM Sans body text, a warm neutral palette, a compact selected-tools list, and real project imagery. Outcome-led case headings make the work easy to scan. The acquisition case is featured in a contrasting band with two larger results and a separately labeled paid-media CPA result; supporting cases use open columns. The dashboard uses an asymmetric image-and-copy layout on desktop and a title/image/copy sequence on mobile, with a wide screenshot that preserves the charts. Section headings are left-aligned, and homepage content renders without reveal animations. Project metadata appears as plain text below titles rather than badges over screenshots.
 
-The older `/shelf` route is retained for direct access but is no longer linked in the navigation. Its setup and data documentation are in [docs/shelf.md](docs/shelf.md).
+The older `/shelf` route is retained for direct access but is no longer linked in the navigation.
 
 ## Local development
 
@@ -65,10 +65,6 @@ Run a local build before pushing application or dependency changes. Cloudflare b
 | Navigation | `src/components/Navbar.jsx` |
 | Resume destination | `public/_redirects`, `src/pages/Resume.jsx` (keep destinations in sync) |
 
-The content sources, metric scope, and pre-publication confirmation notes are recorded in [homepage content notes](docs/homepage-content.md). The unused Testimonials and Values components and obsolete decorative styles have been removed; their source claims remain available in Git history.
-
-The shared [design system](docs/design-system.md) covers typography, color, spacing, surfaces, and interactive states across all routes.
-
 Homepage section order is defined in `src/pages/Home.jsx`; routes are defined in `src/App.jsx`.
 
 ## Styles and assets
@@ -97,7 +93,6 @@ jason-gallagher-portfolio/
 │   ├── styles/             # Global styles and font declarations
 │   ├── App.jsx             # Routes and theme state
 │   └── main.jsx            # React entry point
-├── docs/                   # Design audit and maintenance notes
 ├── index.html
 ├── package.json
 ├── package-lock.json
@@ -105,10 +100,6 @@ jason-gallagher-portfolio/
 ├── vite.config.js
 └── wrangler.jsonc
 ```
-
-The [design audit](docs/design-audit/audit.md) records the original visual findings, implemented refinements, screenshots, and remaining observations.
-
-The [selected homepage refinements](docs/design-audit/selected-refinements/review.md) document the initial implementation of audit options 1, 4, and 5. The subsequent [visual rhythm pass](docs/design-audit/visual-rhythm/review.md) restores emphasis and varied composition while preserving that content structure.
 
 ## License
 
