@@ -289,27 +289,29 @@ export default function Shelf() {
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="sticky top-0 z-50 bg-primary/90 dark:bg-primary-dark/90 backdrop-blur-xl border-b border-black/5 dark:border-white/5"
+        className="page-header"
       >
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Back link */}
             <Link
               to="/"
-              className="flex items-center gap-2 text-sm font-medium text-text-secondary dark:text-text-light/70 hover:text-text-primary dark:hover:text-text-light transition-colors"
+              aria-label="Back to homepage"
+              className="nav-link text-muted"
             >
               <ArrowLeft className="w-4 h-4" />
               <span className="hidden sm:inline">Back to Portfolio</span>
             </Link>
 
             {/* Page Title */}
-            <h1 className="font-serif text-2xl sm:text-3xl font-medium">The Shelf</h1>
+            <h1 className="font-serif text-2xl sm:text-3xl font-normal">The Shelf</h1>
 
             {/* Dark Mode Toggle */}
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+              className="icon-button"
               aria-label="Toggle dark mode"
+              aria-pressed={darkMode}
             >
               {darkMode ? (
                 <Sun className="w-5 h-5 text-text-light" />
@@ -327,12 +329,12 @@ export default function Shelf() {
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="border-l-4 border-yellow-500/70 pl-6 py-2 mb-10"
+          className="py-2 mb-10 max-w-3xl"
         >
-          <p className="font-serif text-2xl text-text-primary dark:text-text-light/90 leading-relaxed">
+          <p className="case-title">
             A curated collection of books, films, and TV shows that have shaped my thinking.
           </p>
-          <p className="text-text-secondary dark:text-text-light/50 mt-1">
+          <p className="text-muted mt-1">
             Organized by year consumed, with personal ratings and notes.
           </p>
         </motion.div>
@@ -366,7 +368,7 @@ export default function Shelf() {
             activeFilter={activeFilter}
             onFilterChange={setActiveFilter}
           />
-          <span className="text-sm text-text-secondary dark:text-text-light/50">
+          <span className="text-sm text-muted">
             {getCountLabel()}
           </span>
         </motion.div>

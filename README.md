@@ -6,12 +6,12 @@ Live site: [jasongallagher.co](https://jasongallagher.co)
 
 ## Site overview
 
-- **Homepage (`/`):** Positioning and three selected results, marketing case studies, recent experience, Market Data Dashboard, about/capabilities, and contact links.
+- **Homepage (`/`):** Positioning and three selected results, marketing case studies, Market Data Dashboard, two compact career entries, about/selected tools, and contact links.
 - **Projects (`/projects`):** “The lab.” — project screenshots, Problem / Approach / Result case studies, technology lists, and source/demo links.
 - **Navigation:** Homepage section links and Projects, with desktop and mobile menus.
 - **Theme:** Light and dark modes, initially based on the system preference and saved in local storage.
 
-The design uses Instrument Serif headings, DM Sans body text, a warm neutral palette, grouped text lists for skills, and real project imagery. The acquisition case is featured in a contrasting band with larger results; supporting cases use open columns. The dashboard uses an asymmetric image-and-copy layout on desktop and a title/image/copy sequence on mobile. Section headings are left-aligned, and homepage content renders without reveal animations. Project metadata appears as plain text below titles rather than badges over screenshots.
+The design uses Instrument Serif headings, DM Sans body text, a warm neutral palette, a compact selected-tools list, and real project imagery. Outcome-led case headings make the work easy to scan. The acquisition case is featured in a contrasting band with two larger results and a separately labeled paid-media CPA result; supporting cases use open columns. The dashboard uses an asymmetric image-and-copy layout on desktop and a title/image/copy sequence on mobile, with a wide screenshot that preserves the charts. Section headings are left-aligned, and homepage content renders without reveal animations. Project metadata appears as plain text below titles rather than badges over screenshots.
 
 The older `/shelf` route is retained for direct access but is no longer linked in the navigation. Its setup and data documentation are in [docs/shelf.md](docs/shelf.md).
 
@@ -58,14 +58,16 @@ Run a local build before pushing application or dependency changes. Cloudflare b
 | Bio and social links | `src/components/About.jsx` |
 | Marketing case studies | `src/components/Expertise.jsx` |
 | Career experience | `src/components/Experience.jsx` |
-| Focused capabilities and selected tools | `src/components/Skills.jsx` |
+| Selected tools | `src/components/Skills.jsx` |
 | Project descriptions, screenshots, stacks, and links | `src/data/projects.js` |
 | Homepage project previews | `src/components/FeaturedProjects.jsx` |
 | Project case-study presentation and carousels | `src/components/projects/ProjectCard.jsx` |
 | Navigation | `src/components/Navbar.jsx` |
 | Resume destination | `public/_redirects`, `src/pages/Resume.jsx` (keep destinations in sync) |
 
-The content sources, metric scope, and pre-publication confirmation notes are recorded in [homepage content notes](docs/homepage-content.md). The older Testimonials and Values components are retained but are not rendered.
+The content sources, metric scope, and pre-publication confirmation notes are recorded in [homepage content notes](docs/homepage-content.md). The unused Testimonials and Values components and obsolete decorative styles have been removed; their source claims remain available in Git history.
+
+The shared [design system](docs/design-system.md) covers typography, color, spacing, surfaces, and interactive states across all routes.
 
 Homepage section order is defined in `src/pages/Home.jsx`; routes are defined in `src/App.jsx`.
 

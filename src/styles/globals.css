@@ -36,6 +36,28 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --accent: 29 78 216;
+    --accent-hover: 30 64 175;
+    --on-accent: 255 255 255;
+    --ink: 36 36 35;
+    --muted: 107 107 107;
+    --surface: 255 255 255;
+    --line: 36 36 35 / 0.15;
+    --control-radius: 4px;
+    --transition: 150ms ease;
+  }
+
+  .dark {
+    --accent: 147 197 253;
+    --accent-hover: 191 219 254;
+    --on-accent: 26 26 26;
+    --ink: 241 240 237;
+    --muted: 190 190 187;
+    --surface: 35 35 35;
+    --line: 241 240 237 / 0.18;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -46,15 +68,16 @@
   }
 
   a:focus-visible,
-  button:focus-visible {
-    outline: 2px solid currentColor;
+  button:focus-visible,
+  input:focus-visible {
+    outline: 2px solid rgb(var(--accent));
     outline-offset: 4px;
   }
 }
 
 @layer components {
   .skip-link {
-    @apply fixed top-3 left-3 z-[60] px-4 py-3 rounded-lg bg-primary-dark text-text-light dark:bg-text-light dark:text-primary-dark;
+    @apply fixed top-3 left-3 z-[60] px-4 py-3 rounded bg-primary-dark text-text-light dark:bg-text-light dark:text-primary-dark;
     transform: translateY(-150%);
   }
 
@@ -63,21 +86,95 @@
   }
 
   .btn {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded text-sm font-medium transition-colors duration-150 cursor-pointer;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium cursor-pointer;
+    min-height: 44px;
+    border: 1px solid transparent;
+    border-radius: var(--control-radius);
+    transition: color var(--transition), background-color var(--transition), border-color var(--transition);
   }
 
   .btn-primary {
-    @apply bg-primary-dark text-text-light dark:bg-text-light dark:text-primary-dark hover:bg-text-primary dark:hover:bg-white;
+    color: rgb(var(--on-accent));
+    background: rgb(var(--accent));
+  }
+
+  .btn-primary:hover {
+    background: rgb(var(--accent-hover));
   }
 
   .btn-secondary {
-    @apply bg-transparent text-text-primary dark:text-text-light border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5;
+    color: rgb(var(--ink));
+    border-color: rgb(var(--line));
   }
 
-  .social-link {
-    @apply inline-flex items-center gap-2 py-2 text-blue-700 dark:text-blue-300 hover:text-text-primary dark:hover:text-text-light transition-colors font-medium underline underline-offset-4;
-    min-height: 44px;
+  .btn-secondary:hover {
+    color: rgb(var(--accent));
+    border-color: rgb(var(--accent));
+    background: rgb(var(--accent) / 0.05);
   }
+
+  .btn-small { @apply px-4 py-2; }
+
+  .text-link {
+    @apply inline-flex items-center gap-2 py-2 font-medium underline underline-offset-4;
+    min-height: 44px;
+    color: rgb(var(--accent));
+    text-decoration-color: rgb(var(--accent) / 0.4);
+    transition: color var(--transition), text-decoration-color var(--transition);
+  }
+
+  .text-link:hover {
+    color: rgb(var(--accent-hover));
+    text-decoration-color: currentColor;
+  }
+
+  .nav-link {
+    @apply inline-flex items-center gap-2 text-sm font-medium;
+    min-height: 44px;
+    transition: color var(--transition);
+  }
+
+  .nav-link:hover, .nav-link[aria-current] { color: rgb(var(--accent)); }
+
+  .icon-button {
+    @apply inline-flex items-center justify-center shrink-0;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--control-radius);
+    transition: color var(--transition), background-color var(--transition);
+  }
+
+  .icon-button:hover { color: rgb(var(--accent)); background: rgb(var(--accent) / 0.07); }
+
+  .choice-button {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium;
+    min-height: 44px;
+    border: 1px solid transparent;
+    border-radius: var(--control-radius);
+    color: rgb(var(--muted));
+    transition: color var(--transition), background-color var(--transition), border-color var(--transition);
+  }
+
+  .choice-button:hover { color: rgb(var(--accent)); background: rgb(var(--accent) / 0.05); }
+  .choice-button[aria-pressed="true"] { color: rgb(var(--accent)); background: rgb(var(--accent) / 0.08); border-color: rgb(var(--accent) / 0.25); }
+
+  .field {
+    @apply w-full py-2.5 text-sm;
+    min-height: 44px;
+    color: rgb(var(--ink));
+    background: rgb(var(--surface));
+    border: 1px solid rgb(var(--line));
+    border-radius: var(--control-radius);
+    transition: border-color var(--transition);
+  }
+
+  .field::placeholder { color: rgb(var(--muted)); }
+  .field:hover { border-color: rgb(var(--accent) / 0.5); }
+  .field:focus-visible { border-color: rgb(var(--accent)); outline-offset: 2px; }
+
+  .surface { background: rgb(var(--surface)); border: 1px solid rgb(var(--line)); border-radius: var(--control-radius); }
+  .divider { border-color: rgb(var(--line)); }
+  .page-header { @apply sticky top-0 z-50 bg-primary dark:bg-primary-dark border-b divider; }
 
   .plain-text-list li {
     display: inline;
@@ -87,22 +184,57 @@
     content: ', ';
   }
 
-  .social-link:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 4px;
-  }
-
   .content-width {
     @apply max-w-5xl mx-auto;
   }
 
   .section-spacing {
-    @apply py-10 md:py-12;
+    @apply py-12 md:py-16;
   }
 
   .section-title {
-    @apply font-serif text-4xl md:text-5xl font-normal leading-tight tracking-tight mb-6;
+    @apply font-serif font-normal tracking-tight mb-6;
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    line-height: 1.1;
   }
+
+  .display-title {
+    @apply font-serif font-normal tracking-tight;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.05;
+  }
+
+  .case-title {
+    @apply font-serif font-normal tracking-tight;
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    line-height: 1.12;
+  }
+
+  .feature-title {
+    @apply font-serif font-normal tracking-tight;
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    line-height: 1.05;
+  }
+
+  .item-title { @apply text-xl font-medium leading-snug; }
+  .lead { @apply text-lg md:text-xl leading-relaxed text-pretty; }
+  .body-copy { @apply leading-relaxed; }
+  .metadata { @apply text-sm leading-relaxed; }
+  .lead, .body-copy, .metadata { color: rgb(var(--muted)); }
+  .metric { @apply font-serif font-normal text-5xl leading-none tracking-tight; font-variant-numeric: lining-nums tabular-nums; }
+
+  .project-preview { border: 1px solid rgb(var(--line)); border-radius: var(--control-radius); transition: border-color var(--transition); }
+  .project-preview:hover { border-color: rgb(var(--accent)); }
+  .project-preview img { transform: scale(1.38); transform-origin: center top; }
+
+  .media-card { @apply block w-full text-left self-start; }
+  .media-card .media-title { transition: color var(--transition); }
+  .media-card:hover .media-title, .media-card:focus-visible .media-title { color: rgb(var(--accent)); }
+
+  .carousel-button { @apply icon-button bg-primary-dark text-white; }
+  .carousel-button:hover { background: #242423; color: #93c5fd; }
+
+  .footer-surface { --accent: 147 197 253; --accent-hover: 191 219 254; }
 
   .case-feature {
     @apply bg-primary-dark text-text-light dark:bg-primary dark:text-text-primary;
@@ -134,28 +266,16 @@
     grid-area: copy;
   }
 
-  .expertise-label {
-    @apply inline-block px-3 py-1 rounded text-xs font-medium uppercase tracking-wider mb-5;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0%, transparent 80%);
-  }
-
-  .dark .expertise-label {
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.12) 0%,
-      transparent 80%
-    );
-  }
-
-  .card {
-    @apply bg-white dark:bg-white/5 rounded-2xl;
-  }
 }
 
 @media (min-width: 768px) {
+  .supporting-cases { row-gap: 0; }
+  .supporting-case { display: grid; grid-row: span 4; grid-template-rows: subgrid; }
+  .supporting-case dl { margin-top: 0; }
+
   .project-layout {
     grid-template-areas: "image title" "image copy";
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1.35fr 1fr;
     grid-template-rows: auto 1fr;
     column-gap: 3rem;
     row-gap: 1.25rem;
@@ -176,12 +296,6 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-/* Radial lines animation */
-.radial-line {
-  @apply absolute top-1/2 left-1/2 w-28 h-px origin-left;
-  background: linear-gradient(90deg, transparent, currentColor);
 }
 
 /* Custom scrollbar */

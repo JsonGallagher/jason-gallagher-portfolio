@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Moon, Sun, Mail, Terminal } from "lucide-react";
+import { ArrowLeft, Moon, Sun, Mail } from "lucide-react";
 import { useTheme } from "../App";
 import ProjectCard from "../components/projects/ProjectCard";
 import projects from "../data/projects";
@@ -18,7 +18,8 @@ function ProjectIndex({ projects: items }) {
           <a
             key={p.id}
             href={`#${p.id}`}
-            className="group flex items-center gap-2.5 text-xs text-text-secondary/60 dark:text-text-light/30 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+            aria-label={`Jump to ${p.title}`}
+            className="group flex items-center gap-2.5 text-xs text-muted hover:text-accent transition-colors"
           >
             <span className="w-5 h-px bg-current transition-all group-hover:w-8" />
             <span className="font-mono opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
@@ -40,30 +41,30 @@ export default function Projects() {
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="sticky top-0 z-50 bg-primary/80 dark:bg-primary-dark/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5"
+        className="page-header"
       >
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link
               to="/"
               aria-label="Back to homepage"
-              className="flex items-center gap-2 text-sm font-medium text-text-secondary dark:text-text-light/70 hover:text-text-primary dark:hover:text-text-light transition-colors"
+              className="nav-link text-muted"
             >
               <ArrowLeft className="w-4 h-4" />
               <span className="hidden sm:inline">Back</span>
             </Link>
 
-            <div className="flex items-center gap-2 text-text-secondary dark:text-text-light/50">
-              <Terminal className="w-3.5 h-3.5" />
-              <span className="text-xs font-mono tracking-wider uppercase">
+            <div className="flex items-center gap-2 text-muted">
+              <span className="text-sm font-medium">
                 Projects
               </span>
             </div>
 
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+              className="icon-button"
               aria-label="Toggle dark mode"
+              aria-pressed={darkMode}
             >
               {darkMode ? (
                 <Sun className="w-5 h-5 text-text-light" />
@@ -86,7 +87,7 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="text-sm text-text-secondary dark:text-text-light/70 mb-6"
+            className="text-sm text-muted mb-6"
           >
             {projects.length} projects
           </motion.div>
@@ -95,7 +96,7 @@ export default function Projects() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight mb-4"
+            className="display-title mb-4"
           >
             The <em className="italic">lab.</em>
           </motion.h1>
@@ -104,7 +105,7 @@ export default function Projects() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-text-secondary dark:text-text-light/50 text-lg max-w-md mx-auto"
+            className="lead max-w-md mx-auto"
           >
             Recent tools and experiments I built in my free time. AI workflows,
             analytics, and creative code.
@@ -131,11 +132,10 @@ export default function Projects() {
           className="text-center mt-20 mb-12"
         >
           <div className="inline-block">
-            <div className="h-16 w-px bg-gradient-to-b from-transparent via-blue-500/30 to-blue-500/50 mx-auto mb-6" />
-            <p className="font-serif text-3xl sm:text-4xl mb-3">
+            <p className="section-title mb-3">
               Want to collab?
             </p>
-            <p className="text-text-secondary dark:text-text-light/50 text-base mb-8">
+            <p className="text-muted text-base mb-8">
               Let's build.
             </p>
             <a

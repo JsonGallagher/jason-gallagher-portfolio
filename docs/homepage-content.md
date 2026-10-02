@@ -20,7 +20,7 @@ The Market Data project screenshots already in this repository show agent-orient
 | 23% better lead-to-close rate | Berkshire Hathaway HomeServices; original Experience | SEO content, landing page optimization, and the sales-marketing feedback loop. No percentage-point interpretation added. |
 | First marketing hire, decade of function building, two promotions | Berkshire Hathaway HomeServices; original Experience | Leadership scope, without inventing direct reports or team size. |
 
-Case-study challenges and “what changed” are concise editorial syntheses of the documented work. They add no new numerical results, budgets, implementation dates, or causal claims. Capability descriptions link to the work that demonstrates them. Marketing leadership is explicitly grounded in real estate; earlier telecom/SMB sales experience is described separately. Unsupported B2B SaaS employment implications were removed from the about copy and structured metadata.
+Case-study challenges and “what changed” are concise editorial syntheses of the documented work. They add no new numerical results, budgets, implementation dates, or causal claims. Marketing leadership is explicitly grounded in real estate; earlier telecom/SMB sales experience is described separately. Unsupported B2B SaaS employment implications were removed from the about copy and structured metadata.
 
 ## Source claims to reconfirm
 
@@ -30,7 +30,9 @@ Case-study challenges and “what changed” are concise editorial syntheses of 
 
 ## Implementation and validation
 
-The homepage follows the requested order: positioning/results → three marketing case studies → two recent roles → Market Data Dashboard → about and focused capabilities → contact. Earlier individual roles and creative project cards are removed from the homepage; the résumé and all five Projects entries remain available. Email is the primary contact, and phone links and telephone metadata are removed.
+The homepage follows the requested order: positioning/results → three marketing case studies → Market Data Dashboard → two compact recent roles → about and selected tools → contact. Earlier individual roles and creative project cards are removed from the homepage; the résumé and all five Projects entries remain available. Email is the primary contact, and phone links and telephone metadata are removed.
+
+The subsequent editorial refinement reduces the rendered homepage from approximately 734 to 480 words, including desktop navigation and footer. The original hero summary is retained because it communicates leadership scope more precisely than the attempted shorter version. Outcome-led headings replace topic labels; career entries describe ownership and progression without repeating case-study achievements. The capabilities descriptions are replaced by the selected-tools list, retaining the `#skills` anchor. The acquisition feature emphasizes doubled lead volume and 50% lower customer acquisition cost, with the separate 34% paid-media CPA result in supporting text. Measurement periods and baselines remain unspecified because the sources do not establish them. The dashboard uses a wider image crop and appears before the career summary.
 
 Instrument Serif, DM Sans, the established palette, theme toggle/storage, portrait, and responsive layouts are preserved. The `#expertise`, `#experience`, `#projects`, `#about`, `#skills`, `/projects`, `/shelf`, and `/resume` URLs remain usable. New case-study/contact anchors improve direct navigation. A local résumé fallback matches the existing production redirect. Project deep links now scroll to the intended project.
 

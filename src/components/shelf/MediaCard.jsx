@@ -31,26 +31,28 @@ export default function MediaCard({ item, type, index = 0, posterPath, onClick }
   const isLiked = item.liked
 
   return (
-    <motion.div
+    <motion.button
+      type="button"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       onClick={onClick}
-      className="group cursor-pointer"
+      aria-label={item.title}
+      className="media-card group"
     >
       {/* Cover Image */}
-      <div className="relative aspect-[2/3] rounded-lg overflow-hidden bg-black/5 dark:bg-white/5 mb-3">
+      <span className="block relative aspect-[2/3] rounded overflow-hidden bg-black/5 dark:bg-white/5 mb-3">
         {imageUrl && !imageError ? (
           <>
             {!imageLoaded && (
-              <div className="absolute inset-0 animate-pulse bg-black/10 dark:bg-white/10" />
+              <span className="block absolute inset-0 animate-pulse bg-black/10 dark:bg-white/10" />
             )}
             <img
               src={imageUrl}
               alt={item.title}
               loading="lazy"
               decoding="async"
-              className={`w-full h-full object-cover transition-all duration-300 group-hover:scale-105 ${
+              className={`w-full h-full object-cover transition-opacity duration-150 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
               onLoad={() => setImageLoaded(true)}
@@ -58,16 +60,16 @@ export default function MediaCard({ item, type, index = 0, posterPath, onClick }
             />
           </>
         ) : (
-          <div className="w-full h-full flex items-center justify-center p-4">
-            <span className="text-sm text-text-secondary dark:text-text-light/50 text-center line-clamp-3">
+          <span className="block w-full h-full flex items-center justify-center p-4">
+            <span className="text-sm text-muted text-center line-clamp-3">
               {item.title}
             </span>
-          </div>
+          </span>
         )}
 
         {/* Tag Badge */}
         {(isLifeChanging || isLiked) && (
-          <div className="absolute top-2 right-2">
+          <span className="block absolute top-2 right-2">
             {isLifeChanging ? (
               <span className="flex items-center justify-center w-7 h-7 rounded-full bg-yellow-400/90 text-yellow-900">
                 <Star className="w-4 h-4 fill-current" />
@@ -77,20 +79,18 @@ export default function MediaCard({ item, type, index = 0, posterPath, onClick }
                 <Heart className="w-4 h-4 fill-current" />
               </span>
             )}
-          </div>
+          </span>
         )}
 
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
-      </div>
+      </span>
 
       {/* Info */}
-      <h3 className="font-medium text-sm leading-tight mb-1 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+      <span className="media-title block font-medium text-sm leading-tight mb-1 line-clamp-2">
         {item.title}
-      </h3>
-      <p className="text-xs text-text-secondary dark:text-text-light/60">
+      </span>
+      <span className="block text-xs text-muted">
         {getCreator()}
-      </p>
-    </motion.div>
+      </span>
+    </motion.button>
   )
 }

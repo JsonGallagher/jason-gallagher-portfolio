@@ -30,7 +30,7 @@ function StarRating({ rating, maxRating = 10 }) {
   return (
     <div className="flex items-center gap-0.5">
       {stars}
-      <span className="ml-2 text-sm text-text-secondary dark:text-text-light/60">
+      <span className="ml-2 text-sm text-muted">
         {rating}/{maxRating}
       </span>
     </div>
@@ -114,12 +114,12 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ type: 'spring', duration: 0.4 }}
-            className="relative w-full max-w-lg max-h-[85vh] overflow-auto bg-primary dark:bg-primary-dark rounded-xl shadow-2xl"
+            className="relative w-full max-w-lg max-h-[85vh] overflow-auto surface"
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-colors"
+              className="icon-button absolute top-4 right-4 z-10"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
@@ -127,7 +127,7 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
 
             <div className="p-6">
               {/* Cover Image */}
-              <div className="relative w-40 aspect-[2/3] rounded-lg overflow-hidden bg-black/5 dark:bg-white/5 mb-6 shadow-lg">
+              <div className="relative w-40 aspect-[2/3] rounded overflow-hidden bg-black/5 dark:bg-white/5 mb-6">
                 {imageUrl ? (
                   <img
                     src={imageUrl}
@@ -136,7 +136,7 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center p-4">
-                    <span className="text-sm text-text-secondary dark:text-text-light/50 text-center">
+                    <span className="text-sm text-muted text-center">
                       {item.title}
                     </span>
                   </div>
@@ -159,18 +159,18 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
               </div>
 
               {/* Title */}
-              <h2 className="font-serif text-2xl font-bold tracking-wide mb-2 uppercase">
+              <h2 className="case-title mb-2">
                 {item.title}
               </h2>
 
               {/* Creator */}
-              <p className="text-sm text-text-secondary dark:text-text-light/60 mb-1">
+              <p className="text-sm text-muted mb-1">
                 <span className="font-semibold">{getCreatorLabel()}</span> {getCreator()}
               </p>
 
               {/* Release Year - for films and TV only */}
               {(type === 'film' || type === 'tv') && metadata?.releaseYear && (
-                <p className="text-sm text-text-secondary dark:text-text-light/60 mb-4">
+                <p className="text-sm text-muted mb-4">
                   <span className="font-semibold">Released:</span> {metadata.releaseYear}
                 </p>
               )}
@@ -194,7 +194,7 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
 
               {/* Description */}
               {description && (
-                <p className="text-text-secondary dark:text-text-light/70 leading-relaxed mb-4">
+                <p className="text-muted leading-relaxed mb-4">
                   {description}
                 </p>
               )}
@@ -202,7 +202,7 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
               {/* My Rating */}
               {item.rating != null && (
                 <div className="border-t border-black/10 dark:border-white/10 pt-4 mt-4">
-                  <p className="text-xs font-medium text-text-secondary dark:text-text-light/50 uppercase tracking-wider mb-2">
+                  <p className="text-sm font-medium text-ink mb-2">
                     My Rating
                   </p>
                   <StarRating rating={item.rating} />
@@ -212,7 +212,7 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
               {/* User Notes */}
               {userNotes && (
                 <div className={`${item.rating != null ? 'pt-4 mt-4' : 'border-t border-black/10 dark:border-white/10 pt-4 mt-4'}`}>
-                  <p className="text-xs font-medium text-text-secondary dark:text-text-light/50 uppercase tracking-wider mb-2">
+                  <p className="text-sm font-medium text-ink mb-2">
                     My Notes
                   </p>
                   <p className="text-text-primary dark:text-text-light leading-relaxed">
@@ -231,7 +231,7 @@ export default function MediaModal({ item, type, posterPath, metadata, isOpen, o
                     <ExternalLink className="w-4 h-4" />
                     {type === 'book' ? 'Buy on Amazon' : type === 'tv' ? 'Watch Now' : 'Buy on Amazon'}
                   </button>
-                  <p className="text-xs text-text-secondary dark:text-text-light/40 mt-2">
+                  <p className="text-xs text-muted mt-2">
                     May be affiliate link
                   </p>
                 </div>

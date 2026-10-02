@@ -19,7 +19,7 @@ export default function MediaGrid({ items, type, posterPaths = {}, onItemClick }
   if (items.length === 0) {
     return (
       <div className="text-center py-16">
-        <p className="text-text-secondary dark:text-text-light/60">
+        <p className="text-muted">
           No items found matching your search.
         </p>
       </div>
@@ -36,7 +36,7 @@ export default function MediaGrid({ items, type, posterPaths = {}, onItemClick }
           transition={{ duration: 0.4 }}
         >
           {/* Year Header */}
-          <h2 className="font-serif text-3xl font-semibold mb-6 pb-2 border-b border-black/10 dark:border-white/10">
+          <h2 className="case-title mb-6 pb-3 border-b divider">
             {year}
           </h2>
 

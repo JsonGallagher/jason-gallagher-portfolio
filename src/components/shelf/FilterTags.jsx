@@ -17,11 +17,8 @@ export default function FilterTags({ activeFilter, onFilterChange }) {
           <button
             key={filter.id}
             onClick={() => onFilterChange(filter.id)}
-            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
-              isActive
-                ? 'bg-primary-dark text-text-light dark:bg-text-light dark:text-primary-dark'
-                : 'bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15'
-            }`}
+            className="choice-button"
+            aria-pressed={isActive}
           >
             {Icon && (
               <Icon

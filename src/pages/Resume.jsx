@@ -10,7 +10,7 @@ export default function Resume() {
 
   return (
     <main className="min-h-screen flex items-center justify-center px-6">
-      <a href={resumeUrl} className="social-link">Open Jason Gallagher's résumé</a>
+      <a href={resumeUrl} className="text-link">Open Jason Gallagher's résumé</a>
     </main>
   )
 }

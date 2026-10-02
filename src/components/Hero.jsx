@@ -24,15 +24,15 @@ export default function Hero() {
   return (
     <section className="flex flex-col items-center text-center px-6 pt-32 md:pt-40 pb-12 md:pb-16">
       <h1
-        className="font-serif text-5xl md:text-7xl lg:text-8xl font-normal leading-[1.1] tracking-tight max-w-4xl mb-6"
+        className="hero-heading display-title max-w-4xl mb-6"
       >
         Growth marketer
         <br />
-        who <em className="italic">builds.</em>
+        who <em className="italic text-accent">builds.</em>
       </h1>
 
       <p
-        className="text-lg md:text-xl text-text-secondary dark:text-text-light/80 max-w-2xl mb-8 leading-relaxed text-pretty"
+        className="lead max-w-2xl mb-8"
       >
         Marketing leader with 12+ years building demand generation programs,
         enabling sales teams, and managing agencies and partners. I connect
@@ -51,17 +51,17 @@ export default function Hero() {
       </div>
 
       <dl
-        className="grid sm:grid-cols-3 gap-8 md:gap-12 w-full max-w-5xl border-t border-black/10 dark:border-white/10 pt-8"
+        className="grid sm:grid-cols-3 gap-8 md:gap-12 w-full max-w-5xl border-t divider pt-8"
       >
         {stats.map((stat) => (
           <div key={stat.label} className="flex flex-col items-center">
             <dt className="order-2 text-sm font-medium mt-2">{stat.label}</dt>
-            <dd className="order-1 font-serif text-4xl flex items-center gap-1">
+            <dd className="order-1 metric text-4xl flex items-center gap-1">
               {stat.arrow === "down" && <ArrowDown className="w-5 h-5 text-green-700 dark:text-green-400" aria-hidden="true" />}
               {stat.arrow === "up" && <ArrowUp className="w-5 h-5 text-green-700 dark:text-green-400" aria-hidden="true" />}
               {stat.value}
             </dd>
-            <dd className="order-3 text-sm text-text-secondary dark:text-text-light/70 mt-2 max-w-[240px] leading-relaxed">
+            <dd className="order-3 text-sm text-muted mt-2 max-w-[240px] leading-relaxed">
               {stat.context}
             </dd>
           </div>
