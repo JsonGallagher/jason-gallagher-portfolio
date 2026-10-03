@@ -7,11 +7,11 @@ const projects = [
     status: "Shipped",
     year: "2026",
     images: [
-      "/images/projects/market_data/market_data.png",
-      "/images/projects/market_data/market_data-2.png",
-      "/images/projects/market_data/market_data-3.png",
-      "/images/projects/market_data/market_data-4.png",
-      "/images/projects/market_data/market_data-5.png",
+      "/images/projects/market_data/market_data.webp",
+      "/images/projects/market_data/market_data-2.webp",
+      "/images/projects/market_data/market_data-3.webp",
+      "/images/projects/market_data/market_data-4.webp",
+      "/images/projects/market_data/market_data-5.webp",
     ],
     problem:
       "Local real estate market data is scattered across MLS exports and government PDFs, making it hard to spot trends or compare neighborhoods quickly.",
@@ -31,8 +31,8 @@ const projects = [
     status: "Shipped",
     year: "2026",
     images: [
-      "/images/projects/beat_canvas/beat_canvas-2.png",
-      "/images/projects/beat_canvas/beat_canvas-1.png",
+      "/images/projects/beat_canvas/beat_canvas-2.webp",
+      "/images/projects/beat_canvas/beat_canvas-1.webp",
     ],
     problem:
       "Creating visualized music clips for social media requires expensive software or clunky online tools that send your audio to a server and spit back generic visuals.",
@@ -51,7 +51,7 @@ const projects = [
     category: "Creative Dev",
     status: "Shipped",
     year: "2025",
-    images: ["/images/projects/808-lab.png"],
+    images: ["/images/projects/808-lab.webp"],
     problem:
       "Classic drum machine emulators are either desktop-only or locked behind paywalls, making casual beat-making inaccessible.",
     approach:
@@ -69,7 +69,7 @@ const projects = [
     category: "AI Automations",
     status: "Shipped",
     year: "2025",
-    images: ["/images/projects/ad-research-tool.png"],
+    images: ["/images/projects/ad-research-tool.webp"],
     problem:
       "Manually monitoring competitor ads across Meta is time-consuming and easy to miss shifts in creative strategy or spend patterns.",
     approach:
@@ -87,7 +87,7 @@ const projects = [
     category: "AI Automations",
     status: "Shipped",
     year: "2024",
-    images: ["/images/projects/color-palette.png"],
+    images: ["/images/projects/color-palette.webp"],
     problem:
       "Designers and developers often struggle to pick cohesive color palettes that match a mood or brand direction without deep color theory knowledge.",
     approach:

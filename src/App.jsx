@@ -1,9 +1,10 @@
-import { useState, useEffect, createContext, useContext } from 'react'
+import PageMetadata from './components/PageMetadata.jsx'
+import { useState, useEffect, createContext, useContext, lazy, Suspense } from 'react'
 import { MotionConfig } from 'framer-motion'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Projects from './pages/Projects'
-import Shelf from './pages/Shelf'
+const Projects = lazy(() => import('./pages/Projects'))
+const Shelf = lazy(() => import('./pages/Shelf'))
 import ScrollToTop from './components/ScrollToTop'
 import Resume from './pages/Resume'
 
@@ -37,6 +38,8 @@ function App() {
     <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
       <MotionConfig reducedMotion="user">
         <BrowserRouter>
+          <PageMetadata />
+          <Suspense fallback={<main className="min-h-screen px-6 pt-32" aria-live="polite">Loading…</main>}>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -44,6 +47,7 @@ function App() {
             <Route path="/shelf" element={<Shelf />} />
             <Route path="/resume" element={<Resume />} />
           </Routes>
+          </Suspense>
         </BrowserRouter>
       </MotionConfig>
     </ThemeContext.Provider>
