@@ -15,6 +15,14 @@ The design uses Instrument Serif headings, DM Sans body text, a warm neutral pal
 
 The older `/shelf` route is retained for direct access but is no longer linked in the navigation.
 
+## Agent discovery
+
+`public/llms.txt` provides a Markdown guide to the portfolio. Update its links and descriptions when pages change.
+
+`public/.well-known/ai-catalog.json` serves the manifest checked by Lighthouse. `public/.well-known/ard.json` serves the same manifest at the current ARD discovery path; keep both files in sync. The catalog has no entries because this portfolio does not host agent tools or APIs.
+
+These files are copied into the production build so their URLs return text or JSON instead of the homepage HTML from the SPA fallback. Agentic Browsing is a separate Lighthouse category from Performance.
+
 ## Local development
 
 Requirements: npm and Node.js 20.19+ on Node 20, or Node.js 22.12+.

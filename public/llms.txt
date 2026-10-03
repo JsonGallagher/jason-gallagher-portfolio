@@ -1,0 +1,16 @@
+# Jason Gallagher
+
+> Growth marketing and demand generation leader in Colorado. This portfolio covers marketing results, professional experience, and tools Jason has built.
+
+Jason has 12+ years of experience building demand generation programs, lifecycle automation, and measurement systems. The site includes marketing case studies and personal software projects.
+
+## Portfolio
+
+- [Home](https://www.jasongallagher.co/): Marketing case studies, selected results, experience, biography, and contact links.
+- [Projects](https://www.jasongallagher.co/projects): Analytics tools, AI workflows, and creative projects, including Market Data Dashboard, Beat Canvas, and 808Lab.
+- [Résumé](https://www.jasongallagher.co/resume): Redirects to Jason's current résumé on Google Drive.
+
+## Optional
+
+- [Shelf](https://www.jasongallagher.co/shelf): A personal collection of books, films, and television.
+- [Sitemap](https://www.jasongallagher.co/sitemap.xml): Public page URLs.
