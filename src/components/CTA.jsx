@@ -1,7 +1,7 @@
 export default function CTA() {
   return (
     <section tabIndex={-1} id="contact" aria-labelledby="contact-title" className="section-spacing px-6 scroll-mt-24">
-      <div className="content-width grid md:grid-cols-[240px_1fr] gap-4 md:gap-10">
+      <div className="content-width closing-layout border-t divider pt-8">
         <h2 id="contact-title" className="section-title mb-0">Contact</h2>
         <div>
           <p className="text-muted mb-5 max-w-xl leading-relaxed">

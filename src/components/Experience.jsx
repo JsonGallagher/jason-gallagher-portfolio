@@ -1,13 +1,13 @@
 const experiences = [
   {
     period: "Aug 2024 – Present",
-    summary: "Own full-funnel marketing for a top-producing real estate team, leading external agencies and vendor partners.",
+    summary: "Own full-funnel marketing and six-figure budgets for a top-producing real estate team. Build and lead sales and marketing teams, manage agencies and vendors, and refine strategy with executive leadership.",
     title: "Marketing Director",
     company: "RE/MAX Properties • Colorado Springs, CO",
   },
   {
     period: "Mar 2014 – Aug 2024",
-    summary: "First marketing hire; built and scaled the function over a decade, earning two promotions.",
+    summary: "First marketing hire; built and scaled the function over a decade, earning two promotions. Built teams and led sales and marketing, managed six-figure budgets and external partners, and worked closely with executive leadership on marketing strategy.",
     title: "Marketing Manager",
     company: "Berkshire Hathaway HomeServices • Colorado Springs, CO",
   },
@@ -15,7 +15,7 @@ const experiences = [
 
 function TimelineItem({ experience }) {
   return (
-    <div className="grid md:grid-cols-[160px_1fr] gap-3 md:gap-8 py-6 border-t divider">
+    <div className="closing-layout py-6 border-t divider">
       <p className="text-sm text-muted">{experience.period}</p>
       <div>
         <h3 className="item-title mb-1">{experience.title}</h3>

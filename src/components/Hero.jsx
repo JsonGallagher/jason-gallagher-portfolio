@@ -22,7 +22,9 @@ const stats = [
 
 export default function Hero() {
   return (
-    <section className="flex flex-col items-center text-center px-6 pt-32 md:pt-40 pb-12 md:pb-16">
+    <section className="hero-section px-6">
+      <div className="content-width hero-layout">
+      <div className="hero-intro">
       <h1
         className="hero-heading display-title max-w-4xl mb-6"
       >
@@ -34,39 +36,41 @@ export default function Hero() {
       <p
         className="lead max-w-2xl mb-8"
       >
-        Marketing leader with 12+ years building demand generation programs,
-        enabling sales teams, and managing agencies and partners. I connect
-        acquisition, lifecycle automation, and measurement to revenue growth.
+        Marketing leader with 12+ years in demand generation and sales. I’ve built
+        teams, managed six-figure budgets, and connected acquisition, lifecycle
+        automation, and measurement to revenue growth.
       </p>
 
       <div
-        className="flex flex-wrap justify-center gap-4 mb-12 md:mb-16"
+        className="flex flex-wrap items-center gap-6"
       >
         <a href="mailto:jason@jasongallagher.co" className="btn btn-primary">
           Get in touch
         </a>
-        <a href="/resume" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+        <a href="/resume" target="_blank" rel="noopener noreferrer" className="text-link">
           View résumé
         </a>
       </div>
 
+      </div>
       <dl
-        className="grid sm:grid-cols-3 gap-8 md:gap-12 w-full max-w-5xl border-t divider pt-8"
+        className="hero-stats"
       >
         {stats.map((stat) => (
-          <div key={stat.label} className="flex flex-col items-center">
-            <dt className="order-2 text-sm font-medium mt-2">{stat.label}</dt>
-            <dd className="order-1 metric text-4xl flex items-center gap-1">
+          <div key={stat.label} className="hero-stat">
+            <dt className="stat-label text-sm font-medium">{stat.label}</dt>
+            <dd className="stat-value metric flex items-center gap-1">
               {stat.arrow === "down" && <ArrowDown className="w-5 h-5 text-green-700 dark:text-green-400" aria-hidden="true" />}
               {stat.arrow === "up" && <ArrowUp className="w-5 h-5 text-green-700 dark:text-green-400" aria-hidden="true" />}
               {stat.value}
             </dd>
-            <dd className="order-3 text-sm text-muted mt-2 max-w-[240px] leading-relaxed">
+            <dd className="stat-context text-sm text-muted leading-relaxed">
               {stat.context}
             </dd>
           </div>
         ))}
       </dl>
+      </div>
     </section>
   );
 }

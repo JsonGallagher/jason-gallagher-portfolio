@@ -5,7 +5,7 @@ const caseStudies = [
     title: "Twice the leads.",
     titleAccent: "Half the acquisition cost.",
     problem: "The goal: grow lead volume while bringing acquisition costs down.",
-    contribution: "I shifted Google and Meta spend to higher-converting audiences, then expanded lead generation with segmentation and lifecycle automation.",
+    contribution: "I managed the budget and agency partners, shifted Google and Meta spend to higher-converting audiences, and expanded lead generation with segmentation and lifecycle automation.",
     detail: "Paid media restructuring also reduced cost per acquisition by 34%.",
     results: [
       { value: "2×", label: "Lead volume" },
@@ -30,7 +30,7 @@ const caseStudies = [
     title: "A marketing function",
     titleAccent: "built from scratch.",
     problem: "The team needed its first full-funnel marketing program. CRM adoption was near zero.",
-    contribution: "I built demand generation, CRM automation, and lifecycle campaigns, then trained 40+ agents to use the tools in their daily work.",
+    contribution: "I built the team and marketing strategy, established demand generation, CRM automation, and lifecycle campaigns, then trained 40+ agents to use the tools in their daily work.",
     results: [
       { value: "80%", label: "CRM adoption, up from near zero" },
       { value: "38%", label: "Lift in qualified lead flow" },
@@ -44,7 +44,7 @@ function SupportingCase({ study }) {
       <header className="mb-5">
         <p className="text-sm font-medium text-muted">{study.company}</p>
         <h3 id={`${study.id}-title`} className="case-title mt-3">
-          {study.title}<br /><em>{study.titleAccent}</em>
+          {study.title} {study.titleAccent}
         </h3>
       </header>
       <p className="text-muted leading-relaxed mb-3">{study.problem}</p>
