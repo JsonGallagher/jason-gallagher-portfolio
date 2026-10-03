@@ -1,6 +1,5 @@
 import PageMetadata from './components/PageMetadata.jsx'
 import { useState, useEffect, createContext, useContext, lazy, Suspense } from 'react'
-import { MotionConfig } from 'framer-motion'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 const Projects = lazy(() => import('./pages/Projects'))
@@ -36,7 +35,6 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <MotionConfig reducedMotion="user">
         <BrowserRouter>
           <PageMetadata />
           <Suspense fallback={<main className="min-h-screen px-6 pt-32" aria-live="polite">Loading…</main>}>
@@ -49,7 +47,6 @@ function App() {
           </Routes>
           </Suspense>
         </BrowserRouter>
-      </MotionConfig>
     </ThemeContext.Provider>
   )
 }

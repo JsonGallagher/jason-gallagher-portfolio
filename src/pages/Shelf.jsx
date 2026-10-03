@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, MotionConfig } from 'framer-motion'
 import { ArrowLeft, Moon, Sun } from 'lucide-react'
 import { useTheme } from '../App'
 import ShelfTabs from '../components/shelf/ShelfTabs'
@@ -284,6 +284,7 @@ export default function Shelf() {
   }
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-primary dark:bg-primary-dark transition-colors duration-300">
       {/* Header */}
       <motion.header
@@ -392,5 +393,6 @@ export default function Shelf() {
         onClose={handleCloseModal}
       />
     </div>
+    </MotionConfig>
   )
 }

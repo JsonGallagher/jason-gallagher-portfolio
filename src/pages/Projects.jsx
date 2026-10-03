@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, MotionConfig } from "framer-motion";
 import { ArrowLeft, Moon, Sun, Mail } from "lucide-react";
 import { useTheme } from "../App";
 import ProjectCard from "../components/projects/ProjectCard";
@@ -36,6 +36,7 @@ export default function Projects() {
   const { darkMode, toggleDarkMode } = useTheme();
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="relative min-h-screen bg-primary dark:bg-primary-dark transition-colors duration-300">
       {/* Header */}
       <motion.header
@@ -149,5 +150,6 @@ export default function Projects() {
         </motion.div>
       </main>
     </div>
+    </MotionConfig>
   );
 }
